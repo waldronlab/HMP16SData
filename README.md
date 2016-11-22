@@ -8,7 +8,7 @@ You can install HMP16SData from github with:
 
 ```R
 # install.packages("devtools")
-devtools::install_github("HMP16SData/waldronlab")
+devtools::install_github("waldronlab/HMP16SData")
 ```
 
 ## Example
