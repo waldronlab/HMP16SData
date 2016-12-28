@@ -1,11 +1,26 @@
 Package: HMP16SData
-Title: What the Package Does
-Version: 0.0.1
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Title: What the Package Does (one line, title case)
+Version: 0.2.0
+Author: Lucas Schiffer <schiffer.lucas@gmail.com>
+Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
 Description: What the package does (one paragraph).
-Depends: R (>= 3.3.2)
+Depends:
+    R (>= 3.3.2)
 License: Artistic-2.0
+Encoding: UTF-8
 LazyData: true
 Suggests:
+    devtools,
     testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown,
+    roxygen2,
+    BiocStyle,
+    readr,
+    magrittr
+URL: https://github.com/schifferl/HMP16SData
+BugReports: https://github.com/schifferl/HMP16SData/issues
+VignetteBuilder: knitr
+RoxygenNote: 5.0.1
+biocViews: Homo_sapiens_Data, ReproducibleResearch, MicrobiomeData

@@ -1,20 +1,8 @@
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/schifferl/HMP16SData?branch=master&svg=true)](https://ci.appveyor.com/project/schifferl/HMP16SData)
+[![Travis-CI Build Status](https://travis-ci.org/schifferl/HMP16SData.svg?branch=master)](https://travis-ci.org/schifferl/HMP16SData)
+[![Coverage Status](https://img.shields.io/codecov/c/github/schifferl/HMP16SData/master.svg)](https://codecov.io/github/schifferl/HMP16SData?branch=master)
+
 # HMP16SData
 
 The goal of HMP16SData is to ...
 
-## Installation
-
-You can install HMP16SData from github with:
-
-```R
-# install.packages("devtools")
-devtools::install_github("waldronlab/HMP16SData")
-```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```R
-...
-```

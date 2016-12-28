@@ -1,0 +1,16 @@
+---
+title: "HMP16SData"
+abstract: >
+    #todo
+output: BiocStyle::html_document
+vignette: >
+    %\VignetteIndexEntry{HMP16SData}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+## About the package
+
+```{r}
+#todo
+```
