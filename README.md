@@ -4,5 +4,10 @@
 
 # HMP16SData
 
-The goal of HMP16SData is to ...
+Raw data from the Human Microbiome Project were processed through the QIIME 
+(Quantitative Insights Into Microbial Ecology) pipeline and made publicly 
+available through the NIH. However, the data are difficult to work with in the 
+absence of specialized knowledge of the QIIME software. As such, the HMP16SData 
+package intends to make the data easier and more convenient to work with in 
+order to enable scientific discovery.
 

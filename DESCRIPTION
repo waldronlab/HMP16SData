@@ -1,5 +1,5 @@
 Package: HMP16SData
-Title: What the Package Does (one line, title case)
+Title: Human Microbiome Project 16S rRNA Data
 Version: 0.2.0
 Author:
     Lucas Schiffer <schiffer.lucas@gmail.com>,
@@ -7,13 +7,19 @@ Author:
     Marcel Ramos <mramos09@gmail.com>,
     Levi Waldron <lwaldron.research@gmail.com>
 Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
-Description: What the package does (one paragraph).
-Depends:
-    R (>= 3.3.2),
-    ExperimentHub (>= 1.0.0)
+Description:
+    Raw data from the Human Microbiome Project were processed through the QIIME
+    (Quantitative Insights Into Microbial Ecology) pipeline and made publicly
+    available through the NIH. However, the data are difficult to work with in
+    the absence of specialized knowledge of the QIIME software. As such, the
+    HMP16SData package intends to make the data easier and more convenient to
+    work with in order to enable scientific discovery.
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
+Depends:
+    R (>= 3.3.2),
+    ExperimentHub (>= 1.0.0)
 Suggests:
     devtools,
     testthat,
