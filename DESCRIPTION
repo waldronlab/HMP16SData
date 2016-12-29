@@ -1,11 +1,16 @@
 Package: HMP16SData
 Title: What the Package Does (one line, title case)
 Version: 0.2.0
-Author: Lucas Schiffer <schiffer.lucas@gmail.com>
+Author:
+    Lucas Schiffer <schiffer.lucas@gmail.com>,
+    Rimsha Azhar <rimsha_azhar@hotmail.com>,
+    Marcel Ramos <mramos09@gmail.com>,
+    Levi Waldron <lwaldron.research@gmail.com>
 Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
 Description: What the package does (one paragraph).
 Depends:
     R (>= 3.3.2)
+    ExperimentHub (>= 1.0.0)
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
@@ -18,7 +23,8 @@ Suggests:
     roxygen2,
     BiocStyle,
     readr,
-    magrittr
+    magrittr,
+    BiocCheck
 URL: https://github.com/schifferl/HMP16SData
 BugReports: https://github.com/schifferl/HMP16SData/issues
 VignetteBuilder: knitr
