@@ -1,12 +1,12 @@
-"File Description","v13 Download","v13 Size","v13 MD5","v35 Download","v35 Size","v35 MD5",
-1. Sequences,/data/HMQCP/seqs_v13.fna.gz,994281019,4118265f600f581d38823f4224f54468,/data/HMQCP/seqs_v35.fna.gz,1452760753,fa81bf68291fb0dfb7727ce246df35dd
-2. Chimeric sequences,/data/HMQCP/chimeric_v13.fna.gz,28090999,3f217b67a907d0cab8ecff1f26ff272e,/data/HMQCP/chimeric_v35.fna.gz,26135496,3708457cb1c667c201805751993452ef
-3. Nonchimeric sequences,/data/HMQCP/non_chimeric_v13.fna.gz,75339954,0cc3b82cf16d46c303f902bfbd7b88e9,/data/HMQCP/non_chimeric_v35.fna.gz,94120052,5c5a99926fd3836e8fbeaa929a490adc
-4. Map file between OTU clusters and sequences,/data/HMQCP/otu2reads_v13.txt.gz,195342438,59510c3f23de11764e9c0ad31a422337,/data/HMQCP/otu2reads_v35.txt.gz,323599040,ed03159d1d072b8beee7db7dcaabb76e
-5. Representative sequence sets,/data/HMQCP/rep_set_v13.fna.gz,3989977,a46fa1ac8c53f3d3fb2b51db6ee3cabd,/data/HMQCP/rep_set_v35.fna.gz,4435219,87057f398a07327f80d83205aa023855
-6. Representative sequence phylogenetic trees,/data/HMQCP/rep_set_v13.tre.gz,296766,b7dc403d0f823e5f3f73b292ff9f2b62,/data/HMQCP/rep_set_v35.tre.gz,479631,ad59e8a2941f7756bbb057a9900b4c54
-7. OTU table per sample,/data/HMQCP/otu_table_v13.txt.gz,6577950,017bd5801e9ae99dd00d77a78c82f301,/data/HMQCP/otu_table_v35.txt.gz,11212092,cde636b96baaec1c4bfaedc7c73cdf71
-8. Mislabeled or contaminated samples,/data/HMQCP/mislabeled_contaminated_list_v13.txt.gz,522,52792d57c4ba5a4bda853bbc7cb0c102,/data/HMQCP/mislabeled_contaminated_list_v35.txt.gz,729,96b6461a7250e699adab53e99d674c5a
-9. Final OTU table,/data/HMQCP/otu_table_psn_v13.txt.gz,6577950,87d2fe84196464d8cf4fcb5b05ddc581,/data/HMQCP/otu_table_psn_v35.txt.gz,11212092,642570d995244dd1be804f3edea60a7e
-10. Mapping Files,/data/HMQCP/v13_map_uniquebyPSN.txt.bz2,23317,a3741414d982fe1b4739166598fcb026,/data/HMQCP/v35_map_uniquebyPSN.txt.bz2,38167,23c225ada6e7f6fdd5f7f72063fc3a62
-11. Beta diversity analysis,/data/HMQCP/beta_diversity_v13.tgz,245626476,16829e78cca6341b184596ec043a98c5,/data/HMQCP/beta_diversity_v35.tgz,564458698,68831f6ad6e7f30e21ce88a79bd9a4ff
+"File Description","v13 Download","v13 Size","v13 MD5","v35 Download","v35 Size","v35 MD5"
+"1. Sequences","/data/HMQCP/seqs_v13.fna.gz","994281019","4118265f600f581d38823f4224f54468","/data/HMQCP/seqs_v35.fna.gz","1452760753","fa81bf68291fb0dfb7727ce246df35dd"
+"2. Chimeric sequences","/data/HMQCP/chimeric_v13.fna.gz","28090999","3f217b67a907d0cab8ecff1f26ff272e","/data/HMQCP/chimeric_v35.fna.gz","26135496","3708457cb1c667c201805751993452ef"
+"3. Nonchimeric sequences","/data/HMQCP/non_chimeric_v13.fna.gz","75339954","0cc3b82cf16d46c303f902bfbd7b88e9","/data/HMQCP/non_chimeric_v35.fna.gz","94120052","5c5a99926fd3836e8fbeaa929a490adc"
+"4. Map file between OTU clusters and sequences","/data/HMQCP/otu2reads_v13.txt.gz","195342438","59510c3f23de11764e9c0ad31a422337","/data/HMQCP/otu2reads_v35.txt.gz","323599040","ed03159d1d072b8beee7db7dcaabb76e"
+"5. Representative sequence sets","/data/HMQCP/rep_set_v13.fna.gz","3989977","a46fa1ac8c53f3d3fb2b51db6ee3cabd","/data/HMQCP/rep_set_v35.fna.gz","4435219","87057f398a07327f80d83205aa023855"
+"6. Representative sequence phylogenetic trees","/data/HMQCP/rep_set_v13.tre.gz","296766","b7dc403d0f823e5f3f73b292ff9f2b62","/data/HMQCP/rep_set_v35.tre.gz","479631","ad59e8a2941f7756bbb057a9900b4c54"
+"7. OTU table per sample","/data/HMQCP/otu_table_v13.txt.gz","6577950","017bd5801e9ae99dd00d77a78c82f301","/data/HMQCP/otu_table_v35.txt.gz","11212092","cde636b96baaec1c4bfaedc7c73cdf71"
+"8. Mislabeled or contaminated samples","/data/HMQCP/mislabeled_contaminated_list_v13.txt.gz","522","52792d57c4ba5a4bda853bbc7cb0c102","/data/HMQCP/mislabeled_contaminated_list_v35.txt.gz","729","96b6461a7250e699adab53e99d674c5a"
+"9. Final OTU table","/data/HMQCP/otu_table_psn_v13.txt.gz","6577950","87d2fe84196464d8cf4fcb5b05ddc581","/data/HMQCP/otu_table_psn_v35.txt.gz","11212092","642570d995244dd1be804f3edea60a7e"
+"10. Mapping Files","/data/HMQCP/v13_map_uniquebyPSN.txt.bz2","23317","a3741414d982fe1b4739166598fcb026","/data/HMQCP/v35_map_uniquebyPSN.txt.bz2","38167","23c225ada6e7f6fdd5f7f72063fc3a62"
+"11. Beta diversity analysis","/data/HMQCP/beta_diversity_v13.tgz","245626476","16829e78cca6341b184596ec043a98c5","/data/HMQCP/beta_diversity_v35.tgz","564458698","68831f6ad6e7f30e21ce88a79bd9a4ff"

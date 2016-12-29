@@ -9,7 +9,7 @@ Author:
 Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
 Description: What the package does (one paragraph).
 Depends:
-    R (>= 3.3.2)
+    R (>= 3.3.2),
     ExperimentHub (>= 1.0.0)
 License: Artistic-2.0
 Encoding: UTF-8
