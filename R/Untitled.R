@@ -2,11 +2,14 @@ library(readr)
 library(magrittr)
 library(dplyr)
 
+# v13_map <- read_tsv("data/ppAll_V13_map.txt")
+
 # read the tsv file
-v13_map <- read_tsv("./data/v13_map_uniquebyPSN.txt")
+v13_map <- read_tsv("./data/ppAll_V13_map.txt")
 v13_otu <- read_tsv("./data/otu_table_psn_v13.txt", skip = 1)
-v35_map <- read_tsv("./data/v35_map_uniquebyPSN.txt")
+v35_map <- read_tsv("./data/ppAll_V35_map.txt")
 v35_otu <- read_tsv("./data/otu_table_psn_v35.txt", skip = 1)
+v13_Stool_map <- v13_map %>% filter(HMPBodySubsiteHMPBodySite == "Stool")
 
 # make new dataframes by bodysite for v13
 v13_Stool_map <- v13_map %>% filter(HMPbodysubsite == "Stool")
@@ -48,9 +51,10 @@ v35_Mid_vagina_map <- v35_map %>% filter(HMPbodysubsite == "Mid_vagina")
 v35_Posterior_fornix_map <- v35_map %>% filter(HMPbodysubsite == "Posterior_fornix")
 v35_Left_Antecubital_fossa_map <- v35_map %>% filter(HMPbodysubsite == "Left_Antecubital_fossa")
 
+v13_Stool_otu <- v13_otu[, colnames(v13_otu) %in% v13_Stool_map$`PSN`]
 
 # add the rownames from last column for v13
-v13_Stool_otu <- v13_otu[, colnames(v13_otu) %in% v13_Stool_map$`#SampleID`]
+v13_Stool_otu <- v13_otu[, colnames(v13_otu) %in% v13_Stool_map$`SampleID`]
 v13_Saliva_otu <- v13_otu[, colnames(v13_otu) %in% v13_Saliva_map$`#SampleID`]
 v13_Tongue_dorsum_otu <- v13_otu[, colnames(v13_otu) %in% v13_Tongue_dorsum_map$`#SampleID`]
 v13_Hard_palate_otu <- v13_otu[, colnames(v13_otu) %in% v13_Hard_palate_map$`#SampleID`]
@@ -92,4 +96,20 @@ v35_Left_Antecubital_fossa_otu <- v35_otu[, colnames(v35_otu) %in% v35_Left_Ante
 
 
 # map the colnames to bodysite and sample ID
+
+#split the map by body site which gives a list of each body site.
+#lapply(colnames(v13_otu) %in% v13_Stool_map$`PSN`)
+
+#using split funtion to get a list of each bodysite with all the elements.
+split(v13_map, v13_map$HMPBodySubsiteHMPBodySite)
+
+
+v13_map_bodysite <- lapply(v13_map , FUN= function(x) {x [,colnames(v13_otu) %in% x$`PSN`]})
+
+v13_map_bodysite <- lapply(v13_map, FUN = function (element) {
+  element <- element[, colnames(v13_map) %in% element$PSN]
+  element
+})
+
+lapply(v13_map_bodysite, head)
 
