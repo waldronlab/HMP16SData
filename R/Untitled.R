@@ -5,11 +5,11 @@ library(dplyr)
 # v13_map <- read_tsv("data/ppAll_V13_map.txt")
 
 # read the tsv file
-v13_map <- read_tsv("./data/ppAll_V13_map.txt")
+v13_map <- read_tsv("./data/v13_map_uniquebyPSN.txt")
 v13_otu <- read_tsv("./data/otu_table_psn_v13.txt", skip = 1)
-v35_map <- read_tsv("./data/ppAll_V35_map.txt")
+v35_map <- read_tsv("./data/v35_map_uniquebyPSN.txt")
 v35_otu <- read_tsv("./data/otu_table_psn_v35.txt", skip = 1)
-v13_Stool_map <- v13_map %>% filter(HMPBodySubsiteHMPBodySite == "Stool")
+v13_Stool_map <- v13_map %>% filter(HMPBodySubsiteHMPBodySiteHMPBodySite == "Stool")
 
 # make new dataframes by bodysite for v13
 v13_Stool_map <- v13_map %>% filter(HMPbodysubsite == "Stool")
@@ -54,7 +54,7 @@ v35_Left_Antecubital_fossa_map <- v35_map %>% filter(HMPbodysubsite == "Left_Ant
 v13_Stool_otu <- v13_otu[, colnames(v13_otu) %in% v13_Stool_map$`PSN`]
 
 # add the rownames from last column for v13
-v13_Stool_otu <- v13_otu[, colnames(v13_otu) %in% v13_Stool_map$`SampleID`]
+v13_Stool_otu <- v13_otu[, colnames(v13_otu) %in% v13_Stool_map$`#SampleID`]
 v13_Saliva_otu <- v13_otu[, colnames(v13_otu) %in% v13_Saliva_map$`#SampleID`]
 v13_Tongue_dorsum_otu <- v13_otu[, colnames(v13_otu) %in% v13_Tongue_dorsum_map$`#SampleID`]
 v13_Hard_palate_otu <- v13_otu[, colnames(v13_otu) %in% v13_Hard_palate_map$`#SampleID`]
@@ -101,7 +101,7 @@ v35_Left_Antecubital_fossa_otu <- v35_otu[, colnames(v35_otu) %in% v35_Left_Ante
 #lapply(colnames(v13_otu) %in% v13_Stool_map$`PSN`)
 
 #using split funtion to get a list of each bodysite with all the elements.
-split(v13_map, v13_map$HMPBodySubsiteHMPBodySite)
+split(v13_map, v13_map$HMPBodySubsiteHMPBodySiteHMPBodySite)
 
 
 v13_map_bodysite <- lapply(v13_map , FUN= function(x) {x [,colnames(v13_otu) %in% x$`PSN`]})
@@ -113,3 +113,10 @@ v13_map_bodysite <- lapply(v13_map, FUN = function (element) {
 
 lapply(v13_map_bodysite, head)
 
+
+v13_otu[1:5, 2912]
+rownames(v13_otu) <- v13_otu[,2912]
+abc <- data.frame(v13_otu)
+rowsToAssign <- v13_otu[,2912, drop = FALSE]
+
+rownames(abc) <- as.character(rowsToAssign)
