@@ -5,11 +5,10 @@ library(dplyr)
 # v13_map <- read_tsv("data/ppAll_V13_map.txt")
 
 # read the tsv file
-v13_map <- read_tsv("./data/v13_map_uniquebyPSN.txt")
-v13_otu <- read_tsv("./data/otu_table_psn_v13.txt", skip = 1)
-v35_map <- read_tsv("./data/v35_map_uniquebyPSN.txt")
-v35_otu <- read_tsv("./data/otu_table_psn_v35.txt", skip = 1)
-v13_Stool_map <- v13_map %>% filter(HMPBodySubsiteHMPBodySiteHMPBodySite == "Stool")
+v13_map <- read_tsv("./data/v13_map_uniquebyPSN.txt.bz2")
+v13_otu <- read_tsv("./data/otu_table_psn_v13.txt.gz", skip = 1)
+v35_map <- read_tsv("./data/v35_map_uniquebyPSN.txt.bz2")
+v35_otu <- read_tsv("./data/otu_table_psn_v35.txt.gz", skip = 1)
 
 # make new dataframes by bodysite for v13
 v13_Stool_map <- v13_map %>% filter(HMPbodysubsite == "Stool")
