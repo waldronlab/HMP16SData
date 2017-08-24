@@ -2,7 +2,7 @@ library(readr)
 library(magrittr)
 library(dplyr)
 
-# v13_map <- read_tsv("data/ppAll_V13_map.txt")
+v13_map <- read_tsv("data/ppAll_V13_map.txt")
 
 # read the tsv file
 v13_map <- read_tsv("./data/v13_map_uniquebyPSN.txt.bz2")
