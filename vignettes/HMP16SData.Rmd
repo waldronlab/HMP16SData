@@ -1,0 +1,14 @@
+---
+title: "HMP16SData"
+output:
+  BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{HMP16SData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}  
+---
+
+<!-- [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/waldronlab/HMP16SData?branch=master&svg=true)](https://ci.appveyor.com/project/waldronlab/HMP16SData) -->
+<!-- [![Travis-CI Build Status](https://travis-ci.org/waldronlab/HMP16SData.svg?branch=master)](https://travis-ci.org/waldronlab/HMP16SData) -->
+<!-- [![Coverage Status](https://img.shields.io/codecov/c/github/waldronlab/HMP16SData/master.svg)](https://codecov.io/github/waldronlab/HMP16SData?branch=master) -->
+
