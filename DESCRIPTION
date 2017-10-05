@@ -1,12 +1,14 @@
 Package: HMP16SData
+Type: Package
 Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
+Version: 0.0.1
 Author:
     Lucas Schiffer <schiffer.lucas@gmail.com>,
     Rimsha Azhar <rimsha_azhar@hotmail.com>,
+Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
 Description: What the package does (one paragraph).
 Depends: R (>= 3.4.0)
-License: What license is it under?
+License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
 Suggests: knitr,
@@ -14,4 +16,7 @@ Suggests: knitr,
     covr,
     testthat
 VignetteBuilder: knitr
+URL: https://github.com/waldronlab/HMP16SData
+BugReports: https://github.com/waldronlab/HMP16SData/issues
+biocViews: Homo_sapiens_Data, ReproducibleResearch, MicrobiomeData
 RoxygenNote: 6.0.1
