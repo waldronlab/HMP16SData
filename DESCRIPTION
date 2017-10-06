@@ -1,7 +1,7 @@
 Package: HMP16SData
 Type: Package
 Title: 16S rRNA Microbiome Data from the Human Microbiome Project
-Version: 0.0.1
+Version: 0.99.0
 Author:
     Rimsha Azhar <rimsha_azhar@hotmail.com>,
     Lucas Schiffer <schiffer.lucas@gmail.com>,
@@ -19,9 +19,14 @@ Depends: R (>= 3.4.0)
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
+Imports:
+    ExperimentHub,
+    utils
 Suggests:
+    BiocCheck,
+    BiocStyle,
     covr,
-    devtoo
+    devtoo,
     knitr,
     rmarkdown,
     testthat

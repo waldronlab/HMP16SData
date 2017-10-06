@@ -6,4 +6,4 @@ cache: packages
 
 after_success:
   - Rscript -e 'covr::codecov()'
-  - Rscript -e 'devtoo::push_readme_md("./vignettes/devtoo.Rmd")'
+  - Rscript -e 'devtoo::push_readme_md("./vignettes/HMP16SData.Rmd")'
