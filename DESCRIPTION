@@ -23,7 +23,6 @@ Imports:
     ExperimentHub,
     utils
 Suggests:
-    BiocCheck,
     BiocStyle,
     covr,
     devtoo,
