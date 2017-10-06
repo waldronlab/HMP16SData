@@ -5,6 +5,7 @@ Version: 0.0.1
 Author:
     Lucas Schiffer <schiffer.lucas@gmail.com>,
     Rimsha Azhar <rimsha_azhar@hotmail.com>,
+    Ludwig Geistlinger <ludwig.geistlinger@sph.cuny.edu>
 Maintainer: Lucas Schiffer <schiffer.lucas@gmail.com>
 Description: What the package does (one paragraph).
 Depends: R (>= 3.4.0)
