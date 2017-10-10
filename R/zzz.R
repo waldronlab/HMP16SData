@@ -3,7 +3,7 @@
 #'
 #' @keywords internal
 .onLoad <- function(libname, pkgname) {
-    fl <- system.file("extdata", "metadata.csv", package=pkgname)
-    titles <- read.csv(fl, stringsAsFactors=FALSE)$Title
+    metadata_file <- system.file("extdata", "metadata.csv", package = pkgname)
+    titles <- read.csv(metadata_file, stringsAsFactors = FALSE)$Title
     createHubAccessors(pkgname, titles)
 }

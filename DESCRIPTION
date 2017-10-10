@@ -23,12 +23,18 @@ Imports:
     ExperimentHub,
     utils
 Suggests:
+    Biobase,
     BiocStyle,
     covr,
     devtoo,
+    dplyr,
     knitr,
+    magrittr,
+    readr,
     rmarkdown,
-    testthat
+    SummarizedExperiment,
+    testthat,
+    tibble
 Remotes: schifferl/devtoo
 VignetteBuilder: knitr
 URL: https://github.com/waldronlab/HMP16SData
