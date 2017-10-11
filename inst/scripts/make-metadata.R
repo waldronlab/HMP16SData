@@ -61,14 +61,23 @@ RDataPath <-
     base::dir("data") %>%
     base::paste("HMP16Sdata", ., sep = "/")
 
-old_metadata <- utils::read.csv("inst/extdata/metadata.csv")
+if(file.exists("inst/extdata/metadata.csv")) {
+    old_metadata <- utils::read.csv("inst/extdata/metadata.csv")
 
-new_metadata <- base::data.frame(Title, Description, BiocVersion, Genome,
-                                 SourceType, SourceUrl, SourceVersion, Species,
-                                 TaxonomyId, Coordinate_1_based, DataProvider,
-                                 Maintainer, RDataClass, DispatchClass,
-                                 RDataPath)
+    new_metadata <- base::data.frame(Title, Description, BiocVersion, Genome,
+                                     SourceType, SourceUrl, SourceVersion,
+                                     Species, TaxonomyId, Coordinate_1_based,
+                                     DataProvider, Maintainer, RDataClass,
+                                     DispatchClass, RDataPath)
 
-base::rbind(old_metadata, new_metadata) %>%
-    dplyr::distinct() %>%
+    base::rbind(old_metadata, new_metadata) %>%
+        dplyr::distinct() %>%
+        utils::write.csv("inst/extdata/metadata.csv", row.names = FALSE)
+} else {
+    base::data.frame(Title, Description, BiocVersion, Genome, SourceType,
+                     SourceUrl, SourceVersion, Species, TaxonomyId,
+                     Coordinate_1_based, DataProvider, Maintainer, RDataClass,
+                     DispatchClass, RDataPath) %>%
     utils::write.csv("inst/extdata/metadata.csv", row.names = FALSE)
+}
+

@@ -21,5 +21,5 @@
 #' @source \url{http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v13.txt.gz}
 #' @source \url{http://downloads.ihmpdcc.org/data/HMQCP/v13_map_uniquebyPSN.txt.bz2}
 #'
-#' @examples V13()
-NULL
+# @examples V13()
+"V13"
