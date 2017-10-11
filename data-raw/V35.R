@@ -65,7 +65,7 @@ col_data <-
     S4Vectors::DataFrame()
 
 assay_data %<>%
-    base::list()
+    base::list(`16SrRNA` = .)
 
 metadata_data <-
     Biobase::MIAME(name = "Human Microbiome Project Consortium",

@@ -23,7 +23,7 @@
 # issue? There are two URLs
 # (http://downloads.ihmpdcc.org/data/HMQCP/v13_map_uniquebyPSN.txt.bz2 and
 # http://downloads.ihmpdcc.org/data/HMQCP/v35_map_uniquebyPSN.txt.bz2) that are
-# not readable, well they were once upon a time until someone updated the files
+# not readable - well they were once upon a time until someone updated the files
 # with a strange encoding. So, the point, the files in inst/extdata are these
 # files but the same results could not be achieved with the present URLs. Ok, so
 # data were download some time ago and put into inst/extdata - specifically
@@ -32,7 +32,7 @@
 # (http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v13.txt.gz and
 # http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v35.txt.gz). All this,
 # just to say that for complete reproducibility it would be necessary to use the
-# files exactly as they are in inst/extdata if a reproduction of this work was
+# files exactly as they are in inst/extdata, if a reproduction of this work was
 # attempted. Basically, files were downloaded some time ago and placed in
 # inst/extdata.
 #

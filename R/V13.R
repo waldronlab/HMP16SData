@@ -5,7 +5,7 @@
 #'
 #' @format A SummarizedExperiment with 43,140 features and 2,898 samples:
 #' \describe{
-#'   \item{sample_id}{sample_id number given to each sample}
+#'   \item{sample_id}{an id number given to each sample}
 #'   \item{random_subject_identifier}{a random subject identifier}
 #'   \item{visit_number}{visit number, between 1 and 3}
 #'   \item{sex}{sex at time of enrollment}

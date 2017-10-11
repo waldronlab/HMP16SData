@@ -24,6 +24,7 @@ Imports:
     utils
 Suggests:
     Biobase,
+    BiocInstaller,
     BiocStyle,
     covr,
     devtoo,
