@@ -22,4 +22,4 @@
 #' @source \url{http://downloads.ihmpdcc.org/data/HMQCP/v35_map_uniquebyPSN.txt.bz2}
 #'
 #' @examples V35()
-"V35"
+NULL

@@ -22,4 +22,4 @@
 #' @source \url{http://downloads.ihmpdcc.org/data/HMQCP/v13_map_uniquebyPSN.txt.bz2}
 #'
 #' @examples V13()
-"V13"
+NULL

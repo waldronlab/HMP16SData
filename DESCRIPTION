@@ -3,8 +3,8 @@ Type: Package
 Title: 16S rRNA Microbiome Data from the Human Microbiome Project
 Version: 0.99.0
 Author:
-    Rimsha Azhar <rimsha_azhar@hotmail.com>,
     Lucas Schiffer <schiffer.lucas@gmail.com>,
+    Rimsha Azhar <rimsha_azhar@hotmail.com>,
     Marcel Ramos <marcel.ramos@roswellpark.org>,
     Ludwig Geistlinger <ludwig.geistlinger@sph.cuny.edu>,
     Levi Waldron <lwaldron.research@gmail.com>

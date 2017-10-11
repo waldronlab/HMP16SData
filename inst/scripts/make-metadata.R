@@ -1,3 +1,19 @@
+# I. Notes
+# ==============================================================================
+# For now, HMP16Sdata is a two trick pony - further tricks are possible in the
+# future. What this means for documentation is that the script written below is
+# expecting exactly two datasets (one for variable region 1-3 and another for
+# variable region 3-5) and can produce metadata for them without issue. There
+# would only be an issue if further data were added (e.g. a dataset for variable
+# region 6-9, although it doesn't exists). If such a change were needed, it
+# would require a few additional strings below. Why isn't the process of
+# generating metadata fully automated then? This is because automated metadata
+# generation would require a good deal of work for very little payoff and
+# HMP16Sdata is, after all, only a two trick pony. That said, automated metadata
+# generation should be considered if the package grows larger (unlikely, given
+# that funding for the HMP ended in 2010). So, enjoy the script for what it is
+# and consider automated metadata generation if you have a boatload more data.
+
 devtoo::load_suggests()
 
 Title <-
