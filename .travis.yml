@@ -7,7 +7,6 @@ r: bioc-devel
 matrix:
   include:
     - os: linux
-    - os: osx
 
 after_success:
   - Rscript -e 'covr::codecov()'
