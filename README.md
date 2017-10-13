@@ -8,7 +8,7 @@
 BiocInstaller::biocLite("HMP16SData")
 ```
 
-Once installed, *[HMP16SData](http://bioconductor.org/packages/HMP16SData)* provides two functions to access data - one for variable region 1-3 and another for variable region 3 -5. When called as follows the functions will download data from an *[ExperimentHub](http://bioconductor.org/packages/ExperimentHub)* AWS S3 bucket over https. Of couse, it is necessary to load the package first.
+Once installed, *[HMP16SData](http://bioconductor.org/packages/HMP16SData)* provides two functions to access data – one for variable region 1-3 and another for variable region 3-5. When called as follows the functions will download data from an *[ExperimentHub](http://bioconductor.org/packages/ExperimentHub)* AWS S3 bucket over https. Of couse, it is necessary to load the package first.
 
 ``` r
 library(HMP16SData)
