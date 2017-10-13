@@ -28,4 +28,35 @@ the Human Microbiome Project (HMP) 16S rRNA sequencing data for variable regions
 the HMP Data Analysis and Coordination Center website. Processed data is 
 provided as SummarizedExperiment objects via ExperimentHub.
 
+`r BiocStyle::Biocpkg("HMP16SData")` can be installed using 
+`r BiocStyle::Biocpkg("BiocInstaller")` as follows:
 
+```{r, eval=FALSE}
+BiocInstaller::biocLite("HMP16SData")
+```
+
+Once installed, `r BiocStyle::Biocpkg("HMP16SData")` provides two functions to 
+access data - one for variable region 1-3 and another for variable region 3 -5. 
+When called as follows the functions will download data from an 
+`r BiocStyle::Biocpkg("ExperimentHub")` AWS S3 bucket over https. Of couse, it 
+is necessary to load the package first.
+
+```{r, eval=FALSE}
+library(HMP16SData)
+V13()
+V35()
+```
+
+The two datasets are represented as `SummarizedExperiment` objects, a standard 
+Bioconductor class that is amenable to subsetting and analysis. To maintain 
+breveity, details of the `SummarizedExperiment` class are not outlined here but 
+the `r BiocStyle::Biocpkg("SummarizedExperiment")` package provides an excellent
+vignette. Similarly, analysis of microbiome data is better outlined elsewhere 
+and the `r BiocStyle::Biocpkg("phyloseq")` package provides excellent tools for 
+the task.
+
+However, analysis using the `r BiocStyle::Biocpkg("phyloseq")` package requires 
+objects of `phyloseq` class. At present, there is ongoing discussion regarding a
+coercion function and a `SummarizedExperiment2phyloseq` method will be provided 
+eminently. Similarly, a function to attach protected metadata from dbGaP is 
+currently under development will be added shortly.
