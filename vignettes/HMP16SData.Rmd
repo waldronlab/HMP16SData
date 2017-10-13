@@ -36,7 +36,7 @@ BiocInstaller::biocLite("HMP16SData")
 ```
 
 Once installed, `r BiocStyle::Biocpkg("HMP16SData")` provides two functions to 
-access data - one for variable region 1-3 and another for variable region 3 -5. 
+access data – one for variable region 1-3 and another for variable region 3-5. 
 When called as follows the functions will download data from an 
 `r BiocStyle::Biocpkg("ExperimentHub")` AWS S3 bucket over https. Of couse, it 
 is necessary to load the package first.
