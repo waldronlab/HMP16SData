@@ -96,5 +96,5 @@ V13 <- SummarizedExperiment::SummarizedExperiment(assays = assay_data,
 base::Sys.Date() %>%
     base::format("%Y%m%d") %>%
     base::paste("V13", "rda", sep = ".") %>%
-    base::paste0("./data/", .) %>%
+    base::paste0("data/", .) %>%
     base::save(V13, file = ., compress = "bzip2")
