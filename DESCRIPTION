@@ -21,6 +21,7 @@ Encoding: UTF-8
 LazyData: false
 Imports:
     ExperimentHub,
+    SummarizedExperiment,
     utils
 Suggests:
     Biobase,
@@ -33,7 +34,6 @@ Suggests:
     magrittr,
     readr,
     rmarkdown,
-    SummarizedExperiment,
     testthat,
     tibble
 Remotes: schifferl/devtoo
