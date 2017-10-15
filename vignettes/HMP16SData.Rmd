@@ -59,4 +59,4 @@ However, analysis using the `r BiocStyle::Biocpkg("phyloseq")` package requires
 objects of `phyloseq` class. At present, there is ongoing discussion regarding a
 coercion function and a `SummarizedExperiment2phyloseq` method will be provided 
 eminently. Similarly, a function to attach protected metadata from dbGaP is 
-currently under development will be added shortly.
+currently under development and will be added shortly.
