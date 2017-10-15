@@ -15,7 +15,9 @@ Description:
     and 3-5. The raw data files are provided in the package as downloaded from 
     the HMP Data Analysis and Coordination Center website. Processed data is 
     provided as SummarizedExperiment objects via ExperimentHub.
-Depends: R (>= 3.4.0)
+Depends: 
+    R (>= 3.4.0),
+    SummarizedExperiment
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: false
@@ -33,7 +35,6 @@ Suggests:
     magrittr,
     readr,
     rmarkdown,
-    SummarizedExperiment,
     testthat,
     tibble
 Remotes: schifferl/devtoo
