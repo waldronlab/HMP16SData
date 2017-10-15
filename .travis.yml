@@ -9,5 +9,5 @@ matrix:
     - os: linux
 
 after_success:
-  - Rscript -e 'covr::codecov()'
+  - Rscript -e 'BiocCheck::BiocCheck(".")'
   - Rscript -e 'devtoo::push_readme_md("./vignettes/HMP16SData.Rmd")'

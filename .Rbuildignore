@@ -1,8 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
-^appveyor\.yml$
 ^\.travis\.yml$
-^codecov\.yml$
 ^inst/extdata/.*\.gz$
 ^inst/extdata/.*\.bz2$
