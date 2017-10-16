@@ -33,6 +33,7 @@ Suggests:
     knitr,
     magrittr,
     readr,
+    remotes,
     rmarkdown,
     testthat,
     tibble
