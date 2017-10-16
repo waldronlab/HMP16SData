@@ -10,4 +10,3 @@ matrix:
 
 after_success:
   - Rscript -e 'BiocCheck::BiocCheck(".")'
-  - Rscript -e 'devtoo::push_readme_md("./vignettes/HMP16SData.Rmd")'

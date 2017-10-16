@@ -1,7 +1,7 @@
 Package: HMP16SData
 Type: Package
 Title: 16S rRNA Microbiome Data from the Human Microbiome Project
-Version: 0.99.1
+Version: 0.99.2
 Author:
     Lucas Schiffer <schiffer.lucas@gmail.com>,
     Rimsha Azhar <rimsha_azhar@hotmail.com>,
@@ -28,7 +28,6 @@ Suggests:
     BiocCheck,
     BiocInstaller,
     BiocStyle,
-    devtoo,
     dplyr,
     knitr,
     magrittr,
@@ -37,7 +36,6 @@ Suggests:
     rmarkdown,
     testthat,
     tibble
-Remotes: schifferl/devtoo
 VignetteBuilder: knitr
 URL: https://github.com/waldronlab/HMP16SData
 BugReports: https://github.com/waldronlab/HMP16SData/issues
