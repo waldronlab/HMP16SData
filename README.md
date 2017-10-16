@@ -1,7 +1,7 @@
 <!--
 changes to "README.md" are made in "vignettes/HMP16SData.Rmd"
 -->
-![fa-linux](http://fa2png.io/media/icons/font-awesome/4-7-0/linux/20/0/2c3e50_none.png) [![Travis-CI Linux Build Status](https://travis-matrix-badges.herokuapp.com/repos/waldronlab/HMP16SData/branches/master/1)](https://travis-ci.org/waldronlab/HMP16SData) ![fa-apple](http://fa2png.io/media/icons/font-awesome/4-7-0/apple/20/0/2c3e50_none.png) [![Travis-CI Mac Build Status](https://travis-matrix-badges.herokuapp.com/repos/waldronlab/HMP16SData/branches/master/2)](https://travis-ci.org/waldronlab/HMP16SData) ![fa-windows](http://fa2png.io/media/icons/font-awesome/4-7-0/windows/20/0/2c3e50_none.png) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/waldronlab/HMP16SData?branch=master&svg=true)](https://ci.appveyor.com/project/waldronlab/HMP16SData)
+![fa-linux](http://fa2png.io/media/icons/font-awesome/4-7-0/linux/20/0/2c3e50_none.png) [![Travis-CI Linux Build Status](https://travis-matrix-badges.herokuapp.com/repos/waldronlab/HMP16SData/branches/master/1)](https://travis-ci.org/waldronlab/HMP16SData)
 
 *[HMP16SData](http://bioconductor.org/packages/HMP16SData)* is a Bioconductor ExperimentHub package of the Human Microbiome Project (HMP) 16S rRNA sequencing data for variable regions 1-3 and 3-5. The raw data files are provided in the package as downloaded from the HMP Data Analysis and Coordination Center website. Processed data is provided as SummarizedExperiment objects via ExperimentHub.
 
