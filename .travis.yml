@@ -7,8 +7,7 @@ r: bioc-devel
 matrix:
   include:
     - os: linux
-    - os: osx
 
 after_success:
   - Rscript -e 'BiocCheck::BiocCheck(".")'
-  - Rscript -e 'devtoo::push_readme_md("vignettes/HMP16SData.Rmd")'
+  - Rscript -e 'devtoo::push_readme_md("./vignettes/HMP16SData.Rmd")'
