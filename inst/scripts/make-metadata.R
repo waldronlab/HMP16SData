@@ -14,7 +14,21 @@
 # that funding for the HMP ended in 2010). So, enjoy the script for what it is
 # and consider automated metadata generation if you have a boatload more data.
 
-devtoo::load_suggests()
+if (!require("magrittr", character.only = TRUE)) {
+    BiocInstaller::biocLite("magrittr")
+    require("magrittr", character.only = TRUE)
+}
+
+base::read.dcf("DESCRIPTION", "Suggests") %>%
+    base::gsub("\n", "", .) %>%
+    base::strsplit(",") %>%
+    base::unlist() %>%
+    for (i in .) {
+        if (!require(i, character.only = TRUE)) {
+            BiocInstaller::biocLite(i)
+            require(i, character.only = TRUE)
+        }
+    }
 
 Title <-
     base::dir("data") %>%

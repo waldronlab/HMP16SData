@@ -1,4 +1,18 @@
-devtoo::load_suggests()
+if (!require("magrittr", character.only = TRUE)) {
+    BiocInstaller::biocLite("magrittr")
+    require("magrittr", character.only = TRUE)
+}
+
+base::read.dcf("DESCRIPTION", "Suggests") %>%
+    base::gsub("\n", "", .) %>%
+    base::strsplit(",") %>%
+    base::unlist() %>%
+    for (i in .) {
+        if (!require(i, character.only = TRUE)) {
+            BiocInstaller::biocLite(i)
+            require(i, character.only = TRUE)
+        }
+    }
 
 # can't avoid a function within a function here
 V35_otu_col_types <- readr::cols(.default = readr::col_integer(),
