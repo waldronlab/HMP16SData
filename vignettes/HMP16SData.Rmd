@@ -1,6 +1,6 @@
 ---
 title: "HMP16SData"
-date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date: '`r format(Sys.Date(), "%B %e, %Y")`'
 author:
     - Lucas Schiffer
     - Rimsha Azhar
@@ -11,8 +11,8 @@ output:
     BiocStyle::html_document
 vignette: >
     %\VignetteIndexEntry{HMP16SData}
-    %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
+    %\VignetteEngine{knitr::rmarkdown}
 ---
 <!--
 changes to "README.md" are made in "vignettes/HMP16SData.Rmd"
@@ -40,7 +40,7 @@ When called as follows the functions will download data from an
 `r BiocStyle::Biocpkg("ExperimentHub")` AWS S3 bucket over https. Of couse, it 
 is necessary to load the package first.
 
-```{r, eval=FALSE}
+```{r}
 library(HMP16SData)
 V13()
 V35()

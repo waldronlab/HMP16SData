@@ -3,6 +3,9 @@
 #' 16S rRNA sequencing was performed on samples collected at five major body
 #' sites from 300 healthy adults between the ages of 18 and 40
 #'
+#' @param metadata logical; if TRUE only the metadata is downloaded, rather than
+#' the entire resource
+#'
 #' @format A SummarizedExperiment with 45,383 features and 4,743 samples:
 #' \describe{
 #'     \item{sample_id}{an id number given to each sample}
@@ -23,5 +26,7 @@
 #'
 #' @importClassesFrom SummarizedExperiment SummarizedExperiment
 #'
-# @examples V35()
-"V35"
+#' @examples V35()
+#'
+#' @name V35
+NULL
