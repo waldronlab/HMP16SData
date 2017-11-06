@@ -19,6 +19,25 @@ V13()
 V35()
 ```
 
+    ## class: SummarizedExperiment 
+    ## dim: 43140 2898 
+    ## metadata(1): experimentData
+    ## assays(1): 16SrRNA
+    ## rownames(43140): OTU_97.1 OTU_97.10 ... OTU_97.9997 OTU_97.9999
+    ## rowData names(1): consensus_lineage
+    ## colnames(2898): 700013549 700014386 ... 700114963 700114965
+    ## colData names(6): run_sample_id visit_number ... hmp_body_subsite
+    ##   description
+    ## class: SummarizedExperiment 
+    ## dim: 45383 4743 
+    ## metadata(1): experimentData
+    ## assays(1): 16SrRNA
+    ## rownames(45383): OTU_97.1 OTU_97.10 ... OTU_97.9998 OTU_97.9999
+    ## rowData names(1): consensus_lineage
+    ## colnames(4743): 700013549 700014386 ... 700114717 700114750
+    ## colData names(6): run_sample_id visit_number ... hmp_body_subsite
+    ##   description
+
 The two datasets are represented as `SummarizedExperiment` objects, a standard Bioconductor class that is amenable to subsetting and analysis. To maintain breveity, details of the `SummarizedExperiment` class are not outlined here but the *[SummarizedExperiment](http://bioconductor.org/packages/SummarizedExperiment)* package provides an excellent vignette. Similarly, analysis of microbiome data is better outlined elsewhere and the *[phyloseq](http://bioconductor.org/packages/phyloseq)* package provides excellent tools for the task.
 
 However, analysis using the *[phyloseq](http://bioconductor.org/packages/phyloseq)* package requires objects of `phyloseq` class. At present, there is ongoing discussion regarding a coercion function and a `SummarizedExperiment2phyloseq` method will be provided eminently. Similarly, a function to attach protected metadata from dbGaP is currently under development and will be added shortly.

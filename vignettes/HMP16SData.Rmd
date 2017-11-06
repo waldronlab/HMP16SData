@@ -40,7 +40,7 @@ When called as follows the functions will download data from an
 `r BiocStyle::Biocpkg("ExperimentHub")` AWS S3 bucket over https. Of couse, it 
 is necessary to load the package first.
 
-```{r}
+```{r, message=FALSE, results='hold'}
 library(HMP16SData)
 V13()
 V35()
