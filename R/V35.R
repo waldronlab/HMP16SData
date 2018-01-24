@@ -13,7 +13,8 @@
 #'     \item{visit_number}{visit number, between 1 and 3}
 #'     \item{sex}{sex at time of enrollment}
 #'     \item{run_center}{center where sample collection took place: Baylor
-#'     College of Medicine (BCM) or Genome Sequencing Center at Washington
+#'     College of Medicine (BCM), the Broad Institute (BI), the J. Craig Venter
+#'     Institute (JCVI), or the Genome Sequencing Center at Washington
 #'     University (WUGC)}
 #'     \item{hmp_body_subsite}{body subsite where sample was collected from}
 #'     \item{description}{long description providing sample ID number and sex}
