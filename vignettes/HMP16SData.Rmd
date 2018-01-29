@@ -19,6 +19,7 @@ vignette: >
 # Prerequisites
 
 ```{r, message=FALSE}
+BiocInstaller::biocLite("Bioconductor/SummarizedExperiment")
 BiocInstaller::biocLite("schifferl/kableOne")
 
 library(HMP16SData)
