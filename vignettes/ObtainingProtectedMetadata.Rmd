@@ -1,0 +1,24 @@
+---
+title: "Obtaining Protected Metadata"
+date: '`r format(Sys.Date(), "%B %e, %Y")`'
+author:
+    - Lucas Schiffer
+    - Rimsha Azhar
+    - Marcel Ramos
+    - Ludwig Geistlinger
+    - Levi Waldron
+output:
+    BiocStyle::html_document
+vignette: >
+    %\VignetteIndexEntry{Obtaining Protected Metadata}
+    %\VignetteEncoding{UTF-8}
+    %\VignetteEngine{knitr::rmarkdown}
+---
+
+# Prerequisites
+
+```{r, message=FALSE}
+# ?
+```
+
+# Introduction

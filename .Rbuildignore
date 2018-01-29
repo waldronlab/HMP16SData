@@ -4,3 +4,4 @@
 ^\.travis\.yml$
 ^inst/extdata/.*\.gz$
 ^inst/extdata/.*\.bz2$
+LICENSE

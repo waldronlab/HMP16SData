@@ -15,28 +15,34 @@ Description:
     and 3-5. The raw data files are provided in the package as downloaded from 
     the HMP Data Analysis and Coordination Center website. Processed data is 
     provided as SummarizedExperiment objects via ExperimentHub.
-Depends: R (>= 3.5.0)
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: false
+Depends:
+    R (>= 3.5.0),
+    SummarizedExperiment
 Imports:
+    dplyr,
     ExperimentHub,
-    SummarizedExperiment,
+    magrittr,
+    tools,
     utils
 Suggests:
     Biobase,
     BiocCheck,
     BiocInstaller,
     BiocStyle,
-    dplyr,
     knitr,
-    magrittr,
     readr,
     rmarkdown,
     testthat,
     tibble
+biocViews:
+    Homo_sapiens_Data, 
+    ReproducibleResearch, 
+    MicrobiomeData, 
+    SequencingData
 VignetteBuilder: knitr
 URL: https://github.com/waldronlab/HMP16SData
 BugReports: https://github.com/waldronlab/HMP16SData/issues
-biocViews: Homo_sapiens_Data, ReproducibleResearch, MicrobiomeData
 RoxygenNote: 6.0.1
