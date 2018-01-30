@@ -20,7 +20,7 @@
 #' @importFrom dplyr rename
 #' @importFrom tools toTitleCase
 #' @importFrom dplyr rename_all
-table_one <- function(foo, visit_number = FALSE, sex = TRUE, run_center = FALSE,
+table_one <- function(foo, visit_number = TRUE, sex = TRUE, run_center = FALSE,
                       hmp_body_subsite = TRUE) {
     foo %<>%
         colData() %>%

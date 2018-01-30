@@ -79,7 +79,7 @@ protected metadata.
 
 ```{r, eval=FALSE}
 V13_stool %>%
-    attach_dbGaP("~/ncbi/dbGaP-12146/", pretty_colnames = TRUE) %>%
+    attach_dbGaP("~/ncbi/dbGaP-12146/") %>%
     as_phyloseq() %>%
     plot_richness(x = "diet", color = "diet", measures = "Shannon")
 ```
