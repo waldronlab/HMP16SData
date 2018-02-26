@@ -1,5 +1,15 @@
-join_colData <- function(dbGaP_data, HMP16S_data) {
-    HMP16S_data %>%
+#' @importFrom magrittr %>%
+#' @importFrom SummarizedExperiment colData
+#' @importFrom tibble rownames_to_column
+#' @importFrom dplyr mutate
+#' @importFrom dplyr inner_join
+#' @importFrom dplyr distinct
+#' @importFrom tibble column_to_rownames
+#' @importFrom S4Vectors DataFrame
+#'
+#' @keywords internal
+join_colData <- function(dbGaP_data, x) {
+    x %>%
         colData() %>%
         as.data.frame() %>%
         rownames_to_column(var = "SN") %>%

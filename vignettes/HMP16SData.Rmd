@@ -24,7 +24,7 @@ BiocInstaller::biocLite("schifferl/kableOne")
 
 library(HMP16SData)
 library(magrittr)
-# library(phyloseq)
+library(phyloseq)
 library(kableOne)
 ```
 
@@ -79,7 +79,7 @@ protected metadata.
 
 ```{r, eval=FALSE}
 V13_stool %>%
-    attach_dbGaP("~/ncbi/dbGaP-12146/") %>%
+    attach_dbGaP("~/prj_12146.ngc") %>%
     as_phyloseq() %>%
     plot_richness(x = "diet", color = "diet", measures = "Shannon")
 ```

@@ -1,4 +1,18 @@
-attach_dbGaP <- function(HMP16S_data, dbGaP_repository_key) {
+#' Attach dbGaP metadata to HMP16SData SummarizedExperiment objects
+#'
+#' @param x a SummarizedExperiment object from the HMP16SData package
+#' @param dbGaP_repository_key a repository key downloaded from dbGaP
+#'
+#' @return a SummarizedExperiment object
+#' @export
+#'
+# @examples
+#'
+#' @importFrom assertthat is.readable
+#' @importFrom assertthat has_extension
+#' @importFrom magrittr %>%
+#' @importFrom assertthat is.dir
+attach_dbGaP <- function(x, dbGaP_repository_key) {
     is.readable(dbGaP_repository_key)
 
     has_extension(dbGaP_repository_key, "ngc")
@@ -22,7 +36,7 @@ attach_dbGaP <- function(HMP16S_data, dbGaP_repository_key) {
     is.dir("~/ncbi/dbGaP-12146/files")
 
     read_dbGaP() %>%
-        join_colData(HMP16S_data) %>%
-        replace_colData(HMP16S_data)
+        join_colData(x) %>%
+        replace_colData(x)
 }
 

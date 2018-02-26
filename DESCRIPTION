@@ -1,7 +1,7 @@
 Package: HMP16SData
 Type: Package
 Title: 16S rRNA Microbiome Data from the Human Microbiome Project
-Version: 0.99.81
+Version: 0.99.82
 Author:
     Lucas Schiffer <schiffer.lucas@gmail.com>,
     Rimsha Azhar <rimsha_azhar@hotmail.com>,
@@ -22,9 +22,17 @@ Depends:
     R (>= 3.5.0),
     SummarizedExperiment
 Imports:
+    assertthat,
+    curatedMetagenomicData,
     dplyr,
     ExperimentHub,
     magrittr,
+    methods,
+    readr,
+    S4Vectors,
+    SummarizedExperiment,
+    taxize,
+    tibble,
     tools,
     utils
 Suggests:
@@ -33,10 +41,8 @@ Suggests:
     BiocInstaller,
     BiocStyle,
     knitr,
-    readr,
     rmarkdown,
-    testthat,
-    tibble
+    testthat
 biocViews:
     Homo_sapiens_Data, 
     ReproducibleResearch, 

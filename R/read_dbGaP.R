@@ -1,3 +1,10 @@
+#' @importFrom magrittr %>%
+#' @importFrom readr read_tsv
+#' @importFrom dplyr full_join
+#' @importFrom dplyr select
+#' @importFrom dplyr everything
+#'
+#' @keywords internal
 read_dbGaP <- function() {
     list("~/ncbi/dbGaP-12146/files/phs000228.v4.pht001185.v4.p1.EMMES_HMP_Sample.MULTI.txt.gz",
          "~/ncbi/dbGaP-12146/files/phs000228.v4.pht001193.v3.p1.c1.EMMES_HMP_GTV.HMP.txt.gz",

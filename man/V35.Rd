@@ -5,16 +5,17 @@
 \title{16S rRNA sequencing data for variable regions 3-5}
 \format{A SummarizedExperiment with 45,383 features and 4,743 samples:
 \describe{
-    \item{sample_id}{an id number given to each sample}
+    \item{sample_id}{a random sample identifier}
     \item{random_subject_identifier}{a random subject identifier}
     \item{visit_number}{visit number, between 1 and 3}
-    \item{sex}{sex at time of enrollment}
-    \item{run_center}{center where sample collection took place: Baylor
+    \item{sex}{biological sex}
+    \item{run_center}{center where sample sequencing took place: Baylor
     College of Medicine (BCM), the Broad Institute (BI), the J. Craig Venter
     Institute (JCVI), or the Genome Sequencing Center at Washington
     University (WUGC)}
     \item{hmp_body_subsite}{body subsite where sample was collected from}
-    \item{description}{long description providing sample ID number and sex}
+    \item{description}{long description providing sample ID number, subject
+    ID number, and biological sex}
     \item{consensus_lineage}{the most detailed lineage description shared by
     the sequences within an OTU}
 }}

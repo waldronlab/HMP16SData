@@ -1,15 +1,17 @@
-#' Title
+#' Produce a data.frame of categorical variables that can be summarized
 #'
-#' @param foo description
-#' @param visit_number description
-#' @param sex description
-#' @param run_center description
-#' @param hmp_body_subsite description
+#' @param x a SummarizedExperiment object from the HMP16SData package
+#' @param visit_number logical indicating if visit_number should be included
+#' @param sex logical indicating if sex should be included
+#' @param run_center logical indicating if run_center should be included
+#' @param hmp_body_subsite logical indicating if hmp_body_subsite should be
+#' included
 #'
-# @return
+#' @return a tidy data.frame with one sample observation per row ready to be
+#' summarized
 #' @export
 #'
-# @examples
+# @examples V35() %>% table_one()
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom SummarizedExperiment colData
@@ -20,16 +22,15 @@
 #' @importFrom dplyr rename
 #' @importFrom tools toTitleCase
 #' @importFrom dplyr rename_all
-table_one <- function(foo, visit_number = TRUE, sex = TRUE, run_center = FALSE,
+table_one <- function(x, visit_number = TRUE, sex = TRUE, run_center = FALSE,
                       hmp_body_subsite = TRUE) {
-    foo %<>%
+    x %<>%
         colData() %>%
         as.data.frame() %>%
-        select(-run_sample_id) %>%
-        select(-description)
+        select(visit_number, sex, run_center, hmp_body_subsite)
 
     if(visit_number) {
-        foo %<>%
+        x %<>%
             mutate(
                 visit_number = case_when(
                     visit_number == "1" ~ "One",
@@ -38,20 +39,20 @@ table_one <- function(foo, visit_number = TRUE, sex = TRUE, run_center = FALSE,
                 )
             )
     } else {
-        foo %<>%
+        x %<>%
             select(-visit_number)
     }
 
     if(sex) {
-        foo %<>%
+        x %<>%
             mutate(sex = toTitleCase(sex))
     } else {
-        foo %<>%
+        x %<>%
             select(-sex)
     }
 
     if(run_center) {
-        foo %<>%
+        x %<>%
             mutate(run_center = gsub("0", "Missing", run_center)) %>%
             mutate(run_center = gsub("BCM", "Baylor College of Medicine", run_center)) %>%
             mutate(run_center = gsub("BI", "Broad Institute", run_center)) %>%
@@ -60,23 +61,23 @@ table_one <- function(foo, visit_number = TRUE, sex = TRUE, run_center = FALSE,
             mutate(run_center = gsub(",", "/", run_center)) %>%
             rename(institution = run_center)
     } else {
-        foo %<>%
+        x %<>%
             select(-run_center)
     }
 
     if(hmp_body_subsite) {
-        foo %<>%
+        x %<>%
             mutate(hmp_body_subsite = gsub("_", " ", hmp_body_subsite)) %>%
             mutate(hmp_body_subsite = toTitleCase(hmp_body_subsite)) %>%
             rename(body_habitat = hmp_body_subsite)
     } else {
-        foo %<>%
+        x %<>%
             select(-hmp_body_subsite)
     }
 
-    foo %<>%
+    x %<>%
         rename_all(gsub, pattern = "_", replacement = " ") %>%
         rename_all(toTitleCase)
 
-    foo
+    x
 }

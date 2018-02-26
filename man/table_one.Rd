@@ -2,22 +2,27 @@
 % Please edit documentation in R/table_one.R
 \name{table_one}
 \alias{table_one}
-\title{Title}
+\title{Produce a data.frame of categorical variables that can be summarized}
 \usage{
-table_one(foo, visit_number = FALSE, sex = TRUE, run_center = FALSE,
+table_one(x, visit_number = TRUE, sex = TRUE, run_center = FALSE,
   hmp_body_subsite = TRUE)
 }
 \arguments{
-\item{foo}{description}
+\item{x}{a SummarizedExperiment object from the HMP16SData package}
 
-\item{visit_number}{description}
+\item{visit_number}{logical indicating if visit_number should be included}
 
-\item{sex}{description}
+\item{sex}{logical indicating if sex should be included}
 
-\item{run_center}{description}
+\item{run_center}{logical indicating if run_center should be included}
 
-\item{hmp_body_subsite}{description}
+\item{hmp_body_subsite}{logical indicating if hmp_body_subsite should be
+included}
+}
+\value{
+a tidy data.frame with one sample observation per row ready to be
+summarized
 }
 \description{
-Title
+Produce a data.frame of categorical variables that can be summarized
 }

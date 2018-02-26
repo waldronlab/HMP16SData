@@ -1,3 +1,9 @@
+#' @importFrom magrittr use_series
+#' @importFrom magrittr %>%
+#' @importFrom magrittr extract
+#' @importFrom dplyr filter
+#' @importFrom magrittr %$%
+#'
 #' @keywords internal
 delimit_clades <- function(taxize_data) {
     clade_id <-
