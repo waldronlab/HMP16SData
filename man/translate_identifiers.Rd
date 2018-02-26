@@ -7,8 +7,15 @@
 translate_identifiers(x)
 }
 \arguments{
-\item{x}{a taxonomic identifiers to translate to NCBI taxonomy standard}
+\item{x}{a taxonomic identifier to translate to NCBI taxonomy standard}
+}
+\value{
+a taxonomic identifier translated to NCBI taxonomy standard
 }
 \description{
 Translate taxonomic identifiers to NCBI taxonomy standard
+}
+\examples{
+translate_identifiers("f__LaCtObaCiLlAcEaE;g__LaCTobaCIllus")
+
 }

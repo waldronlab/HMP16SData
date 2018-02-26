@@ -14,16 +14,16 @@ vignette: >
     %\VignetteIndexEntry{HMP16SData}
     %\VignetteEncoding{UTF-8}
     %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Prerequisites
 
 ```{r, message=FALSE}
-BiocInstaller::biocLite("Bioconductor/SummarizedExperiment")
 BiocInstaller::biocLite("schifferl/kableOne")
 
 library(HMP16SData)
-library(magrittr)
 library(phyloseq)
 library(kableOne)
 ```

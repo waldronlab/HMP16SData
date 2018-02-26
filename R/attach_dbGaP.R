@@ -3,10 +3,10 @@
 #' @param x a SummarizedExperiment object from the HMP16SData package
 #' @param dbGaP_repository_key a repository key downloaded from dbGaP
 #'
-#' @return a SummarizedExperiment object
+#' @return a SummarizedExperiment object with protected metadata from dbGaP
 #' @export
 #'
-# @examples
+#' @examples \dontrun{V13() %>% attach_dbGaP("~/prj_12146.ngc")}
 #'
 #' @importFrom assertthat is.readable
 #' @importFrom assertthat has_extension

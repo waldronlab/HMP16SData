@@ -1,11 +1,11 @@
 #' Translate taxonomic identifiers to NCBI taxonomy standard
 #'
-#' @param x a taxonomic identifiers to translate to NCBI taxonomy standard
+#' @param x a taxonomic identifier to translate to NCBI taxonomy standard
 #'
-# @return
+#' @return a taxonomic identifier translated to NCBI taxonomy standard
 #' @export
 #'
-# @examples
+#' @examples translate_identifiers("f__LaCtObaCiLlAcEaE;g__LaCTobaCIllus")
 #'
 #' @importFrom magrittr %>%
 #' @importFrom taxize gnr_resolve

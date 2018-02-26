@@ -26,3 +26,7 @@ summarized
 \description{
 Produce a data.frame of categorical variables that can be summarized
 }
+\examples{
+V35() \%>\% table_one()
+
+}

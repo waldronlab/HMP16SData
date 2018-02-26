@@ -30,7 +30,6 @@ Imports:
     methods,
     readr,
     S4Vectors,
-    SummarizedExperiment,
     taxize,
     tibble,
     tools,

@@ -12,8 +12,12 @@ attach_dbGaP(x, dbGaP_repository_key)
 \item{dbGaP_repository_key}{a repository key downloaded from dbGaP}
 }
 \value{
-a SummarizedExperiment object
+a SummarizedExperiment object with protected metadata from dbGaP
 }
 \description{
 Attach dbGaP metadata to HMP16SData SummarizedExperiment objects
+}
+\examples{
+\dontrun{V13() \%>\% attach_dbGaP("~/prj_12146.ngc")}
+
 }

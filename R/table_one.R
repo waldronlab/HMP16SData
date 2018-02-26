@@ -11,7 +11,7 @@
 #' summarized
 #' @export
 #'
-# @examples V35() %>% table_one()
+#' @examples V35() %>% table_one()
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom SummarizedExperiment colData

@@ -1,4 +1,4 @@
-#' @importFrom SummarizedExperiment colData
+#' @importFrom SummarizedExperiment colData<-
 #'
 #' @keywords internal
 replace_colData <- function(new_colData, x) {

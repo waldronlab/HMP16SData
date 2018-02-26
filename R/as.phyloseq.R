@@ -5,7 +5,7 @@
 #' @return a phyloseq object
 #' @export
 #'
-# @examples V13() %>% as.phyloseq()
+#' @examples V13() %>% as.phyloseq()
 #'
 #' @importFrom assertthat see_if
 #' @importFrom magrittr %>%
