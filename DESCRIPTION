@@ -39,7 +39,9 @@ Suggests:
     BiocCheck,
     BiocInstaller,
     BiocStyle,
+    devtools,
     knitr,
+    phyloseq,
     rmarkdown,
     testthat
 biocViews:

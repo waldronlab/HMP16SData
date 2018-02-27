@@ -19,3 +19,12 @@ translate_identifiers <- function(x) {
         filter(data_source_title == "NCBI") %>%
         delimit_clades()
 }
+
+lilEx <- function(x, taxonomy_column = "consensus_lineage") {
+    x %>%
+        rowData() %>%
+        extract(1:3, taxonomy_column) %>%
+        sapply(translate_identifiers, USE.NAMES = FALSE)
+}
+
+V13 %>% lilEx()
