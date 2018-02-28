@@ -14,6 +14,6 @@
 as.phyloseq <- function(x) {
     see_if(class(x) == "SummarizedExperiment")
 
-    as(x, "ExpressionSet") %>%
+    suppressWarnings(as(x, "ExpressionSet")) %>%
         ExpressionSet2phyloseq()
 }

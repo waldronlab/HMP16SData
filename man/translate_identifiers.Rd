@@ -4,18 +4,33 @@
 \alias{translate_identifiers}
 \title{Translate taxonomic identifiers to NCBI taxonomy standard}
 \usage{
-translate_identifiers(x)
+translate_identifiers(x, taxonomy_column = "consensus_lineage")
 }
 \arguments{
-\item{x}{a taxonomic identifier to translate to NCBI taxonomy standard}
+\item{x}{a SummarizedExperiment object with taxonomic identifiers to
+translate NCBI taxonomy standard}
+
+\item{taxonomy_column}{the name of the rowData column that contains taxonomic
+identifiers to be translated}
 }
 \value{
-a taxonomic identifier translated to NCBI taxonomy standard
+A SummarizedExperiment object with taxonomic identifiers translated
+NCBI taxonomy standard. A column, ncbi_taxonomy, is added to rowData with the
+following syntax: n__NCBI Taxonomy ID, pk__superkingdom, k__kingdom,
+bk__subkingdom, p__phylum, bp__subphylum, c__class, o__order, f__family,
+g__genus, s__species. Taxonomic levels are pipe delimited and represented as
+a character string. For example:
+n__1578|pk__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__...
 }
 \description{
 Translate taxonomic identifiers to NCBI taxonomy standard
 }
+\note{
+Be aware that translation of taxonomic identifiers uses the Global
+Names Recognition and Discovery API and the translation of many identifiers
+will take a long time.
+}
 \examples{
-translate_identifiers("f__LaCtObaCiLlAcEaE;g__LaCTobaCIllus")
+V13()[1:5, 1:5] \%>\% translate_identifiers()
 
 }

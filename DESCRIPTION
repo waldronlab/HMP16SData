@@ -33,16 +33,19 @@ Imports:
     taxize,
     tibble,
     tools,
-    utils
+    utils,
+    pbapply
 Suggests:
     Biobase,
     BiocCheck,
     BiocInstaller,
     BiocStyle,
     devtools,
+    ggplot2,
     knitr,
     phyloseq,
     rmarkdown,
+    roxygen2,
     testthat
 biocViews:
     Homo_sapiens_Data, 
