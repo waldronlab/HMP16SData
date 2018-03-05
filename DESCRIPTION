@@ -23,23 +23,23 @@ Depends:
     SummarizedExperiment
 Imports:
     assertthat,
-    curatedMetagenomicData,
     dplyr,
     ExperimentHub,
     magrittr,
     methods,
+    pbapply,
     readr,
     S4Vectors,
     taxize,
     tibble,
     tools,
-    utils,
-    pbapply
+    utils
 Suggests:
     Biobase,
     BiocCheck,
     BiocInstaller,
     BiocStyle,
+    curatedMetagenomicData,
     devtools,
     ggplot2,
     knitr,
@@ -48,9 +48,9 @@ Suggests:
     roxygen2,
     testthat
 biocViews:
-    Homo_sapiens_Data, 
-    ReproducibleResearch, 
-    MicrobiomeData, 
+    Homo_sapiens_Data,
+    ReproducibleResearch,
+    MicrobiomeData,
     SequencingData
 VignetteBuilder: knitr
 URL: https://github.com/waldronlab/HMP16SData

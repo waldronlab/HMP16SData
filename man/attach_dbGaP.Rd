@@ -21,3 +21,6 @@ Attach dbGaP metadata to HMP16SData SummarizedExperiment objects
 \dontrun{V13() \%>\% attach_dbGaP("~/prj_12146.ngc")}
 
 }
+\seealso{
+\code{\link{dictionary}}
+}

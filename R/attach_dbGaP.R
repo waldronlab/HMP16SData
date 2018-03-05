@@ -8,6 +8,8 @@
 #'
 #' @examples \dontrun{V13() %>% attach_dbGaP("~/prj_12146.ngc")}
 #'
+#' @seealso \code{\link{dictionary}}
+#'
 #' @importFrom assertthat is.readable
 #' @importFrom assertthat has_extension
 #' @importFrom magrittr %>%
