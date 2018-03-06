@@ -14,40 +14,49 @@ base::read.dcf("DESCRIPTION", "Suggests") %>%
         }
     }
 
-# can't avoid a function within a function here
-v13_otu_col_types <- readr::cols(.default = readr::col_integer(),
-                                 `#OTU ID` = readr::col_character(),
-                                 `Consensus Lineage` = readr::col_character())
+v13_otu_col_types <-
+    readr::cols(
+        `#OTU ID` = "-",
+        `Consensus Lineage` = "c",
+        .default = "i"
+    )
 
 v13_otu <- readr::read_tsv("inst/extdata/otu_table_psn_v13.txt.gz",
                            col_types = v13_otu_col_types, skip = 1,
                            progress = FALSE)
 
-v13_map_col_names <- base::c("sample_id", "run_sample_id", "visit_number",
-                             "sex", "run_center", "hmp_body_subsite",
-                             "description")
+v13_map_col_types <-
+    readr::cols(
+        `#SampleID` = "i",
+        RSID = "i",
+        visitno = "i",
+        sex = "c",
+        RUNCENTER = "c",
+        HMPbodysubsite = "c",
+        Description = "c",
+        .default = "-"
+    )
 
 v13_map <- readr::read_tsv("inst/extdata/v13_map_uniquebyPSN.txt.bz2",
-                           col_names = v13_map_col_names,
-                           col_types = "ccccccc----", skip = 1,
+                           col_types = v13_map_col_types, skip = 0,
                            progress = FALSE)
 
-# can avoid a function within a function here but
-# everything() used to avoid excessive selection
-v13_otu %<>%
-    dplyr::rename(otu_id = `#OTU ID`) %>%
-    dplyr::rename(consensus_lineage = `Consensus Lineage`) %>%
-    dplyr::select(otu_id, consensus_lineage, dplyr::everything()) %>%
+v13_otu %>%
+    dplyr::rename(rowname = `Consensus Lineage`) %>%
+    dplyr::mutate(rowname = gsub("Root", "k__Bacteria", rowname)) %>%
+    dplyr::mutate(rowname = gsub(";", "|", rowname)) %>%
+    # dplyr::mutate(rowname = gsub("\\|g__$", "", rowname)) %>%
+    # dplyr::mutate(rowname = gsub("\\|f__$", "", rowname)) %>%
+    # dplyr::mutate(rowname = gsub("\\|o__$", "", rowname)) %>%
+    # dplyr::mutate(rowname = gsub("\\|c__$", "", rowname)) %>%
+    dplyr::group_by(rowname) %>%
+    dplyr::summarise_all(sum) %>%
     base::as.data.frame() %>%
-    tibble::column_to_rownames("otu_id")
+    tibble::column_to_rownames() %>%
+    base::data.matrix()
 
-row_data <-
-    v13_otu %>%
-    dplyr::select(consensus_lineage) %>%
-    S4Vectors::DataFrame()
-
-v13_otu %<>%
-    dplyr::select(-consensus_lineage)
+v13_map %>%
+    dplyr::rename()
 
 assay_data <-
     base::colnames(v13_otu) %>%
