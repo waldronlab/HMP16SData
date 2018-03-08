@@ -60,55 +60,34 @@ v13_map %<>%
     dplyr::mutate(HMP_BODY_SUBSITE = base::gsub("_", " ", HMP_BODY_SUBSITE)) %>%
     dplyr::mutate(HMP_BODY_SUBSITE = tools::toTitleCase(HMP_BODY_SUBSITE))
 
-# assays <-
+assays <-
     dplyr::select(v13_otu, -CONSENSUS_LINEAGE) %>%
+    base::as.data.frame() %>%
     tibble::column_to_rownames() %>%
     base::data.matrix() %>%
     S4Vectors::SimpleList() %>%
     magrittr::set_names("16SrRNA")
-
-# rowData <-
+# TODO: set rownames for rowData
+rowData <-
     dplyr::select(v13_otu, CONSENSUS_LINEAGE) %>%
     dplyr::mutate(SUPERKINGDOM = "Bacteria") %>%
-    dplyr::mutate(PHYLUM = HMP16SData:::match_clade("p__", CONSENSUS_LINEAGE)) %>%
-    dplyr::mutate(CLASS = HMP16SData:::match_clade("c__", CONSENSUS_LINEAGE)) %>%
-    dplyr::mutate(ORDER = HMP16SData:::match_clade("o__", CONSENSUS_LINEAGE)) %>%
-    dplyr::mutate(FAMILY = HMP16SData:::match_clade("f__", CONSENSUS_LINEAGE)) %>%
-    dplyr::mutate(GENUS = HMP16SData:::match_clade("g__", CONSENSUS_LINEAGE)) %>%
-        .[1:2000,] %>%
-    View()
-    # S4Vectors::DataFrame()
+    dplyr::mutate(PHYLUM = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "p__")) %>%
+    dplyr::mutate(CLASS = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "c__")) %>%
+    dplyr::mutate(ORDER = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "o__")) %>%
+    dplyr::mutate(FAMILY = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "f__")) %>%
+    dplyr::mutate(GENUS = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "g__")) %>%
+    S4Vectors::DataFrame()
 
-# row_data <-
-#     v13_otu %>%
-#     dplyr::select(CONSENSUS_LINEAGE) %>%
-#     S4Vectors::DataFrame()
-
-# v13_otu %<>%
-#     dplyr::select(-CONSENSUS_LINEAGE)
-
-# assay_data <-
-#     base::colnames(v13_otu) %>%
-#     base::match(v13_map$sample_id, .) %>%
-#     stats::na.exclude() %>%
-#     base::as.integer() %>%
-#     dplyr::select(v13_otu, .) %>%
-#     base::data.matrix()
-
-col_data <-
-    base::colnames(assay_data) %>%
-    base::match(v13_map$sample_id) %>%
+colData <-
+    base::colnames(v13_otu) %>%
+    base::match(v13_map$rowname) %>%
     stats::na.exclude() %>%
     base::as.integer() %>%
     dplyr::slice(v13_map, .) %>%
-    base::as.data.frame() %>%
-    tibble::column_to_rownames("sample_id") %>%
+    dplyr::select(-rowname) %>%
     S4Vectors::DataFrame()
 
-# assay_data %<>%
-#     base::list(`16SrRNA` = .)
-
-metadata_data <-
+metadata <-
     Biobase::MIAME(name = "Human Microbiome Project Consortium",
                    title = "Structure, function and diversity of the healthy
                    human microbiome",
@@ -141,10 +120,10 @@ metadata_data <-
     base::list() %>%
     magrittr::set_names("experimentData")
 
-V13 <- SummarizedExperiment::SummarizedExperiment(assays = assay_data,
-                                                  colData = col_data,
-                                                  rowData = row_data,
-                                                  metadata = metadata_data)
+V13 <- SummarizedExperiment::SummarizedExperiment(assays = assays,
+                                                  colData = colData,
+                                                  rowData = rowData,
+                                                  metadata = metadata)
 
 base::Sys.Date() %>%
     base::format("%Y%m%d") %>%

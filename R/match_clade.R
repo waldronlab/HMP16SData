@@ -3,7 +3,7 @@
 #' @importFrom magrittr extract
 #'
 #' @keywords internal
-match_clade <- function(pattern, text) {
+match_clade <- function(text, pattern) {
     text %<>%
         strsplit(";") %>%
         unlist()
@@ -12,7 +12,8 @@ match_clade <- function(pattern, text) {
         grepl(pattern, .) %>%
         extract(text, .) %>%
         sub(pattern, "", .) %>%
-        sub("([[:lower:]])([[:upper:]])", "\\1 \\2", .) %>%
+        gsub("\\.", "\\. ", .) %>%
+        gsub("([[:lower:]])([[:upper:]])", "\\1 \\2", .) %>%
         ifelse(length(.) == 0, NA_character_, .) %>%
-        as.character()
+        ifelse(nchar(.) == 0, NA_character_, .)
 }
