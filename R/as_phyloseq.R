@@ -1,6 +1,6 @@
 #' Coerce a SummarizedExperiment class object to a phyloseq class object
 #'
-#' @param x A SummarizedExperiment object from the HMP16SData package
+#' @param x a SummarizedExperiment object from the HMP16SData package
 #'
 #' @return a phyloseq object
 #' @export
@@ -9,13 +9,11 @@
 #'
 #' @importFrom assertthat see_if
 #' @importFrom magrittr %>%
-#' @importFrom methods as
-#' @importFrom curatedMetagenomicData ExpressionSet2phyloseq
-as.phyloseq <- function(x) {
+as_phyloseq <- function(x) {
     see_if(class(x) == "SummarizedExperiment")
 
-    assayNames(x) <- "exprs"
+    if (!requireNamespace("phyloseq")) {
+        stop("Please install the 'phyloseq' package to make phyloseq objects")
+    }
 
-    as(x, "ExpressionSet") %>%
-        ExpressionSet2phyloseq()
 }

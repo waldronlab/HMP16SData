@@ -14,48 +14,86 @@ base::read.dcf("DESCRIPTION", "Suggests") %>%
         }
     }
 
-# can't avoid a function within a function here
-v13_otu_col_types <- readr::cols(.default = readr::col_integer(),
-                                 `#OTU ID` = readr::col_character(),
-                                 `Consensus Lineage` = readr::col_character())
+v13_otu_col_types <-
+    readr::cols(
+        `#OTU ID` = "c",
+        `Consensus Lineage` = "c",
+        .default = "i"
+    )
 
 v13_otu <- readr::read_tsv("inst/extdata/otu_table_psn_v13.txt.gz",
                            col_types = v13_otu_col_types, skip = 1,
                            progress = FALSE)
 
-v13_map_col_names <- base::c("sample_id", "run_sample_id", "visit_number",
-                             "sex", "run_center", "hmp_body_subsite",
-                             "description")
+v13_map_col_types <-
+    readr::cols(
+        `#SampleID` = "i",
+        RSID = "i",
+        visitno = "i",
+        sex = "c",
+        RUNCENTER = "c",
+        HMPbodysubsite = "c",
+        Description = "-",
+        .default = "-"
+    )
 
 v13_map <- readr::read_tsv("inst/extdata/v13_map_uniquebyPSN.txt.bz2",
-                           col_names = v13_map_col_names,
-                           col_types = "ccccccc----", skip = 1,
+                           col_types = v13_map_col_types, skip = 0,
                            progress = FALSE)
 
-# can avoid a function within a function here but
-# everything() used to avoid excessive selection
 v13_otu %<>%
-    dplyr::rename(otu_id = `#OTU ID`) %>%
-    dplyr::rename(consensus_lineage = `Consensus Lineage`) %>%
-    dplyr::select(otu_id, consensus_lineage, dplyr::everything()) %>%
-    base::as.data.frame() %>%
-    tibble::column_to_rownames("otu_id")
-
-row_data <-
-    v13_otu %>%
-    dplyr::select(consensus_lineage) %>%
-    S4Vectors::DataFrame()
-
-v13_otu %<>%
-    dplyr::select(-consensus_lineage)
-
-assay_data <-
-    base::colnames(v13_otu) %>%
-    base::match(v13_map$sample_id, .) %>%
+    base::colnames() %>%
+    base::match(v13_map$`#SampleID`, .) %>%
     stats::na.exclude() %>%
     base::as.integer() %>%
-    dplyr::select(v13_otu, .) %>%
-    base::data.matrix()
+    dplyr::select(v13_otu, `#OTU ID`, `Consensus Lineage`, .) %>%
+    dplyr::rename(rowname = `#OTU ID`) %>%
+    dplyr::rename(CONSENSUS_LINEAGE = `Consensus Lineage`)
+
+v13_map %<>%
+    dplyr::rename(rowname = `#SampleID`) %>%
+    dplyr::rename(VISITNO = visitno) %>%
+    dplyr::rename(SEX = sex) %>%
+    dplyr::rename(RUN_CENTER = RUNCENTER) %>%
+    dplyr::rename(HMP_BODY_SUBSITE = HMPbodysubsite) %>%
+    dplyr::mutate(SEX = tools::toTitleCase(SEX)) %>%
+    dplyr::mutate(HMP_BODY_SUBSITE = base::gsub("_", " ", HMP_BODY_SUBSITE)) %>%
+    dplyr::mutate(HMP_BODY_SUBSITE = tools::toTitleCase(HMP_BODY_SUBSITE))
+
+# assays <-
+    dplyr::select(v13_otu, -CONSENSUS_LINEAGE) %>%
+    tibble::column_to_rownames() %>%
+    base::data.matrix() %>%
+    S4Vectors::SimpleList() %>%
+    magrittr::set_names("16SrRNA")
+
+# rowData <-
+    dplyr::select(v13_otu, CONSENSUS_LINEAGE) %>%
+    dplyr::mutate(SUPERKINGDOM = "Bacteria") %>%
+    dplyr::mutate(PHYLUM = HMP16SData:::match_clade("p__", CONSENSUS_LINEAGE)) %>%
+    dplyr::mutate(CLASS = HMP16SData:::match_clade("c__", CONSENSUS_LINEAGE)) %>%
+    dplyr::mutate(ORDER = HMP16SData:::match_clade("o__", CONSENSUS_LINEAGE)) %>%
+    dplyr::mutate(FAMILY = HMP16SData:::match_clade("f__", CONSENSUS_LINEAGE)) %>%
+    dplyr::mutate(GENUS = HMP16SData:::match_clade("g__", CONSENSUS_LINEAGE)) %>%
+        .[1:2000,] %>%
+    View()
+    # S4Vectors::DataFrame()
+
+# row_data <-
+#     v13_otu %>%
+#     dplyr::select(CONSENSUS_LINEAGE) %>%
+#     S4Vectors::DataFrame()
+
+# v13_otu %<>%
+#     dplyr::select(-CONSENSUS_LINEAGE)
+
+# assay_data <-
+#     base::colnames(v13_otu) %>%
+#     base::match(v13_map$sample_id, .) %>%
+#     stats::na.exclude() %>%
+#     base::as.integer() %>%
+#     dplyr::select(v13_otu, .) %>%
+#     base::data.matrix()
 
 col_data <-
     base::colnames(assay_data) %>%
@@ -67,8 +105,8 @@ col_data <-
     tibble::column_to_rownames("sample_id") %>%
     S4Vectors::DataFrame()
 
-assay_data %<>%
-    base::list(`16SrRNA` = .)
+# assay_data %<>%
+#     base::list(`16SrRNA` = .)
 
 metadata_data <-
     Biobase::MIAME(name = "Human Microbiome Project Consortium",
@@ -100,7 +138,8 @@ metadata_data <-
                    human microbiome.",
                    url = "https://www.ncbi.nlm.nih.gov/pubmed/22699609",
                    pubMedIds = "22699609") %>%
-    base::list(experimentData = .)
+    base::list() %>%
+    magrittr::set_names("experimentData")
 
 V13 <- SummarizedExperiment::SummarizedExperiment(assays = assay_data,
                                                   colData = col_data,
