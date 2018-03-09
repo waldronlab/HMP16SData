@@ -3,25 +3,38 @@
 \name{V35}
 \alias{V35}
 \title{16S rRNA sequencing data for variable regions 3-5}
-\format{A SummarizedExperiment with 45,383 features and 4,743 samples:
+\format{A SummarizedExperiment with 43,140 features and 2,898 samples:
+\subsection{colData}{
 \describe{
-    \item{random_subject_identifier}{a random subject identifier}
-    \item{visit_number}{visit number, between 1 and 3}
-    \item{sex}{sex, female or male}
-    \item{run_center}{center where sample sequencing took place: Baylor
+    \item{RSID}{a random subject identifier}
+    \item{VISITNO}{visit number, between 1 and 3}
+    \item{SEX}{sex, female or male}
+    \item{RUN_CENTER}{center where sample sequencing took place: Baylor
     College of Medicine (BCM), the Broad Institute (BI), the J. Craig Venter
     Institute (JCVI), or the Genome Sequencing Center at Washington
     University (WUGC)}
-    \item{hmp_body_subsite}{body subsite where sample was collected}
-    \item{description}{long description providing a random sample ID number,
-    a random subject ID number, and sex}
-    \item{consensus_lineage}{the most detailed lineage description shared by
+    \item{HMP_BODY_SUBSITE}{body subsite where sample was collected}
+}
+}
+\subsection{rowData}{
+\describe{
+    \item{CONSENSUS_LINEAGE}{the most detailed lineage description shared by
     the sequences within an OTU}
+    \item{SUPERKINGDOM}{Description}
+    \item{PHYLUM}{Description}
+    \item{CLASS}{Description}
+    \item{ORDER}{Description}
+    \item{FAMILY}{Description}
+    \item{GENUS}{Description}
+}
 }}
 \source{
 \url{http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v35.txt.gz}
 
 \url{http://downloads.ihmpdcc.org/data/HMQCP/v35_map_uniquebyPSN.txt.bz2}
+}
+\usage{
+V13(metadata = FALSE)
 }
 \arguments{
 \item{metadata}{logical; if TRUE only the metadata is downloaded, rather than

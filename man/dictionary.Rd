@@ -4,10 +4,10 @@
 \name{dictionary}
 \alias{dictionary}
 \title{A data dictionary describing dbGaP metadata variables}
-\format{A data.frame with 787 rows and 8 variables:
+\format{A \code{data.frame} with 789 rows and 8 variables:
 \describe{
-  \item{Variable}{the name of the variable as it appears in the
-  SummarizedExperiment objects}
+  \item{Variable}{the name of the variable as it appears in
+  \code{\link[SummarizedExperiment]{SummarizedExperiment}} objects}
   \item{Description}{a description of the variable}
   \item{Type}{the type of variable, as specified by dbGaP}
   \item{Units}{the units of the variable (e.g. days)}
@@ -35,7 +35,6 @@ dictionary files.
 }
 \examples{
 data("dictionary")
-
 }
 \seealso{
 \code{\link{attach_dbGaP}}

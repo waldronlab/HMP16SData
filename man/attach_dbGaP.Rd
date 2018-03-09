@@ -7,18 +7,26 @@
 attach_dbGaP(x, dbGaP_repository_key = "")
 }
 \arguments{
-\item{x}{a SummarizedExperiment object from the HMP16SData package}
+\item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+from the \code{\link{HMP16SData}} package}
 
-\item{dbGaP_repository_key}{a repository key downloaded from dbGaP}
+\item{dbGaP_repository_key}{A repository key downloaded from dbGaP}
 }
 \value{
-a SummarizedExperiment object with protected metadata from dbGaP
+A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+with protected metadata from dbGaP
 }
 \description{
-Attach dbGaP metadata to HMP16SData SummarizedExperiment objects
+Description
+}
+\note{
+Note
 }
 \examples{
-\dontrun{V13() \%>\% attach_dbGaP("~/prj_12146.ngc")}
+\dontrun{
+V13() \%>\%
+    attach_dbGaP("~/prj_12146.ngc")
+}
 
 }
 \seealso{

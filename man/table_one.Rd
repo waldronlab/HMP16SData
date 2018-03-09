@@ -20,13 +20,14 @@ table_one(x, visit_number = TRUE, sex = TRUE, run_center = FALSE,
 included}
 }
 \value{
-a tidy data.frame with one sample observation per row ready to be
-summarized
+a tidy \code{data.frame} with one sample observation per row ready to
+be summarized
 }
 \description{
 Produce a data.frame of categorical variables that can be summarized
 }
 \examples{
-V35() \%>\% table_one()
+V35() \%>\%
+    table_one()
 
 }

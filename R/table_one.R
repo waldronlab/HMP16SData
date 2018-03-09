@@ -7,15 +7,18 @@
 #' @param hmp_body_subsite logical indicating if hmp_body_subsite should be
 #' included
 #'
-#' @return a tidy data.frame with one sample observation per row ready to be
-#' summarized
+#' @return a tidy \code{data.frame} with one sample observation per row ready to
+#' be summarized
 #' @export
 #'
-#' @examples V35() %>% table_one()
+#' @examples
+#' V35() %>%
+#'     table_one()
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom SummarizedExperiment colData
 #' @importFrom magrittr %>%
+#' @importFrom S4Vectors as.data.frame
 #' @importFrom dplyr select
 #' @importFrom dplyr mutate
 #' @importFrom dplyr case_when
@@ -54,10 +57,19 @@ table_one <- function(x, visit_number = TRUE, sex = TRUE, run_center = FALSE,
     if (run_center) {
         x %<>%
             mutate(run_center = gsub("0", "Missing", run_center)) %>%
-            mutate(run_center = gsub("BCM", "Baylor College of Medicine", run_center)) %>%
+            mutate(run_center =
+                       gsub("BCM", "Baylor College of Medicine", run_center)
+                   ) %>%
             mutate(run_center = gsub("BI", "Broad Institute", run_center)) %>%
-            mutate(run_center = gsub("JCVI", "J. Craig Venter Institute", run_center)) %>%
-            mutate(run_center = gsub("WUGC", "Genome Sequencing Center at Washington University", run_center)) %>%
+            mutate(run_center =
+                       gsub("JCVI", "J. Craig Venter Institute", run_center)
+                   ) %>%
+            mutate(run_center =
+                       gsub(
+                           "WUGC",
+                           "Genome Sequencing Center at Washington University",
+                           run_center)
+                   ) %>%
             mutate(run_center = gsub(",", "/", run_center)) %>%
             rename(institution = run_center)
     } else {

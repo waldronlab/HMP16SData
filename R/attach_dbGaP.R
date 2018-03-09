@@ -1,14 +1,25 @@
 #' Attach dbGaP metadata to HMP16SData SummarizedExperiment objects
 #'
-#' @param x a SummarizedExperiment object from the HMP16SData package
-#' @param dbGaP_repository_key a repository key downloaded from dbGaP
+#' Description
 #'
-#' @return a SummarizedExperiment object with protected metadata from dbGaP
+#' @param x A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+#' from the \code{\link{HMP16SData}} package
+#' @param dbGaP_repository_key A repository key downloaded from dbGaP
+#'
+#' @return A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+#' with protected metadata from dbGaP
 #' @export
 #'
-#' @examples \dontrun{V13() %>% attach_dbGaP("~/prj_12146.ngc")}
+#' @note
+#' Note
 #'
 #' @seealso \code{\link{dictionary}}
+#'
+#' @examples
+#' \dontrun{
+#' V13() %>%
+#'     attach_dbGaP("~/prj_12146.ngc")
+#' }
 #'
 #' @importFrom assertthat is.readable
 #' @importFrom assertthat has_extension
@@ -35,7 +46,7 @@ attach_dbGaP <- function(x, dbGaP_repository_key = "") {
     getwd() %>%
         download_dbGaP(dbGaP_repository_key)
 
-    is.dir("~/ncbi/dbGaP-12146/files")
+    is.dir(paths$files_directory_path)
 
     read_dbGaP() %>%
         join_colData(x) %>%

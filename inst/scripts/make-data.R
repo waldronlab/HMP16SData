@@ -33,8 +33,8 @@
 # http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v35.txt.gz). All this,
 # just to say that for complete reproducibility it would be necessary to use the
 # files exactly as they are in inst/extdata, if a reproduction of this work was
-# attempted. Basically, files were downloaded some time ago and placed in
-# inst/extdata.
+# attempted. Basically, files were downloaded some time ago and then placed in
+# the inst/extdata directory.
 #
 # II. Processing Data
 # ==============================================================================

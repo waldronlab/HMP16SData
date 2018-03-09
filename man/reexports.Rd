@@ -6,7 +6,8 @@
 \alias{\%>\%}
 \title{Objects exported from other packages}
 \examples{
-V13() \%>\% colData()
+V13() \%>\%
+    colData()
 
 }
 \keyword{internal}

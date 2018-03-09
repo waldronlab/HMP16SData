@@ -1,6 +1,8 @@
 #' @export
 #'
-#' @examples V13() %>% colData()
+#' @examples
+#' V13() %>%
+#'     colData()
 #'
 #' @importFrom magrittr %>%
 magrittr::`%>%`

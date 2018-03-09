@@ -1,8 +1,8 @@
+#' @keywords internal
+#'
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%
 #' @importFrom magrittr extract
-#'
-#' @keywords internal
 match_clade <- function(text, pattern) {
     text %<>%
         strsplit(";") %>%

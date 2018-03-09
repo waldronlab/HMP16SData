@@ -2,20 +2,22 @@
 % Please edit documentation in R/as_phyloseq.R
 \name{as_phyloseq}
 \alias{as_phyloseq}
-\title{Coerce a SummarizedExperiment class object to a phyloseq class object}
+\title{Coerce a SummarizedExperiment object to a phyloseq object}
 \usage{
 as_phyloseq(x)
 }
 \arguments{
-\item{x}{a SummarizedExperiment object from the HMP16SData package}
+\item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+from the \code{\link{HMP16SData}} package}
 }
 \value{
-a phyloseq object
+A \code{\link[phyloseq]{phyloseq-class}} class object
 }
 \description{
-Coerce a SummarizedExperiment class object to a phyloseq class object
+Description
 }
 \examples{
-V13() \%>\% as_phyloseq()
+V13() \%>\%
+    as_phyloseq()
 
 }

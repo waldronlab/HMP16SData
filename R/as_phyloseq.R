@@ -1,19 +1,24 @@
-#' Coerce a SummarizedExperiment class object to a phyloseq class object
+#' Coerce a SummarizedExperiment object to a phyloseq object
 #'
-#' @param x a SummarizedExperiment object from the HMP16SData package
+#' Description
 #'
-#' @return a phyloseq object
+#' @param x A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+#' from the \code{\link{HMP16SData}} package
+#'
+#' @return A \code{\link[phyloseq]{phyloseq-class}} class object
 #' @export
 #'
-#' @examples V13() %>% as_phyloseq()
+#' @examples
+#' V13() %>%
+#'     as_phyloseq()
 #'
 #' @importFrom assertthat see_if
 #' @importFrom SummarizedExperiment assay
 #' @importFrom magrittr %>%
-# @importFrom SummarizedExperiment colData
-# @importFrom S4Vectors as.data.frame
-# @importFrom SummarizedExperiment rowData
-# @importFrom S4Vectors as.matrix
+#' @importFrom SummarizedExperiment colData
+#' @importFrom S4Vectors as.data.frame
+#' @importFrom SummarizedExperiment rowData
+#' @importFrom S4Vectors as.matrix
 #' @importFrom magrittr set_rownames
 as_phyloseq <- function(x) {
     see_if(class(x) == "SummarizedExperiment")

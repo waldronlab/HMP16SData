@@ -4,10 +4,10 @@
 #' \code{\link{attach_dbGaP}} function, as translated from NCBI XLM data
 #' dictionary files.
 #'
-#' @format A data.frame with 787 rows and 8 variables:
+#' @format A \code{data.frame} with 789 rows and 8 variables:
 #' \describe{
 #'   \item{Variable}{the name of the variable as it appears in
-#'   SummarizedExperiment objects}
+#'   \code{\link[SummarizedExperiment]{SummarizedExperiment}} objects}
 #'   \item{Description}{a description of the variable}
 #'   \item{Type}{the type of variable, as specified by dbGaP}
 #'   \item{Units}{the units of the variable (e.g. days)}
@@ -26,7 +26,8 @@
 #' \url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht002158.v1.EMMES_HMP_DEM_ENR.data_dict.xml}
 #' \url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht002156.v1.EMMES_HMP_DSU.data_dict.xml}
 #'
-#' @examples data("dictionary")
-#'
 #' @seealso \code{\link{attach_dbGaP}}
+#'
+#' @examples
+#' data("dictionary")
 "dictionary"

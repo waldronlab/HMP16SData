@@ -10,7 +10,7 @@ download_dbGaP <- function(working_directory, dbGaP_repository_key) {
         paste("prefetch", .) %>%
         system()
 
-    setwd("~/ncbi/dbGaP-12146/")
+    setwd(paths$dbGaP_directory_path)
 
     system("vdb-decrypt files/")
 
