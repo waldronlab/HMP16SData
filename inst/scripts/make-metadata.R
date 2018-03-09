@@ -75,7 +75,7 @@ RDataPath <-
     base::dir("data") %>%
     base::paste("HMP16Sdata", ., sep = "/")
 
-if(file.exists("inst/extdata/metadata.csv")) {
+if (file.exists("inst/extdata/metadata.csv")) {
     old_metadata <- utils::read.csv("inst/extdata/metadata.csv")
 
     new_metadata <- base::data.frame(Title, Description, BiocVersion, Genome,
@@ -94,4 +94,3 @@ if(file.exists("inst/extdata/metadata.csv")) {
                      DispatchClass, RDataPath) %>%
     utils::write.csv("inst/extdata/metadata.csv", row.names = FALSE)
 }
-

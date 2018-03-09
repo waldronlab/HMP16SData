@@ -50,4 +50,3 @@ source("data-raw/V35.R")
 # directory. These are then ready for upload to an ExperimentHub AWS S3 bucket.
 # Finally, the metadata.csv file necessary for ExperimentHub resources is made
 # as outlined in make-metadata.csv.
-

@@ -14,14 +14,14 @@
 #' @importFrom assertthat has_extension
 #' @importFrom magrittr %>%
 #' @importFrom assertthat is.dir
-attach_dbGaP <- function(x, dbGaP_repository_key) {
+attach_dbGaP <- function(x, dbGaP_repository_key = "") {
     is.readable(dbGaP_repository_key)
 
     has_extension(dbGaP_repository_key, "ngc")
 
     Sys.which("vdb-config") %>%
         nchar() %>%
-        if(. == 0) {
+        if (. == 0) {
             stop("Ensure NCBI SRA Toolkit is installed and on your PATH. \n\n",
                  "macOS: \n\t",
                  "brew install sratoolkit \n",
@@ -41,4 +41,3 @@ attach_dbGaP <- function(x, dbGaP_repository_key) {
         join_colData(x) %>%
         replace_colData(x)
 }
-

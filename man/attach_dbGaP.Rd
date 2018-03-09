@@ -4,7 +4,7 @@
 \alias{attach_dbGaP}
 \title{Attach dbGaP metadata to HMP16SData SummarizedExperiment objects}
 \usage{
-attach_dbGaP(x, dbGaP_repository_key)
+attach_dbGaP(x, dbGaP_repository_key = "")
 }
 \arguments{
 \item{x}{a SummarizedExperiment object from the HMP16SData package}

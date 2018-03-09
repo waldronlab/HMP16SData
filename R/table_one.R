@@ -29,7 +29,7 @@ table_one <- function(x, visit_number = TRUE, sex = TRUE, run_center = FALSE,
         as.data.frame() %>%
         select(visit_number, sex, run_center, hmp_body_subsite)
 
-    if(visit_number) {
+    if (visit_number) {
         x %<>%
             mutate(
                 visit_number = case_when(
@@ -43,7 +43,7 @@ table_one <- function(x, visit_number = TRUE, sex = TRUE, run_center = FALSE,
             select(-visit_number)
     }
 
-    if(sex) {
+    if (sex) {
         x %<>%
             mutate(sex = toTitleCase(sex))
     } else {
@@ -51,7 +51,7 @@ table_one <- function(x, visit_number = TRUE, sex = TRUE, run_center = FALSE,
             select(-sex)
     }
 
-    if(run_center) {
+    if (run_center) {
         x %<>%
             mutate(run_center = gsub("0", "Missing", run_center)) %>%
             mutate(run_center = gsub("BCM", "Baylor College of Medicine", run_center)) %>%
@@ -65,7 +65,7 @@ table_one <- function(x, visit_number = TRUE, sex = TRUE, run_center = FALSE,
             select(-run_center)
     }
 
-    if(hmp_body_subsite) {
+    if (hmp_body_subsite) {
         x %<>%
             mutate(hmp_body_subsite = gsub("_", " ", hmp_body_subsite)) %>%
             mutate(hmp_body_subsite = toTitleCase(hmp_body_subsite)) %>%

@@ -10,7 +10,7 @@ to_ncbi <- function(x) {
         gsub("(.+)\\|", "", .) %>%
         gnr_resolve(fields = "all")
 
-    if(nrow(taxize_data) == 0){
+    if (nrow(taxize_data) == 0){
         return(NA_character_)
     } else {
         taxize_data %>%
