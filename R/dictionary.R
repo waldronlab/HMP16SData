@@ -6,7 +6,7 @@
 #'
 #' @format A data.frame with 787 rows and 8 variables:
 #' \describe{
-#'   \item{Variable}{the name of the variable as it appears in the
+#'   \item{Variable}{the name of the variable as it appears in
 #'   SummarizedExperiment objects}
 #'   \item{Description}{a description of the variable}
 #'   \item{Type}{the type of variable, as specified by dbGaP}

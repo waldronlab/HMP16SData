@@ -215,3 +215,10 @@ kable_one(V13, V35)
 
 Data from variable regions 1–3 and 3–5 are not comparable to everything, be 
 careful with assumptions and conduct analysis that is methodologically sound.
+
+# Session Information
+
+```{r}
+sessionInfo()
+```
+

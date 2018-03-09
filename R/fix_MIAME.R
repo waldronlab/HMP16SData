@@ -12,5 +12,6 @@ fix_MIAME <- function(x) {
                 gsub(pattern = "\\s+", replacement = " ", .)
         }
     }
+
     x
 }

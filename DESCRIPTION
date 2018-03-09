@@ -44,6 +44,7 @@ Suggests:
     phyloseq,
     rmarkdown,
     roxygen2,
+    stats,
     testthat
 biocViews:
     Homo_sapiens_Data,
