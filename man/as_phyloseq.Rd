@@ -16,6 +16,6 @@ a phyloseq object
 Coerce a SummarizedExperiment class object to a phyloseq class object
 }
 \examples{
-V13() \%>\% as.phyloseq()
+V13() \%>\% as_phyloseq()
 
 }

@@ -5,10 +5,10 @@
 #' @return a phyloseq object
 #' @export
 #'
-#' @examples V13() %>% as.phyloseq()
+#' @examples V13() %>% as_phyloseq()
 #'
 #' @importFrom assertthat see_if
-# @importFrom SummarizedExperiment assay
+#' @importFrom SummarizedExperiment assay
 #' @importFrom magrittr %>%
 # @importFrom SummarizedExperiment colData
 # @importFrom S4Vectors as.data.frame

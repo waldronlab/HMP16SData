@@ -133,7 +133,7 @@ translation of many identifiers will take a long time.
 The following example translates the identifiers of the 4th row only, then returns
 the new `rowData`:
 
-```{r}
+```{r, eval=FALSE}
 V13_stool[4, ] %>%
     translate_identifiers() %>%
     rowData()
@@ -143,15 +143,15 @@ V13_stool[4, ] %>%
 
 Data from the HMP study is likely useful as a comparison or control group, a 
 _"standard candle"_ of sorts, in the context of other human microbiome studies.
-As such, `r BiocStyle::Biocpkg("HMP16SData")` provides a method, `as.phyloseq`,
+As such, `r BiocStyle::Biocpkg("HMP16SData")` provides a method, `as_phyloseq`,
 to coerce `SummarizedExperiment` class objects to `phyloseq` class objects. The
 `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of 
 methods to analyze microbiome data and many potential comparisons could be made.
 
-```{r, message=FALSE}
+```{r, eval=FALSE}
 V13_stool_phyloseq <-
     V13_stool %>%
-    as.phyloseq()
+    as_phyloseq()
 ```
 
 When plotting `phyloseq` objects it is necessary to remove taxa that sum to zero
@@ -160,7 +160,7 @@ When plotting `phyloseq` objects it is necessary to remove taxa that sum to zero
 do so – allowing piping between functions. See the 
 `r BiocStyle::CRANpkg("magrittr")` vignette for more information.
 
-```{r}
+```{r, eval=FALSE}
 V13_stool_phyloseq %<>%
     taxa_sums() %>% 
     is_greater_than(0) %>%
@@ -171,7 +171,7 @@ With zero-abundance taxa now pruned, exploratory plots can easily be made. For
 example, a plot of three alpha diversity measures can be made in three lines.
 This concept could be extended to compare and external dataset.
 
-```{r}
+```{r, eval=FALSE}
 richness_measures <-
     c("Observed", "Shannon", "Simpson")
     
@@ -183,7 +183,7 @@ V13_stool_phyloseq %>%
 Again, `r BiocStyle::Biocpkg("phyloseq")` provides excellent plots with little
 effort and the concept could be extended to compare an external dataset.
 
-```{r}
+```{r, eval=FALSE}
 V13_stool_phyloseq %>%
     plot_net(color = "sex")
 ```

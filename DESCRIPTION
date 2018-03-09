@@ -27,10 +27,8 @@ Imports:
     ExperimentHub,
     magrittr,
     methods,
-    pbapply,
     readr,
     S4Vectors,
-    taxize,
     tibble,
     tools,
     utils
