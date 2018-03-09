@@ -37,6 +37,7 @@ v13_map_col_types <-
         .default = "-"
     )
 
+# warnings are expected, see https://github.com/tidyverse/readr/issues/750
 v13_map <- readr::read_tsv("inst/extdata/v13_map_uniquebyPSN.txt.bz2",
                            col_types = v13_map_col_types, skip = 0,
                            progress = FALSE)
@@ -67,15 +68,20 @@ assays <-
     base::data.matrix() %>%
     S4Vectors::SimpleList() %>%
     magrittr::set_names("16SrRNA")
-# TODO: set rownames for rowData
+
 rowData <-
     dplyr::select(v13_otu, CONSENSUS_LINEAGE) %>%
     dplyr::mutate(SUPERKINGDOM = "Bacteria") %>%
-    dplyr::mutate(PHYLUM = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "p__")) %>%
-    dplyr::mutate(CLASS = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "c__")) %>%
-    dplyr::mutate(ORDER = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "o__")) %>%
-    dplyr::mutate(FAMILY = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "f__")) %>%
-    dplyr::mutate(GENUS = base::sapply(CONSENSUS_LINEAGE, HMP16SData:::match_clade, "g__")) %>%
+    dplyr::mutate(PHYLUM = base::sapply(CONSENSUS_LINEAGE,
+                                        HMP16SData:::match_clade, "p__")) %>%
+    dplyr::mutate(CLASS = base::sapply(CONSENSUS_LINEAGE,
+                                       HMP16SData:::match_clade, "c__")) %>%
+    dplyr::mutate(ORDER = base::sapply(CONSENSUS_LINEAGE,
+                                       HMP16SData:::match_clade, "o__")) %>%
+    dplyr::mutate(FAMILY = base::sapply(CONSENSUS_LINEAGE,
+                                        HMP16SData:::match_clade, "f__")) %>%
+    dplyr::mutate(GENUS = base::sapply(CONSENSUS_LINEAGE,
+                                       HMP16SData:::match_clade, "g__")) %>%
     S4Vectors::DataFrame()
 
 colData <-
@@ -117,6 +123,7 @@ metadata <-
                    human microbiome.",
                    url = "https://www.ncbi.nlm.nih.gov/pubmed/22699609",
                    pubMedIds = "22699609") %>%
+    HMP16SData:::fix_MIAME() %>%
     base::list() %>%
     magrittr::set_names("experimentData")
 
