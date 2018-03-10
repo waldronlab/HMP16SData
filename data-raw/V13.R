@@ -69,6 +69,15 @@ assays <-
     S4Vectors::SimpleList() %>%
     magrittr::set_names("16SrRNA")
 
+colData <-
+    base::colnames(v13_otu) %>%
+    base::match(v13_map$rowname) %>%
+    stats::na.exclude() %>%
+    base::as.integer() %>%
+    dplyr::slice(v13_map, .) %>%
+    dplyr::select(-rowname) %>%
+    S4Vectors::DataFrame()
+
 rowData <-
     dplyr::select(v13_otu, CONSENSUS_LINEAGE) %>%
     dplyr::mutate(SUPERKINGDOM = "Bacteria") %>%
@@ -82,15 +91,6 @@ rowData <-
                                         HMP16SData:::match_clade, "f__")) %>%
     dplyr::mutate(GENUS = base::sapply(CONSENSUS_LINEAGE,
                                        HMP16SData:::match_clade, "g__")) %>%
-    S4Vectors::DataFrame()
-
-colData <-
-    base::colnames(v13_otu) %>%
-    base::match(v13_map$rowname) %>%
-    stats::na.exclude() %>%
-    base::as.integer() %>%
-    dplyr::slice(v13_map, .) %>%
-    dplyr::select(-rowname) %>%
     S4Vectors::DataFrame()
 
 metadata <-
