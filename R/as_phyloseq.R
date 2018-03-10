@@ -8,11 +8,11 @@
 #' @return A \code{\link[phyloseq]{phyloseq-class}} class object
 #' @export
 #'
-#' @examples
-#' V13() %>%
-#'     as_phyloseq()
+# @examples
+# V13() %>%
+#     as_phyloseq()
 #'
-#' @importFrom assertthat see_if
+#' @importFrom assertthat assert_that
 #' @importFrom SummarizedExperiment assay
 #' @importFrom magrittr %>%
 #' @importFrom SummarizedExperiment colData
@@ -21,7 +21,7 @@
 #' @importFrom S4Vectors as.matrix
 #' @importFrom magrittr set_rownames
 as_phyloseq <- function(x) {
-    see_if(class(x) == "SummarizedExperiment")
+    assert_that(class(x) == "SummarizedExperiment")
 
     if (!requireNamespace("phyloseq")) {
         stop("Please install the 'phyloseq' package to make phyloseq objects")
@@ -43,7 +43,7 @@ as_phyloseq <- function(x) {
 
     tax_table <-
         rownames(otu_table) %>%
-        set_rownames(tax_table, .) %>%
+        set_rownames(tax_table, value = .) %>%
         phyloseq::tax_table()
 
     phyloseq::phyloseq(otu_table, sample_data, tax_table)

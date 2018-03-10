@@ -37,7 +37,6 @@ Suggests:
     BiocCheck,
     BiocInstaller,
     BiocStyle,
-    curatedMetagenomicData,
     devtools,
     ggplot2,
     knitr,

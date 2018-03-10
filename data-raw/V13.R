@@ -4,7 +4,7 @@ if (!require("magrittr", character.only = TRUE)) {
 }
 
 base::read.dcf("DESCRIPTION", "Suggests") %>%
-    base::gsub("\n", "", .) %>%
+    base::gsub("\n", "", x = .) %>%
     base::strsplit(",") %>%
     base::unlist() %>%
     for (i in .) {
@@ -44,7 +44,7 @@ v13_map <- readr::read_tsv("inst/extdata/v13_map_uniquebyPSN.txt.bz2",
 
 v13_otu %<>%
     base::colnames() %>%
-    base::match(v13_map$`#SampleID`, .) %>%
+    base::match(v13_map$`#SampleID`, table = .) %>%
     stats::na.exclude() %>%
     base::as.integer() %>%
     dplyr::select(v13_otu, `#OTU ID`, `Consensus Lineage`, .) %>%

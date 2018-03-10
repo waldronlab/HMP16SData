@@ -1,8 +1,4 @@
 #' @keywords internal
-#'
-#' @importFrom utils globalVariables
-globalVariables("paths")
-
 paths <- new.env()
 
 paths$home_directory <- Sys.getenv("HOME")

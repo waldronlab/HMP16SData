@@ -9,11 +9,11 @@ match_clade <- function(text, pattern) {
         unlist()
 
     text %>%
-        grepl(pattern, .) %>%
+        grepl(pattern, x = .) %>%
         extract(text, .) %>%
-        sub(pattern, "", .) %>%
-        gsub("\\.", "\\. ", .) %>%
-        gsub("([[:lower:]])([[:upper:]])", "\\1 \\2", .) %>%
+        sub(pattern, "", x = .) %>%
+        gsub("\\.", "\\. ", x = .) %>%
+        gsub("([[:lower:]])([[:upper:]])", "\\1 \\2", x = .) %>%
         ifelse(length(.) == 0, NA_character_, .) %>%
         ifelse(nchar(.) == 0, NA_character_, .)
 }

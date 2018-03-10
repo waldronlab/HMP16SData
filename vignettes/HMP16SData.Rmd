@@ -105,7 +105,8 @@ second argument, and returns another `SummarizedExperiment` also containing the
 protected metadata. For example:
 
 ```{r, eval=FALSE}
-V13_stool_protected <- V13_stool %>%
+V13_stool_protected <- 
+    V13_stool %>%
     attach_dbGaP("~/prj_12146.ngc")
 ```
 
@@ -114,29 +115,6 @@ the colData. All open and protected metadata are returned by:
 
 ```{r, eval=FALSE}
 colData(V13_stool_protected)
-```
-
-## Taxonomic Identifier Translation
-
-`r BiocStyle::Biocpkg("HMP16SData")` provides methods to translate 
-taxonomic identifiers to NCBI taxonomy standard. Like `attach_dbGaP`, the `translate_identifiers` 
-function is endomorphic, taking and returning a `SummarizedExperiment` object. A
-column, `ncbi_taxonomy`, is added to `rowData` with the following syntax:
-n__NCBI Taxonomy ID, pk__superkingdom, k__kingdom, bk__subkingdom, p__phylum,
-bp__subphylum, c__class, o__order, f__family, g__genus, s__species. Taxonomic
-levels are pipe delimited and represented as a character string. Translation of
-a single identifier is shown below for the purpose of brevity, but many
-identifiers could be translated. Just be aware that translation of taxonomic
-identifiers uses the Global Names Recognition and Discovery API and the
-translation of many identifiers will take a long time.
-
-The following example translates the identifiers of the 4th row only, then returns
-the new `rowData`:
-
-```{r, eval=FALSE}
-V13_stool[4, ] %>%
-    translate_identifiers() %>%
-    rowData()
 ```
 
 ## External Data Comparison

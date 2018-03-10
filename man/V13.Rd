@@ -40,6 +40,9 @@ V13(metadata = FALSE)
 \item{metadata}{logical; if TRUE only the metadata is downloaded, rather than
 the entire resource}
 }
+\value{
+A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+}
 \description{
 16S rRNA sequencing was performed on samples collected at five major body
 sites from 300 healthy adults between the ages of 18 and 40

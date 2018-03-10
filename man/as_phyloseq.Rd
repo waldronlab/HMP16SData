@@ -16,8 +16,3 @@ A \code{\link[phyloseq]{phyloseq-class}} class object
 \description{
 Description
 }
-\examples{
-V13() \%>\%
-    as_phyloseq()
-
-}

@@ -21,15 +21,13 @@
 #'     attach_dbGaP("~/prj_12146.ngc")
 #' }
 #'
+#' @importFrom assertthat is.dir
+#' @importFrom assertthat assert_that
 #' @importFrom assertthat is.readable
 #' @importFrom assertthat has_extension
 #' @importFrom magrittr %>%
-#' @importFrom assertthat is.dir
+#' @importFrom SummarizedExperiment colData<-
 attach_dbGaP <- function(x, dbGaP_repository_key = "") {
-    is.readable(dbGaP_repository_key)
-
-    has_extension(dbGaP_repository_key, "ngc")
-
     Sys.which("vdb-config") %>%
         nchar() %>%
         if (. == 0) {
@@ -43,12 +41,17 @@ attach_dbGaP <- function(x, dbGaP_repository_key = "") {
                  call. = FALSE)
         }
 
-    getwd() %>%
-        download_dbGaP(dbGaP_repository_key)
+    if (!is.dir(paths$files_directory_path)) {
+        assert_that(is.readable(dbGaP_repository_key))
+        assert_that(has_extension(dbGaP_repository_key, "ngc"))
 
-    is.dir(paths$files_directory_path)
+        getwd() %>%
+            download_dbGaP(dbGaP_repository_key)
+    }
 
-    read_dbGaP() %>%
-        join_colData(x) %>%
-        replace_colData(x)
+    colData(x) <-
+        read_dbGaP() %>%
+        join_colData(x)
+
+    x
 }

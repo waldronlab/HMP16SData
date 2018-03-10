@@ -1,6 +1,6 @@
-#' @importFrom magrittr %>%
-#'
 #' @keywords internal
+#'
+#' @importFrom magrittr %>%
 download_dbGaP <- function(working_directory, dbGaP_repository_key) {
     paste("vdb-config --import", dbGaP_repository_key) %>%
         system()

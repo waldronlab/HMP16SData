@@ -8,6 +8,8 @@
 #' @param metadata logical; if TRUE only the metadata is downloaded, rather than
 #' the entire resource
 #'
+#' @return A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+#'
 #' @format A SummarizedExperiment with 43,140 features and 2,898 samples:
 #' \subsection{colData}{
 #'     \describe{

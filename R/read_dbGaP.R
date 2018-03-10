@@ -3,8 +3,6 @@
 #' @importFrom magrittr %>%
 #' @importFrom readr read_tsv
 #' @importFrom dplyr full_join
-#' @importFrom dplyr select
-#' @importFrom dplyr everything
 read_dbGaP <- function() {
     list(paths$EMMES_HMP_Sample_file_path,
          paths$EMMES_HMP_GTV_file_path,
@@ -13,7 +11,6 @@ read_dbGaP <- function() {
          paths$EMMES_HMP_Subject_file_path,
          paths$EMMES_HMP_DEM_ENR_file_path,
          paths$EMMES_HMP_DSU_file_path) %>%
-        sapply(read_tsv, skip = 10) %>%
-        Reduce(full_join, .) %>%
-        select(SN, everything())
+        lapply(read_tsv, skip = 10) %>%
+        Reduce(full_join, x = .)
 }
