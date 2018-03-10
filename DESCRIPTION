@@ -40,7 +40,6 @@ Suggests:
     devtools,
     ggplot2,
     knitr,
-    lintr,
     phyloseq,
     rmarkdown,
     roxygen2,
