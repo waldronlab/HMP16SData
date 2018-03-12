@@ -1,9 +1,9 @@
 # I. Downloading Data
 # ==============================================================================
 # Therein lies the problem, the data from the Human Microbiome (HMP) Website,
-# specifically the mapping files for variable regions 1-3 and 3-5, as relates to
+# specifically the mapping files for variable regions 1–3 and 3–5, as relates to
 # data processed through the QIIME pipeline are no longer available. And when
-# they were available, they were not downloaded programatically - could have,
+# they were available, they were not downloaded programatically — could have,
 # should have, would have. Anyway, the files included in the inst/extdata
 # directory are exactly as downloaded from the HMP website but there is no MD5
 # to check against. How about an ASCII high five instead?

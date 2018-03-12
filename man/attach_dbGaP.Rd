@@ -2,7 +2,7 @@
 % Please edit documentation in R/attach_dbGaP.R
 \name{attach_dbGaP}
 \alias{attach_dbGaP}
-\title{Attach dbGaP metadata to HMP16SData SummarizedExperiment objects}
+\title{Attach dbGaP metadata to a SummarizedExperiment object}
 \usage{
 attach_dbGaP(x, dbGaP_repository_key = "")
 }
@@ -10,22 +10,44 @@ attach_dbGaP(x, dbGaP_repository_key = "")
 \item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
 from the \code{\link{HMP16SData}} package}
 
-\item{dbGaP_repository_key}{A repository key downloaded from dbGaP}
+\item{dbGaP_repository_key}{A repository key downloaded from dbGaP; only
+required for the initial download and not needed thereafter}
 }
 \value{
 A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
 with protected metadata from dbGaP
 }
 \description{
-Description
+The National Center for Biotechnology Information (NCBI) database of
+Genotypes and Phenotypes (dbGaP) has extensive metadata pretaining to the HMP
+study. Access to this data is controlled and its use requires authorization
+by the appropriate Data Access Committee – further information is available
+\href{https://tinyurl.com/yb7okvga}{here}. Those with authorization will be
+able to download a dbGaP repository key and can use it to attach the
+controlled-access metadata to a
+\code{\link[SummarizedExperiment]{SummarizedExperiment}} object with a single
+command, provided the NCBI SRA Toolkit is installed and on your \code{PATH}.
+See note below for further information.
 }
 \note{
-Note
+The NCBI SRA Toolkit is called internally and must be on your \code{PATH} or
+an error message will be displayed. The NCBI SRA Toolkit can be readily
+installed on multiple platforms following
+\href{https://tinyurl.com/y845ppaa}{these} instructions or by one of the
+following methods.
+\subsection{Debian/Ubuntu}{
+    Using the \href{https://wiki.debian.org/Apt}{apt} package manager:\cr\cr
+    \code{apt install sra-toolkit}
+}
+\subsection{macOS}{
+    Using the \href{https://brew.sh/}{homebrew} package manager:\cr\cr
+    \code{brew install sratoolkit}
+}
 }
 \examples{
 \dontrun{
 V13() \%>\%
-    attach_dbGaP("~/prj_12146.ngc")
+    attach_dbGaP(dbGaP_repository_key = "~/prj_12146.ngc")
 }
 
 }

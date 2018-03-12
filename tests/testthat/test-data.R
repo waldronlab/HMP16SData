@@ -1,6 +1,9 @@
 context("data")
 
 test_that("data are SummarizedExperiment objects", {
-    expect_s4_class(V13(), "SummarizedExperiment")
-    expect_s4_class(V35(), "SummarizedExperiment")
+    V13() %>%
+        expect_s4_class("SummarizedExperiment")
+
+    V35() %>%
+        expect_s4_class("SummarizedExperiment")
 })

@@ -1,0 +1,790 @@
+VARIABLE,DESCRIPTION,TYPE,UNITS,MINIMUM,MAXIMUM,CODED_VALUES,COMMENT
+dbGaP_Subject_ID,dbGaP assigned subject accession identifier,,,,,,
+dbGaP_Sample_ID,dbGaP assigned sample accession identifier,,,,,,
+BioSample_Accession,BioSample accession number,,,,,,
+RANDSID,Subject ID,Integer ,,,,,
+SAMPLE_USE,Sample use,String ,,,,Seq_DNA_SNP=Whole genome sequencing,
+SAMPLE_USE,Sample use,String ,,,,Seq_DNA_WholeGenome=SNP genotypes derived from sequence data,
+SAMPLE_USE,Sample use,String ,,,,Seq_Metagenomic=Metagenome sequencing,
+SAMPLE_USE,Sample use,String ,,,,Seq_rRNA_16S=16S rRNA sequencing,
+PROT,Protocol,Encoded ,,,,7001 ,
+SITE,Site,String ,,,,11BAY=Houston,
+SITE,Site,String ,,,,92WAU=St. Louis ,
+SITE,Site,String ,,,,92WAU=St. Louis,
+SITE,Site,String ,,,,93BAS=Baylor Sequencing Center,
+SITE,Site,String ,,,,94WAS=Wash. U Sequencing Center,
+SITE,Site,String ,,,,95BIS=Broad Institute Sequencing Center,
+SITE,Site,String ,,,,96CVS=J. Craig Venter Institute Sequencing Center,
+SITE,Site,String ,,,,97COR=Coriell Institute for Medical Research ,
+SITE,Site,Encoded ,,,,11BAY=Houston,
+SITE,Site,Encoded ,,,,92WAU=St. Louis ,
+SITE_C,Site - coded fields,String ,,,,,
+PROTSEG,Protocol Segment,Encoded ,,,,A ,
+study_day,Calculated field based on number of days pre or post subject's day of enrollment/first sampling,Integer ,days ,-9999999999 ,9999999999 ,,
+VISNO,Visit Number,Encoded ,,,,0,
+VISNO,Visit Number,Encoded ,,,,01,
+VISNO,Visit Number,Encoded ,,,,01S,
+VISNO,Visit Number,Encoded ,,,,01T,
+VISNO,Visit Number,Encoded ,,,,02,
+VISNO,Visit Number,Encoded ,,,,02S,
+VISNO,Visit Number,Encoded ,,,,02T,
+VISNO,Visit Number,Encoded ,,,,03,
+VISNO,Visit Number,Encoded ,,,,03S,
+VISNO,Visit Number,Encoded ,,,,03T ,
+VISNO,Visit Number,Encoded ,,,,00,
+ST,Specimen Type,"Integer, encoded value ",,,,DBL=G_DNA_Blood whole,
+ST,Specimen Type,"Integer, encoded value ",,,,D16=G_DNA_Stool,
+ST,Specimen Type,"Integer, encoded value ",,,,D23=G_DNA_Buccal mucosa,
+ST,Specimen Type,"Integer, encoded value ",,,,D22=G_DNA_Hard palate,
+ST,Specimen Type,"Integer, encoded value ",,,,D24=G_DNA_Attached/Keratinized gingiva,
+ST,Specimen Type,"Integer, encoded value ",,,,D25=G_DNA_Palatine Tonsils,
+ST,Specimen Type,"Integer, encoded value ",,,,D14=G_DNA_Saliva,
+ST,Specimen Type,"Integer, encoded value ",,,,D29=G_DNA_Subgingival plaque,
+ST,Specimen Type,"Integer, encoded value ",,,,D28=G_DNA_Supragingival plaque,
+ST,Specimen Type,"Integer, encoded value ",,,,D26=G_DNA_Throat,
+ST,Specimen Type,"Integer, encoded value ",,,,D21=G_DNA_Tongue dorsum,
+ST,Specimen Type,"Integer, encoded value ",,,,D27=G_DNA_Oral combined hard tissue (OCHT),
+ST,Specimen Type,"Integer, encoded value ",,,,D20=G_DNA_Oral combined soft tissue (OCST),
+ST,Specimen Type,"Integer, encoded value ",,,,D35=G_DNA_Anterior nares,
+ST,Specimen Type,"Integer, encoded value ",,,,D32=G_DNA_L_Retroauricular crease,
+ST,Specimen Type,"Integer, encoded value ",,,,D33=G_DNA_R_Antecubital fossa,
+ST,Specimen Type,"Integer, encoded value ",,,,D31=G_DNA_R_Retroauricular crease,
+ST,Specimen Type,"Integer, encoded value ",,,,D30=G_DNA_Skin tissue combined (STC),
+ST,Specimen Type,"Integer, encoded value ",,,,D42=G_DNA_Mid vagina,
+ST,Specimen Type,"Integer, encoded value ",,,,D41=G_DNA_Posterior fornix,
+ST,Specimen Type,"Integer, encoded value ",,,,D43=G_DNA_Vaginal introitus,
+ST,Specimen Type,"Integer, encoded value ",,,,D40=G_DNA_Vaginal tissue combined (VTC),
+ST,Specimen Type,"Integer, encoded value ",,,,D34=G_DNA_L_Antecubital fossa,
+ST,Specimen Type,"Integer, encoded value ",,,,V16=zg_VIR_NA_Stool,
+ST,Specimen Type,"Integer, encoded value ",,,,V14=z05_VIR_NA_Saliva,
+ST,Specimen Type,"Integer, encoded value ",,,,V40=zvc_VIR_NA_Vaginal tissue combined (VTC),
+ST,Specimen Type,"Integer, encoded value ",,,,R16=zg_RNA_Stool,
+ST,Specimen Type,"Integer, encoded value ",,,,WBL=Blood whole,
+ST,Specimen Type,"Integer, encoded value ",,,,002=Blood serum,
+ST,Specimen Type,"Integer, encoded value ",,,,016=primary_g_Stool,
+ST,Specimen Type,"Integer, encoded value ",,,,023=primary_o_Buccal mucosa (BUCC),
+ST,Specimen Type,"Integer, encoded value ",,,,022=primary_o_Hard palate (HPAL),
+ST,Specimen Type,"Integer, encoded value ",,,,024=primary_o_Attached/Keratinized gingiva (GING),
+ST,Specimen Type,"Integer, encoded value ",,,,025=primary_o_Palatine Tonsils(PTON),
+ST,Specimen Type,"Integer, encoded value ",,,,014=primary_o_Saliva (SAL),
+ST,Specimen Type,"Integer, encoded value ",,,,029=primary_o_Subgingival plaque(SUB),
+ST,Specimen Type,"Integer, encoded value ",,,,028=primary_o_Supragingival plaque (SUPRA),
+ST,Specimen Type,"Integer, encoded value ",,,,026=primary_o_Throat(THRO),
+ST,Specimen Type,"Integer, encoded value ",,,,021=primary_o_Tongue dorsum (TONG),
+ST,Specimen Type,"Integer, encoded value ",,,,027=primary_o1_Oral combined hard tissue (OCHT),
+ST,Specimen Type,"Integer, encoded value ",,,,020=primary_o2_Oral combined soft tissue (OCST),
+ST,Specimen Type,"Integer, encoded value ",,,,035=primary_s_Anterior nares (NASAL),
+ST,Specimen Type,"Integer, encoded value ",,,,034=primary_s_L_Antecubital fossa (ACF_L),
+ST,Specimen Type,"Integer, encoded value ",,,,032=primary_s_L_Retroauricular crease (RAC_L),
+ST,Specimen Type,"Integer, encoded value ",,,,033=primary_s_R_Antecubital fossa (ACF_R),
+ST,Specimen Type,"Integer, encoded value ",,,,031=primary_s_R_Retroauricular crease (RAC_R),
+ST,Specimen Type,"Integer, encoded value ",,,,030=primary_s1_ Skin combined tissue (STC),
+ST,Specimen Type,"Integer, encoded value ",,,,042=primary_v_Mid vagina (MIDVAG),
+ST,Specimen Type,"Integer, encoded value ",,,,041=primary_v_Posterior fornix (PFORN),
+ST,Specimen Type,"Integer, encoded value ",,,,043=primary_v_Vaginal introitus (INTRO),
+ST,Specimen Type,"Integer, encoded value ",,,,040=primary_v1_Vaginal combined tissue (VCT) ,
+ST_C,Specimen Type - coded fields,String ,,,,,
+SNPRNT,Parent EMMES Specimen Barcode ID,Integer ,,,,,
+EXTMTHOD,Nucleic acid extraction method,"Integer, encoded value ",,1 ,3 ,01=MoBio Powersoil with MoBio collection fluid,
+EXTMTHOD,Nucleic acid extraction method,"Integer, encoded value ",,1 ,3 ,02=MoBio Powersoil with SCF-1 collection fluid,
+EXTMTHOD,Nucleic acid extraction method,"Integer, encoded value ",,1 ,3 ,03=MoBio Biostic ,
+EXTMTHOD_C,Nucleic acid extraction method - coded fields,String ,,,,,
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,01=Didn't go to school,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,02=Grade School (1-4 years),
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,03=Grade School (5-8 years),
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,04=Some high school (9-11 years),
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,05=High school diploma or G.E.D.,
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,06=Vocational or training school,
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,07=Some college or Associate Degree,
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,08=College graduate or Baccalaureate Degree,
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,09=some college or professional school,
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,10=Master's Degree,
+DVDEDLVL,Highest grade of schooling finished,"Integer, encoded value ",,1 ,11 ,"11=Doctoral Degree (Ph.D., M.D., J.D.) ",
+DVDEDLVL_C,Highest grade of schooling finished - coded fields,String ,,,,,
+DVDINSRH,Health insurance status,"Integer, encoded value ",,0 ,2 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DVDINSRH,Health insurance status,"Integer, encoded value ",,0 ,2 ,1=Yes,
+DVDINSRH,Health insurance status,"Integer, encoded value ",,0 ,2 ,2=Don't know/remember ,
+DVDINSRH_C,Health insurance status - coded fields,String ,,,,,
+DVDINSRD,Dental insurance status,"Integer, encoded value ",,0 ,2 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DVDINSRD,Dental insurance status,"Integer, encoded value ",,0 ,2 ,1=Yes,
+DVDINSRD,Dental insurance status,"Integer, encoded value ",,0 ,2 ,2=Don't know/remember ,
+DVDINSRD_C,Dental insurance status - coded fields,String ,,,,,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,01=Accounting/Finance,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,02=Advertising/Public Relations,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,03=Arts/Entertainment/Publishing,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,04=Automotive,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,05=Banking/Mortgage,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,06=Biotech,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,07=Broadcast/Journalism,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,08=Business Development,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,09=Clerical/Administrative,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,10=Construction/Trades,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,11=Consultant,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,12=Customer Services,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,13=Design,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,14=Education,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,15=Engineering,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,16=Entry Level,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,17=Executive,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,18=Food Service,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,19=Government,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,20=Grocery,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,21=Healthcare,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,22=Hospitality,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,23=Human Resources,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,24=Information Technology,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,25=Insurance,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,26=Law/Legal,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,27=Management,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,28=Manufacturing,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,29=Marketing,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,30=Pharmaceutical,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,31=Professional Services,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,32=Purchasing,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,33=Quality Assurance (QA),
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,34=Research,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,35=Restaurant,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,36=Retail,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,37=Sales,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,38=Science,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,39=Security/Law Enforcement,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,40=Shipping/Distribution,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,41=Strategy,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,42=Student,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,43=Telecommunications,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,44=Training,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,45=Transportation,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,46=Warehouse,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,47=Other,
+DVDOCPTN,Subject occupation,"Integer, encoded value ",,1 ,99 ,99=Unknown/Refused ,
+DVDOCPTN_C,Subject occupation - coded fields,String ,,,,,
+DVDOCTSP,"Other occupation, specify",String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DVDTOBC,Tobacco product use,"Integer, encoded value ",,0 ,1 ,0=No,
+DVDTOBC,Tobacco product use,"Integer, encoded value ",,0 ,1 ,1=Yes ,
+DVDTOBC_C,Tobacco product use - coded fields,String ,,,,,
+DVDTOBSP,Specify tobacco use,"Integer, encoded value ",,1 ,3 ,1=Cigarettes,
+DVDTOBSP,Specify tobacco use,"Integer, encoded value ",,1 ,3 ,2=Chew,
+DVDTOBSP,Specify tobacco use,"Integer, encoded value ",,1 ,3 ,3=Both ,
+DVDTOBSP_C,Specify tobacco use - coded fields,String ,,,,,
+DVDCGFRQ,Frequency of cigarette,"Integer, encoded value ",,0 ,1 ,0=No,
+DVDCGFRQ,Frequency of cigarette,"Integer, encoded value ",,0 ,1 ,1=Yes ,
+DVDCGFRQ_C,Frequency of cigarette - coded fields,String ,,,,,
+DVDCHFRQ,Frequency of chew use,"Integer, encoded value ",,1 ,3 ,1=Mild (less than 3 times a day),
+DVDCHFRQ,Frequency of chew use,"Integer, encoded value ",,1 ,3 ,2=Moderate (3 - 6 times a day),
+DVDCHFRQ,Frequency of chew use,"Integer, encoded value ",,1 ,3 ,3=Severe (greater than 6 times a day) ,
+DVDCHFRQ_C,Frequency of chew use - coded fields,String ,,,,,
+DVDTMPF,Temperature fahrenheit,Integer ,degrees F ,91.9 ,105.1 ,,
+DVDTMPC,Temperature celsius,Integer ,degrees C ,33.3 ,40.6 ,,
+DVDPGRES,Pregnancy results,"Integer, encoded value ",,0 ,1 ,0=Negative,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DVDPGRES,Pregnancy results,"Integer, encoded value ",,0 ,1 ,1=Positive ,
+DVDPGRES_C,Pregnancy results - coded fields,String ,,,,,
+DVDBLOOD,Coriell blood collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDBLOOD,Coriell blood collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDBLOOD,Coriell blood collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDBLOOD_C,Coriell blood collected - coded fields,String ,,,,,
+DVDSERUM,Blood for serum collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDSERUM,Blood for serum collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDSERUM,Blood for serum collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDSERUM_C,Blood for serum collected - coded fields,String ,,,,,
+DVDSTOOL,Stool collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDSTOOL,Stool collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDSTOOL,Stool collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDSTOOL_C,Stool collected - coded fields,String ,,,,,
+DVDSAL,Saliva specimen collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDSAL,Saliva specimen collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDSAL,Saliva specimen collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDSAL_C,Saliva specimen collected - coded fields,String ,,,,,
+DVDGING,Attchd gingivae spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDGING,Attchd gingivae spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDGING,Attchd gingivae spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDGING_C,Attchd gingivae spec coll - coded fields,String ,,,,,
+DVDTONG,Tongue dorsum spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDTONG,Tongue dorsum spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDTONG,Tongue dorsum spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDTONG_C,Tongue dorsum spec coll - coded fields,String ,,,,,
+DVDPTON,Palatine tonsil spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDPTON,Palatine tonsil spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDPTON,Palatine tonsil spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDPTON_C,Palatine tonsil spec coll - coded fields,String ,,,,,
+DVDHPAL,Hard palate spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDHPAL,Hard palate spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDHPAL,Hard palate spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDHPAL_C,Hard palate spec coll - coded fields,String ,,,,,
+DVDTHRO,Throat specimen collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDTHRO,Throat specimen collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDTHRO,Throat specimen collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDTHRO_C,Throat specimen collected - coded fields,String ,,,,,
+DVDBUCC,Buccal mucosa spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDBUCC,Buccal mucosa spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDBUCC,Buccal mucosa spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDBUCC_C,Buccal mucosa spec coll - coded fields,String ,,,,,
+DVDSUPRA,Supra plaq spec collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDSUPRA,Supra plaq spec collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDSUPRA,Supra plaq spec collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDSUPRA_C,Supra plaq spec collected - coded fields,String ,,,,,
+DVDSUB,Sub plaq spec collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDSUB,Sub plaq spec collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDSUB,Sub plaq spec collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDSUB_C,Sub plaq spec collected - coded fields,String ,,,,,
+DVDRACR,Retroaur right spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDRACR,Retroaur right spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDRACR,Retroaur right spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDRACR_C,Retroaur right spec coll - coded fields,String ,,,,,
+DVDRACL,Retroaur left spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDRACL,Retroaur left spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDRACL,Retroaur left spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDRACL_C,Retroaur left spec coll - coded fields,String ,,,,,
+DVDACRR,Antecub fos rt spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDACRR,Antecub fos rt spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDACRR,Antecub fos rt spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDACRR_C,Antecub fos rt spec coll - coded fields,String ,,,,,
+DVDACRL,Antecub fos lft spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDACRL,Antecub fos lft spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDACRL,Antecub fos lft spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDACRL_C,Antecub fos lft spec coll - coded fields,String ,,,,,
+DVDNASAL,Anterior nares spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDNASAL,Anterior nares spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDNASAL,Anterior nares spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDNASAL_C,Anterior nares spec coll - coded fields,String ,,,,,
+DVDINTPH,Introitus mean pH,Integer ,pH units ,1 ,14 ,,
+DVDPFPH,PFornix mean pH,Integer ,pH units ,1 ,14 ,,
+DVDVIRRT,Vag or vulv irritation,"Integer, encoded value ",,0 ,1 ,0=No,
+DVDVIRRT,Vag or vulv irritation,"Integer, encoded value ",,0 ,1 ,1=Yes ,
+DVDVIRRT_C,Vag or vulv irritation - coded fields,String ,,,,,
+DVDINTRO,Introitus spec collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDINTRO,Introitus spec collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDINTRO,Introitus spec collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDINTRO_C,Introitus spec collected - coded fields,String ,,,,,
+DVDPFORN,Postr fornix spec coll,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDPFORN,Postr fornix spec coll,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDPFORN,Postr fornix spec coll,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDPFORN_C,Postr fornix spec coll - coded fields,String ,,,,,
+DVDMIDVG,Midpoint spec collected,"Integer, encoded value ",,0 ,9 ,0=No,
+DVDMIDVG,Midpoint spec collected,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DVDMIDVG,Midpoint spec collected,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DVDMIDVG_C,Midpoint spec collected - coded fields,String ,,,,,
+DTPSYSTL,Blood pressure systolic,Integer ,mmHG ,70 ,220 ,,
+DTPDIAST,Blood pressure diastolic,Integer ,mmHG ,40 ,130 ,,
+DTPPULSE,Pulse,Integer ,BPM ,35 ,140 ,,
+DTPWTLB,Weight in pounds,"Integer, decimals ",pounds ,80 ,375 ,,
+DTPWTKG,Weight in kilograms,"Integer, decimals ",kilograms ,36 ,171 ,,
+DTPHTIN,Height in inches,"Integer, decimals ",inches ,48 ,86 ,,
+DTPHTCM,Height in centimeters,"Integer, decimals ",centimeters ,121 ,219 ,,
+DTPBMI,Body mass index,Integer ,,19 ,34 ,,
+DTPGENAP,General appearance,"Integer, encoded value ",,1 ,9 ,1=Normal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPGENAP,General appearance,"Integer, encoded value ",,1 ,9 ,2=Abnormal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPGENAP,General appearance,"Integer, encoded value ",,1 ,9 ,9=Not evaluated ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPGENAP_C,General appearance - coded fields,String ,,,,,
+DTPGENSP,Specify abn appearance,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPHEENT,HEENT,"Integer, encoded value ",,1 ,9 ,1=Normal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPHEENT,HEENT,"Integer, encoded value ",,1 ,9 ,2=Abnormal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPHEENT,HEENT,"Integer, encoded value ",,1 ,9 ,9=Not evaluated ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPHEENT_C,HEENT - coded fields,String ,,,,,
+DTPHNTSP,Specify abnormal HEENT,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPHEART,Cardiovascular,"Integer, encoded value ",,1 ,9 ,1=Normal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPHEART,Cardiovascular,"Integer, encoded value ",,1 ,9 ,2=Abnormal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPHEART,Cardiovascular,"Integer, encoded value ",,1 ,9 ,9=Not evaluated ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPHEART_C,Cardiovascular - coded fields,String ,,,,,
+DTPHRTSP,Specify abn cardiovasclr,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPCHEST,Pulmonary chest,"Integer, encoded value ",,1 ,9 ,1=Normal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPCHEST,Pulmonary chest,"Integer, encoded value ",,1 ,9 ,2=Abnormal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPCHEST,Pulmonary chest,"Integer, encoded value ",,1 ,9 ,9=Not evaluated ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPCHEST_C,Pulmonary chest - coded fields,String ,,,,,
+DTPCHTSP,Specify abnormal chest,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPABDMN,Abdomen,"Integer, encoded value ",,1 ,9 ,1=Normal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPABDMN,Abdomen,"Integer, encoded value ",,1 ,9 ,2=Abnormal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPABDMN,Abdomen,"Integer, encoded value ",,1 ,9 ,9=Not evaluated ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPABDMN_C,Abdomen - coded fields,String ,,,,,
+DTPABDSP,Specify abnormal abdomen,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPNEUR,Neurological,"Integer, encoded value ",,1 ,9 ,1=Normal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPNEUR,Neurological,"Integer, encoded value ",,1 ,9 ,2=Abnormal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPNEUR,Neurological,"Integer, encoded value ",,1 ,9 ,9=Not evaluated ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPNEUR_C,Neurological - coded fields,String ,,,,,
+DTPNERSP,Specify abn neurological,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPMUSCL,Musculoskeletal,"Integer, encoded value ",,1 ,9 ,1=Normal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPMUSCL,Musculoskeletal,"Integer, encoded value ",,1 ,9 ,2=Abnormal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPMUSCL,Musculoskeletal,"Integer, encoded value ",,1 ,9 ,9=Not evaluated ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPMUSCL_C,Musculoskeletal - coded fields,String ,,,,,
+DTPMSCSP,Specify abn musculosk,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPEXTRM,Extremities,"Integer, encoded value ",,1 ,9 ,1=Normal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPEXTRM,Extremities,"Integer, encoded value ",,1 ,9 ,2=Abnormal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPEXTRM,Extremities,"Integer, encoded value ",,1 ,9 ,9=Not evaluated ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DTPEXTRM_C,Extremities - coded fields,String ,,,,,
+DTPXTRSP,Specify abn extremities,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXHEENT,HEENT,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXHEENT,HEENT,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXHEENT_C,HEENT - coded fields,String ,,,,,
+DHXHNTSP,HEENT specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXCARD,Cardiovascular,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXCARD,Cardiovascular,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXCARD_C,Cardiovascular - coded fields,String ,,,,,
+DHXCRDSP,Cardio specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXPULM,Pulmonary,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXPULM,Pulmonary,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXPULM_C,Pulmonary - coded fields,String ,,,,,
+DHXPLMSP,Pulmonary specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXGI,GI,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXGI,GI,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXGI_C,GI - coded fields,String ,,,,,
+DHXGISP,GI specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXHEPAT,Hepatobiliary,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXHEPAT,Hepatobiliary,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXHEPAT_C,Hepatobiliary - coded fields,String ,,,,,
+DHXHPSP,Hepatobiliary specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXRENAL,Renal,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXRENAL,Renal,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXRENAL_C,Renal - coded fields,String ,,,,,
+DHXRNLSP,Renal specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXNEUR,Neurologic,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXNEUR,Neurologic,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXNEUR_C,Neurologic - coded fields,String ,,,,,
+DHXNRSP,Neurologic spec,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXBLD,Blood lymphatic,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXBLD,Blood lymphatic,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXBLD_C,Blood lymphatic - coded fields,String ,,,,,
+DHXBLSP,Blood lymph spec,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXENM,Endo metabolic,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXENM,Endo metabolic,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXENM_C,Endo metabolic - coded fields,String ,,,,,
+DHXENMSP,Endo metabol spec,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXMUSCK,Musculoskeletal,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXMUSCK,Musculoskeletal,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXMUSCK_C,Musculoskeletal - coded fields,String ,,,,,
+DHXMUCSP,Musculoskeletal specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXGENRP,Genital reproductive,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXGENRP,Genital reproductive,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXGENRP_C,Genital reproductive - coded fields,String ,,,,,
+DHXGNRSP,Genital reprod specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXDERM,Dermatology,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXDERM,Dermatology,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXDERM_C,Dermatology - coded fields,String ,,,,,
+DHXDRMSP,Dermatology specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXALRGS,Allergies,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXALRGS,Allergies,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXALRGS_C,Allergies - coded fields,String ,,,,,
+DHXALRSP,Allergies specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXCANCR,Cancer,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXCANCR,Cancer,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXCANCR_C,Cancer - coded fields,String ,,,,,
+DHXCNRSP,Cancer specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXIMMUN,Immunodeficiency,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXIMMUN,Immunodeficiency,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXIMMUN_C,Immunodeficiency - coded fields,String ,,,,,
+DHXIMMSP,Immunodeficiency specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXALCHL,Drug alcohol dependance,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXALCHL,Drug alcohol dependance,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXALCHL_C,Drug alcohol dependance - coded fields,String ,,,,,
+DHXALCSP,Drug alcohol specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXATIMM,Autoimmune,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXATIMM,Autoimmune,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXATIMM_C,Autoimmune - coded fields,String ,,,,,
+DHXATMSP,Autoimmune specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXSURG,Medical surgical hx,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXSURG,Medical surgical hx,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXSURG_C,Medical surgical hx - coded fields,String ,,,,,
+DHXSRGSP,Medical surgic hx specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXMEDAB,Unresolved med abnormalty,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXMEDAB,Unresolved med abnormalty,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXMEDAB_C,Unresolved med abnormalty - coded fields,String ,,,,,
+DHXACTDS,Acute disease,"Integer, encoded value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXACTDS,Acute disease,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DHXACTDS_C,Acute disease - coded fields,String ,,,,,
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,001=1,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,002=2,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,003=3,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,004=4,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,005=5,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,006=6,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,007=7,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,008=8,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,009=9,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,010=10,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,011=11,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,012=12,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,013=13,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,014=14,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,015=15,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,016=16,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,017=17,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,018=18,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,019=19,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,020=20,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,021=21,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,022=22,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,023=23,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,024=24,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,025=25,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,026=26,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,027=27,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,028=28,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,029=29,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,030=30,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,031=31,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,032=32,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,033=33,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,034=34,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,035=35,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,036=36,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,037=37,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,038=38,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,039=39,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,040=40,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,041=41,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,042=42,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,043=43,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,044=44,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,045=45,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,046=46,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,047=47,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,048=48,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,049=49,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+MEDNUM,Medication number,"Integer, encoded value ",,1 ,50 ,050=50 ,Medication number is used as a unique field identifier to allow submission of multiple medications for a single subject 
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,01=1=Analgesics/NSAIDS,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,02=2=Anesthetics,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,03=3=Antacids/H2 antagonists,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,04=4=Anti-acne,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,05=5=Anti-asthma/bronchodilators,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,06=6=Anti-cholesterol/Anti-hyperlipidemic,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,07=7=Anti-coagulants,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,"08=8=Antibiotics/(anti)-infectives, parasitics, microbials",
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,09=9=Antidepressants/mood-altering drugs,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,10=10=Antihistamines/Decongestants,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,11=11=Antihypertensives,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,"12=12=Cardiovascular, other than hyperlipidemic/HTN",
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,"13=13=Contraceptives (oral, implant, injectable)",
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,14=14=Emergency/support medications,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,15=15=Endocrine/Metabolic agents,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,"16=16=GI meds (anti-diarrheal, emetic, spasmodics)",
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,17=17=Herbal/homeopathic products,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,18=18=Hormones/steroids,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,19=19=OTC cold & flu,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,20=20=Vaccine prophylaxis,
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,"21=21=Vitamins, minerals, food supplements",
+DCMCODE,Medication code,"Integer, encoded value ",,1 ,99 ,99=99=Other ,
+DCMCODE_C,Medication code - coded fields,String ,,,,,
+DCMIND,Indication,String ,,,,,
+DCMONGO,Medication ongoing,"Integer, encoded value ",,0 ,1 ,0=No,
+DCMONGO,Medication ongoing,"Integer, encoded value ",,0 ,1 ,1=Yes ,
+DCMONGO_C,Medication ongoing - coded fields,String ,,,,,
+DCMDAYS,Duration of medication,Integer ,days ,0 ,9999999999 ,,
+MSTART,Medication start period relative to enrollment (days),Integer ,days ,-9999999999 ,9999999999 ,,"Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DCMESTD,Medication start period is estimated,"Integer, encoded value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+DCMESTD_C,Medication start period is estimated - coded fields,String ,,,,,
+MSTOP,Medication stop period relative to enrollment (days),Integer ,days ,-9999999999 ,9999999999 ,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+HMPCONSN,Subject Consent,"Integer, encoded value ",,,,1=Human Microbiome Research (HMP) ,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q3_2008,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q4_2008,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q1_2009,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q2_2009,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q3_2009,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q4_2009,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q1_2010,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q2_2010,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q3_2010,
+START,"Enrollment/First sampling indicated as quarter and year e.g., Q1_2009. The date of enrollment (not provided as a date to dbGAP) sets the subject timeline for all events, enrollment = Day 0, all other periods are provided as days pre or post this Day 0 event.",Encoded ,,,,Q4_2010 ,
+GENDER,Gender,"Integer, Encoded Value ",,0 ,1 ,0=Male,
+GENDER,Gender,"Integer, Encoded Value ",,0 ,1 ,1=Female ,
+GENDER_C,Gender - coded fields,String ,,,,,
+AGEENR,Age at enrollment,Integer ,years ,0 ,99 ,,
+ETHNIC,Ethnicity,"Integer, Encoded Value ",,1 ,2 ,01=Hispanic or Latino or Spanish,
+ETHNIC,Ethnicity,"Integer, Encoded Value ",,1 ,2 ,02=Non-Hispanic or Non-Latino or Non-Spanish ,
+ETHNIC_C,Ethnicity - coded fields,String ,,,,,
+MEXICAN,Mexican,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+MEXICAN,Mexican,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+MEXICAN_C,Mexican - coded fields,String ,,,,,
+PUERTO,Puerto Rican,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+PUERTO,Puerto Rican,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+PUERTO_C,Puerto Rican - coded fields,String ,,,,,
+CUBAN,Cuban,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+CUBAN,Cuban,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+CUBAN_C,Cuban - coded fields,String ,,,,,
+OTHER,Other,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+OTHER,Other,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+OTHER_C,Other - coded fields,String ,,,,,
+OTHSP,Other specify,String ,,,,,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+UNKNWN,"Unknown, subject refused","Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+UNKNWN,"Unknown, subject refused","Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+UNKNWN_C,"Unknown, subject refused - coded fields",String ,,,,,
+AMERIND,American Indian Alaska,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+AMERIND,American Indian Alaska,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+AMERIND_C,American Indian Alaska - coded fields,String ,,,,,
+ASIAN,Asian,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+ASIAN,Asian,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+ASIAN_C,Asian - coded fields,String ,,,,,
+PACIFC,Hawaiian Pacific Islander,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+PACIFC,Hawaiian Pacific Islander,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+PACIFC_C,Hawaiian Pacific Islander - coded fields,String ,,,,,
+BLACK,African American,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+BLACK,African American,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+BLACK_C,African American - coded fields,String ,,,,,
+WHITE,White,"Integer, Encoded Value ",,0 ,1 ,0=No,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+WHITE,White,"Integer, Encoded Value ",,0 ,1 ,1=Yes ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. "
+WHITE_C,White - coded fields,String ,,,,,
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,01=01 Afghanistan,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,02=02 Anguilla,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,03=03 Antigua and Barbuda,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,04=04 Argentina,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,05=05 Aruba,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,06=06 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,07=07 Austria,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,08=08 Bangladesh,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,09=09 Belgium,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,10=10 Belize,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,11=11 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,12=12 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,13=13 Canada/US,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,14=14 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,15=15 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,16=16 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,17=17 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,18=18 Cuba,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,19=19 Czech Republic,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,20=20 Denmark,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,21=21 Dominican Republic,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,22=22 Ecuador,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,23=23 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,24=24 Finland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,25=25 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,26=26 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,27=27 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,28=28 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,29=29 Guam,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,30=30 Guatemala,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,31=31 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,32=32 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,33=33 Honduras,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,34=34 Hungary,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,35=35 S.Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,36=36 Indonesia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,37=37 Middle Eastern,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,38=38 Iraq,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,39=39 Ireland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,40=40 Israel,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,41=41 Italy,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,42=42 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,43=43 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,44=44 Middle Eastern,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,45=45 Malaya,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,46=46 Mexico,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,47=47 New Zealand,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,48=48 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,49=49 Norway,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,50=50 S.Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,51=51 Panama,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,52=52 Paraguay,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,53=53 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,54=54 SE Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,55=55 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,56=56 Portugal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,57=57 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,58=58 E. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,59=59 S. Africa,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,60=60 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,61=61 Sweden,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,62=62 Switzerland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,63=63 Canada/US,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,64=64 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,65=65 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,66=66 Virgin Islands,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,67=67 Other,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,99=99 Unknown/Refused,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,70=70 C.Africa,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY,Subjects birth country,"Integer, Encoded Value ",,1 ,99 ,71=71 SE Asia ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+BRTHCTRY_C,Subjects birth country - coded fields,String ,,,,,
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,01=01 Afghanistan,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,02=02 Anguilla,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,03=03 Antigua and Barbuda,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,04=04 Argentina,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,05=05 Aruba,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,06=06 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,07=07 Austria,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,08=08 Bangladesh,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,09=09 Belgium,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,10=10 Belize,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,11=11 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,12=12 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,13=13 Canada/US,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,14=14 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,15=15 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,16=16 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,17=17 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,18=18 Cuba,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,19=19 Czech Republic,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,20=20 Denmark,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,21=21 Dominican Republic,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,22=22 Ecuador,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,23=23 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,24=24 Finland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,25=25 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,26=26 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,27=27 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,28=28 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,29=29 Guam,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,30=30 Guatemala,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,31=31 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,32=32 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,33=33 Honduras,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,34=34 Hungary,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,35=35 S.Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,36=36 Indonesia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,37=37 Middle Eastern,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,38=38 Iraq,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,39=39 Ireland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,40=40 Israel,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,41=41 Italy,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,42=42 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,43=43 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,44=44 Middle Eastern,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,45=45 Malaya,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,46=46 Mexico,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,47=47 New Zealand,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,48=48 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,49=49 Norway,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,50=50 S.Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,51=51 Panama,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,52=52 Paraguay,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,53=53 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,54=54 SE Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,55=55 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,56=56 Portugal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,57=57 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,58=58 E. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,59=59 S. Africa,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,60=60 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,61=61 Sweden,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,62=62 Switzerland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,63=63 Canada/US,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,64=64 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,65=65 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,66=66 Virgin Islands,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,67=67 Other,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,99=99 Unknown/Refused,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,70=70 C.Africa,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY,Mothers birth country,"Integer, Encoded Value ",,1 ,99 ,71=71 SE Asia ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+MOMCTRY_C,Mothers birth country - coded fields,String ,,,,,
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,01=01 Afghanistan,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,02=02 Anguilla,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,03=03 Antigua and Barbuda,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,04=04 Argentina,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,05=05 Aruba,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,06=06 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,07=07 Austria,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,08=08 Bangladesh,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,09=09 Belgium,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,10=10 Belize,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,11=11 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,12=12 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,13=13 Canada/US,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,14=14 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,15=15 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,16=16 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,17=17 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,18=18 Cuba,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,19=19 Czech Republic,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,20=20 Denmark,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,21=21 Dominican Republic,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,22=22 Ecuador,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,23=23 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,24=24 Finland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,25=25 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,26=26 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,27=27 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,28=28 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,29=29 Guam,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,30=30 Guatemala,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,31=31 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,32=32 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,33=33 Honduras,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,34=34 Hungary,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,35=35 S.Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,36=36 Indonesia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,37=37 Middle Eastern,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,38=38 Iraq,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,39=39 Ireland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,40=40 Israel,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,41=41 Italy,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,42=42 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,43=43 Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,44=44 Middle Eastern,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,45=45 Malaya,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,46=46 Mexico,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,47=47 New Zealand,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,48=48 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,49=49 Norway,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,50=50 S.Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,51=51 Panama,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,52=52 Paraguay,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,53=53 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,54=54 SE Asia,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,55=55 N. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,56=56 Portugal,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,57=57 C. America/Caribbean,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,58=58 E. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,59=59 S. Africa,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,60=60 W./S. Europe,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,61=61 Sweden,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,62=62 Switzerland,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,63=63 Canada/US,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,64=64 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,65=65 S. America,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,66=66 Virgin Islands,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,67=67 Other,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,99=99 Unknown/Refused,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,70=70 C.Africa,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY,Dads birth country,"Integer, Encoded Value ",,1 ,99 ,71=71 SE Asia ,"'Gated field', defined as a data that will not be released to dbGaP until all subjects have been enrolled, and data is reviewed to confirm that there is no possibility of subject identification. Merged to general region, see DEM notes.  "
+DADCTRY_C,Dads birth country - coded fields,String ,,,,,
+dsuotrpd,Calculated field based on number of days between subjects last oral treatment and subject's day of enrollment/first sampling,Integer ,days ,-9999999999 ,9999999999 ,,
+DSUSCRN,Screened more than once,"Integer, encoded value ",,0 ,1 ,0=No,
+DSUSCRN,Screened more than once,"Integer, encoded value ",,0 ,1 ,1=Yes ,
+DSUSCRN_C,Screened more than once - coded fields,String ,,,,,
+DSUFSCRN,Failed screening,"Integer, encoded value ",,0 ,1 ,0=No,
+DSUFSCRN,Failed screening,"Integer, encoded value ",,0 ,1 ,1=Yes ,
+DSUFSCRN_C,Failed screening - coded fields,String ,,,,,
+dsufscpd,Calculated field based on number of days between subjects day of failed screening and subject's day of enrollment/first sampling,Integer ,days ,-9999999999 ,9999999999 ,,
+DSUFORAL,Failed oral scrn,"Integer, encoded value ",,0 ,9 ,0=No,
+DSUFORAL,Failed oral scrn,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DSUFORAL,Failed oral scrn,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DSUFORAL_C,Failed oral scrn - coded fields,String ,,,,,
+DSUFSKIN,Failed skin scrn,"Integer, encoded value ",,0 ,9 ,0=No,
+DSUFSKIN,Failed skin scrn,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DSUFSKIN,Failed skin scrn,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DSUFSKIN_C,Failed skin scrn - coded fields,String ,,,,,
+DSUFPHY,Failed physical scrn,"Integer, encoded value ",,0 ,9 ,0=No,
+DSUFPHY,Failed physical scrn,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DSUFPHY,Failed physical scrn,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DSUFPHY_C,Failed physical scrn - coded fields,String ,,,,,
+DSUFDRUG,Failed drug use scrn,"Integer, encoded value ",,0 ,9 ,0=No,
+DSUFDRUG,Failed drug use scrn,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DSUFDRUG,Failed drug use scrn,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DSUFDRUG_C,Failed drug use scrn - coded fields,String ,,,,,
+DSUFVAG,Failed vaginal scrn,"Integer, encoded value ",,0 ,9 ,0=No,
+DSUFVAG,Failed vaginal scrn,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DSUFVAG,Failed vaginal scrn,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DSUFVAG_C,Failed vaginal scrn - coded fields,String ,,,,,
+DSUFOT,Failed scrn other,"Integer, encoded value ",,0 ,9 ,0=No,
+DSUFOT,Failed scrn other,"Integer, encoded value ",,0 ,9 ,1=Yes,
+DSUFOT,Failed scrn other,"Integer, encoded value ",,0 ,9 ,9=NA ,
+DSUFOT_C,Failed scrn other - coded fields,String ,,,,,
+DSUCON,Subject contact,"Integer, encoded value ",,0 ,1 ,0=No,
+DSUCON,Subject contact,"Integer, encoded value ",,0 ,1 ,1=Yes ,
+DSUCON_C,Subject contact - coded fields,String ,,,,,
+dsuvspd,Calculated field based on number of days between subject day of recontact and subject's day of enrollment/first sampling,Integer ,days ,-9999999999 ,9999999999 ,,
+DSUZIP,Residence zip code,Integer ,,0 ,999 ,,
+DSUDIET,Diet,"Integer, encoded value ",,1 ,5 ,01=01-Meat/fish/poultry at least three days per week,
+DSUDIET,Diet,"Integer, encoded value ",,1 ,5 ,02=02-Meat/fish/poultry at least one day but not more than two days per week,
+DSUDIET,Diet,"Integer, encoded value ",,1 ,5 ,"03=03-Eggs/cheese/other dairy products, but no meat/fish/poultry",
+DSUDIET,Diet,"Integer, encoded value ",,1 ,5 ,"04=04-No animal products at all (no meat/fish/poultry, no eggs/cheese/other dairy products)",
+DSUDIET,Diet,"Integer, encoded value ",,1 ,5 ,05=05-No animal products and at least 70% of fruits and vegetables are eaten raw ,
+DSUDIET_C,Diet - coded fields,String ,,,,,
+DSUBFED,Breast fed as child,"Integer, encoded value ",,0 ,2 ,0=No,
+DSUBFED,Breast fed as child,"Integer, encoded value ",,0 ,2 ,1=Yes,
+DSUBFED,Breast fed as child,"Integer, encoded value ",,0 ,2 ,2=Don't know/remember ,
+DSUBFED_C,Breast fed as child - coded fields,String ,,,,,
+DSUBIR,Birth,"Integer, encoded value ",,0 ,2 ,0=Never,
+DSUBIR,Birth,"Integer, encoded value ",,0 ,2 ,1=Once,
+DSUBIR,Birth,"Integer, encoded value ",,0 ,2 ,2=More than once ,
+DSUBIR_C,Birth - coded fields,String ,,,,,
+DSUDEV,Delivery type,"Integer, encoded value ",,0 ,3 ,1=1- Vaginal deliveries only,
+DSUDEV,Delivery type,"Integer, encoded value ",,0 ,3 ,2=2- Cesarean deliveries only,
+DSUDEV,Delivery type,"Integer, encoded value ",,0 ,3 ,3=3- Both vaginal and cesarean deliveries ,
+DSUDEV_C,Delivery type - coded fields,,,,,,

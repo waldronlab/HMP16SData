@@ -3,9 +3,13 @@ context("metadata")
 metadata_file <- system.file("extdata", "metadata.csv", package = "HMP16SData")
 
 test_that("metadata.csv file is present", {
-    expect_true(file.exists(metadata_file))
+    file.exists(metadata_file) %>%
+        expect_true()
 })
 
 test_that("metadata.csv file does not contain empty values", {
-    expect_false(any(grepl(",,", readLines(metadata_file))))
+    readLines(metadata_file) %>%
+        grepl(",,", x = .) %>%
+        any() %>%
+        expect_false()
 })

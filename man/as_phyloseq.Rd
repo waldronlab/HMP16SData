@@ -14,5 +14,18 @@ from the \code{\link{HMP16SData}} package}
 A \code{\link[phyloseq]{phyloseq-class}} class object
 }
 \description{
-Description
+The \code{\link[phyloseq]{phyloseq-package}} provides a suite of methods for
+working with 16S rRNA sequencing and other microbiome data that may be of use
+to the users of \code{\link{HMP16SData}}. The \code{as_phyloseq} method
+provides a means to easily coerce a
+\code{\link[SummarizedExperiment]{SummarizedExperiment}} object to a
+\code{\link[phyloseq]{phyloseq-class}} class object.
+}
+\examples{
+\dontrun{
+# can be run once reprocessed data is available via ExperimentHub
+V13() \%>\%
+    as_phyloseq()
+}
+
 }

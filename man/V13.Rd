@@ -2,8 +2,9 @@
 % Please edit documentation in R/V13.R
 \name{V13}
 \alias{V13}
-\title{16S rRNA sequencing data for variable regions 1-3}
-\format{A SummarizedExperiment with 43,140 features and 2,898 samples:
+\title{16S rRNA sequencing data for variable regions 1–3}
+\format{A \code{\link[SummarizedExperiment]{SummarizedExperiment}} with
+43,140 features and 2,898 samples:
 \subsection{colData}{
     \describe{
         \item{RSID}{a random subject identifier}
@@ -13,32 +14,32 @@
         College of Medicine (BCM), the Broad Institute (BI), the J. Craig
         Venter Institute (JCVI), or the Genome Sequencing Center at
         Washington University (WUGC)}
-        \item{HMP_BODY_SUBSITE}{body subsite where sample was collected}
+        \item{HMP_BODY_SUBSITE}{body subsite where the sample was collected}
     }
 }
 \subsection{rowData}{
     \describe{
         \item{CONSENSUS_LINEAGE}{the most detailed lineage description shared
         by the sequences within an OTU}
-        \item{SUPERKINGDOM}{Description}
-        \item{PHYLUM}{Description}
-        \item{CLASS}{Description}
-        \item{ORDER}{Description}
-        \item{FAMILY}{Description}
-        \item{GENUS}{Description}
+        \item{SUPERKINGDOM}{superkingdom taxonomy, assumed to be Bacteria}
+        \item{PHYLUM}{phylum taxonomy parsed from \code{CONSENSUS_LINEAGE}}
+        \item{CLASS}{calss taxonomy parsed from \code{CONSENSUS_LINEAGE}}
+        \item{ORDER}{order taxonomy parsed from \code{CONSENSUS_LINEAGE}}
+        \item{FAMILY}{family taxonomy parsed from \code{CONSENSUS_LINEAGE}}
+        \item{GENUS}{genus taxonomy parsed from \code{CONSENSUS_LINEAGE}}
     }
 }}
 \source{
-\url{http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v13.txt.gz}
+\url{https://tinyurl.com/y74gqpho}
 
-\url{http://downloads.ihmpdcc.org/data/HMQCP/v13_map_uniquebyPSN.txt.bz2}
+\url{https://tinyurl.com/y8adlfso}
 }
 \usage{
 V13(metadata = FALSE)
 }
 \arguments{
-\item{metadata}{logical; if TRUE only the metadata is downloaded, rather than
-the entire resource}
+\item{metadata}{logical; if \code{TRUE} only the metadata is downloaded,
+rather than the entire resource}
 }
 \value{
 A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object

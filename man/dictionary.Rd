@@ -4,7 +4,7 @@
 \name{dictionary}
 \alias{dictionary}
 \title{A data dictionary describing dbGaP metadata variables}
-\format{A \code{data.frame} with 789 rows and 8 variables:
+\format{A \code{\link[base]{data.frame}} with 789 rows and 8 variables:
 \describe{
   \item{Variable}{the name of the variable as it appears in
   \code{\link[SummarizedExperiment]{SummarizedExperiment}} objects}
@@ -17,20 +17,26 @@
   \item{Comment}{any comments from dbGaP, most pertain to gated fields}
 }}
 \source{
-\url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht001185.v4.EMMES_HMP_Sample.data_dict.xml}
-\url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht001193.v3.EMMES_HMP_GTV.data_dict.xml}
-\url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht002157.v1.EMMES_HMP_DTP_DHX_DVD.data_dict.xml}
-\url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht001187.v3.EMMES_HMP_DCM.data_dict.xml}
-\url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht001184.v3.EMMES_HMP_Subject.data_dict.xml}
-\url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht002158.v1.EMMES_HMP_DEM_ENR.data_dict.xml}
-\url{ftp://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs000228/phs000228.v4.p1/pheno_variable_summaries/phs000228.v4.pht002156.v1.EMMES_HMP_DSU.data_dict.xml}
+\url{https://tinyurl.com/y7rgelao}
+
+\url{https://tinyurl.com/y7at85tv}
+
+\url{https://tinyurl.com/y7af3arf}
+
+\url{https://tinyurl.com/ych4wywl}
+
+\url{https://tinyurl.com/y9hwfn9e}
+
+\url{https://tinyurl.com/y7jtghxv}
+
+\url{https://tinyurl.com/y7znjmak}
 }
 \usage{
 dictionary
 }
 \description{
-A dictionary containing descriptions of the variables attached using the
-\code{\link{attach_dbGaP}} function, as translated from NCBI XLM data
+A data dictionary containing descriptions of the variables attached using the
+\code{\link{attach_dbGaP}} function, as translated from dbGaP XLM data
 dictionary files.
 }
 \examples{

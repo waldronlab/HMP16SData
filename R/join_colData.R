@@ -8,7 +8,6 @@
 #' @importFrom dplyr inner_join
 #' @importFrom dplyr distinct
 #' @importFrom tibble column_to_rownames
-#' @importFrom S4Vectors DataFrame
 join_colData <- function(dbGaP_data, x) {
     x %>%
         colData() %>%
@@ -18,5 +17,5 @@ join_colData <- function(dbGaP_data, x) {
         inner_join(dbGaP_data) %>%
         distinct(SN, .keep_all = TRUE) %>%
         column_to_rownames(var = "SN") %>%
-        DataFrame(row.names = rownames(.))
+        make_DataFrame()
 }

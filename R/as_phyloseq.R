@@ -1,6 +1,11 @@
 #' Coerce a SummarizedExperiment object to a phyloseq object
 #'
-#' Description
+#' The \code{\link[phyloseq]{phyloseq-package}} provides a suite of methods for
+#' working with 16S rRNA sequencing and other microbiome data that may be of use
+#' to the users of \code{\link{HMP16SData}}. The \code{as_phyloseq} method
+#' provides a means to easily coerce a
+#' \code{\link[SummarizedExperiment]{SummarizedExperiment}} object to a
+#' \code{\link[phyloseq]{phyloseq-class}} class object.
 #'
 #' @param x A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
 #' from the \code{\link{HMP16SData}} package
@@ -8,9 +13,12 @@
 #' @return A \code{\link[phyloseq]{phyloseq-class}} class object
 #' @export
 #'
-# @examples
-# V13() %>%
-#     as_phyloseq()
+#' @examples
+#' \dontrun{
+#' # can be run once reprocessed data is available via ExperimentHub
+#' V13() %>%
+#'     as_phyloseq()
+#' }
 #'
 #' @importFrom assertthat assert_that
 #' @importFrom SummarizedExperiment assay

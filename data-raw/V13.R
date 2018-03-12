@@ -39,8 +39,7 @@ v13_map_col_types <-
 
 # warnings are expected, see https://github.com/tidyverse/readr/issues/750
 v13_map <- readr::read_tsv("inst/extdata/v13_map_uniquebyPSN.txt.bz2",
-                           col_types = v13_map_col_types, skip = 0,
-                           progress = FALSE)
+                           col_types = v13_map_col_types, progress = FALSE)
 
 v13_otu %<>%
     base::colnames() %>%
