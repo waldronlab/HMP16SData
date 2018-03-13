@@ -38,10 +38,10 @@
 #
 # II. Processing Data
 # ==============================================================================
-# Data were processed using R (3.4.1), with extensive use of the dplyr package.
-# All scripted data processing can be seen in the data-raw directory. With the
-# package as the working directory, the data processing could be repeated with
-# these commands:
+# Data were processed using R Under development (unstable) (2018-03-02 r74346),
+# with extensive use of the dplyr package. All scripted data processing can be
+# seen in the data-raw directory. With the package as the working directory, the
+# data processing could be repeated with these commands:
 
 source("data-raw/V13.R")
 source("data-raw/V35.R")
