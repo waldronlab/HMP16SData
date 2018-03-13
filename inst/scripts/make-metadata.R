@@ -32,8 +32,9 @@ base::read.dcf("DESCRIPTION", "Suggests") %>%
 
 Title <-
     base::dir("data") %>%
+    magrittr::extract(1:2) %>%
     base::strsplit("\\.") %>%
-    base::sapply(extract, 2) %>%
+    base::sapply(magrittr::extract, 2) %>%
     base::unique() %>%
     base::as.character()
 
@@ -73,6 +74,7 @@ DispatchClass <- base::as.character("Rda")
 
 RDataPath <-
     base::dir("data") %>%
+    magrittr::extract(1:2) %>%
     base::paste("HMP16Sdata", ., sep = "/")
 
 if (base::file.exists("inst/extdata/metadata.csv")) {

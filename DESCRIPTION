@@ -17,7 +17,7 @@ Description:
     SummarizedExperiment objects via ExperimentHub.
 License: Artistic-2.0
 Encoding: UTF-8
-LazyData: false
+LazyData: true
 Depends:
     R (>= 3.5.0),
     SummarizedExperiment
@@ -30,7 +30,6 @@ Imports:
     readr,
     S4Vectors,
     tibble,
-    tools,
     utils
 Suggests:
     Biobase,
@@ -46,9 +45,10 @@ Suggests:
     stats,
     testthat
 biocViews:
+    ExperimentData,
     Homo_sapiens_Data,
-    ReproducibleResearch,
     MicrobiomeData,
+    ReproducibleResearch,
     SequencingData
 VignetteBuilder: knitr
 URL: https://github.com/waldronlab/HMP16SData
