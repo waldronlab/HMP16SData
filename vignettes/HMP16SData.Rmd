@@ -26,15 +26,45 @@ editor_options:
 
 # Prerequisites
 
+The following `r BiocStyle::CRANpkg("knitr")` options will be used in this 
+vignette to provide the most useful and concise output.
+
+```{r}
+knitr::opts_chunk$set(message = FALSE)
+```
+
 The following packages will be used in this vignette to provide demonstrative
 examples of what a user might do with `r BiocStyle::Biocpkg("HMP16SData")`.
 
-```{r, message=FALSE}
+```{r}
 library(HMP16SData)
 library(phyloseq)
 library(magrittr)
 library(ggplot2)
 ```
+
+```{r, echo=FALSE}
+load("~/20180312.V13.rda")
+
+X <- V13
+
+V13 <- function() {
+    X
+}
+
+load("~/20180312.V35.rda")
+
+Y <- V35
+
+V35 <- function() {
+    Y
+}
+```
+
+
+Pipe operators from the `r BiocStyle::CRANpkg("magrittr")` package are used in 
+this vignette to provide the most eloquent and concise syntax. See the
+`r BiocStyle::CRANpkg("magrittr")` vignette if the syntax is unclear.
 
 # Introduction
 
@@ -52,13 +82,13 @@ objects via `r BiocStyle::Biocpkg("ExperimentHub")`.
 BiocInstaller::biocLite("HMP16SData")
 ```
 
-Once installed, `r BiocStyle::Biocpkg("HMP16SData")` provides two functions to 
+Once installed, `r BiocStyle::Biocpkg("HMP16SData")` provides two functions to
 access data – one for variable region 1–3 and another for variable region 3–5. 
 When called, as follows, the functions will download data from an 
 `r BiocStyle::Biocpkg("ExperimentHub")` Amazon S3 (Simple Storage Service) 
-bucket over `https`.
+bucket over `https` or load data from a local cache.
 
-```{r, message=FALSE}
+```{r}
 V13()
 V35()
 ```
@@ -79,10 +109,10 @@ see the `r BiocStyle::Biocpkg("SummarizedExperiment")` vignette for additional
 details. Shown below, the variable region 1–3 dataset is subset to include only
 stool samples.
 
-```{r, message=FALSE}
+```{r}
 V13_stool <-
     V13() %>%
-    subset(select = hmp_body_subsite == "Stool")
+    subset(select = HMP_BODY_SUBSITE == "Stool")
 
 V13_stool
 ```
@@ -122,7 +152,7 @@ to coerce `SummarizedExperiment` class objects to `phyloseq` class objects. The
 `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of 
 methods to analyze microbiome data and many potential comparisons could be made.
 
-```{r, eval=FALSE}
+```{r}
 V13_stool_phyloseq <-
     V13_stool %>%
     as_phyloseq()
@@ -134,7 +164,7 @@ When plotting `phyloseq` objects it is necessary to remove taxa that sum to zero
 do so – allowing piping between functions. See the 
 `r BiocStyle::CRANpkg("magrittr")` vignette for more information.
 
-```{r, eval=FALSE}
+```{r}
 V13_stool_phyloseq %<>%
     taxa_sums() %>% 
     is_greater_than(0) %>%
@@ -143,23 +173,22 @@ V13_stool_phyloseq %<>%
 
 With zero-abundance taxa now pruned, exploratory plots can easily be made. For 
 example, a plot of three alpha diversity measures can be made in three lines.
-This concept could be extended to compare and external dataset.
+This concept could be extended to compare an external dataset.
 
-```{r, eval=FALSE}
-richness_measures <-
-    c("Observed", "Shannon", "Simpson")
+```{r}
+richness_measures <- c("Observed", "Shannon", "Simpson")
     
 V13_stool_phyloseq %>%
-    plot_richness(x = "sex", color = "sex", measures = richness_measures) +
+    plot_richness(x = "SEX", color = "SEX", measures = richness_measures) +
     theme(legend.position = "none")
 ```
 
 Again, `r BiocStyle::Biocpkg("phyloseq")` provides excellent plots with little
 effort and the concept could be extended to compare an external dataset.
 
-```{r, eval=FALSE}
+```{r}
 V13_stool_phyloseq %>%
-    plot_net(color = "sex")
+    plot_net(color = "SEX")
 ```
 
 ## Frequency Table Generation
@@ -174,15 +203,17 @@ aware that the `r BiocStyle::Githubpkg("schifferl/kableOne")` package is _very_
 beta.
 
 ```{r, eval=FALSE}
-V13 <-
-    V13() %>%
-    table_one()
+variables <- c("SEX", "AGE")
 
-V35 <-
-    V35() %>%
-    table_one()
+V13() %>%
+    table_one(variables = variables)
 
-kable_one(V13, V35)
+V13 <- V13()
+V35 <- V35()
+
+list(V13, V35) %>%
+    table_one() %>%
+    kable_one()
 ```
 
 # Limitations
