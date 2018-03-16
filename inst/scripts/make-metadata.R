@@ -38,8 +38,8 @@ Title <-
     base::unique() %>%
     base::as.character()
 
-Description <- base::c("16S rRNA sequencing data for variable regions 1—3",
-                       "16S rRNA sequencing data for variable regions 3—5")
+Description <- base::c("16S rRNA sequencing data for variable regions 1–3",
+                       "16S rRNA sequencing data for variable regions 3–5")
 
 BiocVersion <-
     BiocInstaller::biocVersion() %>%
@@ -49,12 +49,14 @@ Genome <- base::as.character(NA)
 
 SourceType <- base::as.character("TXT")
 
-SourceUrl <- base::c(
-    "http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v13.txt.gz,
-     http://downloads.ihmpdcc.org/data/HMQCP/v13_map_uniquebyPSN.txt.bz2",
-    "http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v35.txt.gz,
-     http://downloads.ihmpdcc.org/data/HMQCP/v35_map_uniquebyPSN.txt.bz2"
-)
+SourceUrl <-
+    base::c(
+        "http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v13.txt.gz,
+         http://downloads.ihmpdcc.org/data/HMQCP/v13_map_uniquebyPSN.txt.bz2",
+        "http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v35.txt.gz,
+         http://downloads.ihmpdcc.org/data/HMQCP/v35_map_uniquebyPSN.txt.bz2"
+    ) %>%
+    gsub("\\s+", " ", x = .)
 
 SourceVersion  <- base::as.character(NA)
 
@@ -75,7 +77,7 @@ DispatchClass <- base::as.character("Rda")
 RDataPath <-
     base::dir("data") %>%
     magrittr::extract(1:2) %>%
-    base::paste("HMP16Sdata", ., sep = "/")
+    base::paste("HMP16SData", ., sep = "/")
 
 if (base::file.exists("inst/extdata/metadata.csv")) {
     old_metadata <- utils::read.csv("inst/extdata/metadata.csv")
