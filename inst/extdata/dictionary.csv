@@ -1,7 +1,7 @@
 VARIABLE,DESCRIPTION,TYPE,UNITS,MINIMUM,MAXIMUM,CODED_VALUES,COMMENT
-dbGaP_Subject_ID,dbGaP assigned subject accession identifier,,,,,,
-dbGaP_Sample_ID,dbGaP assigned sample accession identifier,,,,,,
-BioSample_Accession,BioSample accession number,,,,,,
+dbGaP_Subject_ID,dbGaP assigned subject accession identifier,Integer ,,,,,
+dbGaP_Sample_ID,dbGaP assigned sample accession identifier,Integer ,,,,,
+BioSample_Accession,BioSample accession number,String ,,,,,
 RANDSID,Subject ID,Integer ,,,,,
 SAMPLE_USE,Sample use,String ,,,,Seq_DNA_SNP=Whole genome sequencing,
 SAMPLE_USE,Sample use,String ,,,,Seq_DNA_WholeGenome=SNP genotypes derived from sequence data,

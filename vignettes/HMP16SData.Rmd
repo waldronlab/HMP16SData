@@ -28,8 +28,9 @@ editor_options:
 
 The following `r BiocStyle::CRANpkg("knitr")` options will be used in this 
 vignette to provide the most useful and concise output.
-
+<!-- remove eval = FLASE line when ExperimentHub database is updated -->
 ```{r}
+knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(message = FALSE)
 ```
 
@@ -40,9 +41,10 @@ examples of what a user might do with `r BiocStyle::Biocpkg("HMP16SData")`.
 library(HMP16SData)
 library(phyloseq)
 library(magrittr)
+library(dplyr)
 library(ggplot2)
 ```
-
+<!-- remove chunk when ExperimentHub database is updated -->
 ```{r, echo=FALSE}
 load("~/20180312.V13.rda")
 
@@ -60,7 +62,6 @@ V35 <- function() {
     Y
 }
 ```
-
 
 Pipe operators from the `r BiocStyle::CRANpkg("magrittr")` package are used in 
 this vignette to provide the most eloquent and concise syntax. See the
@@ -101,6 +102,31 @@ vignette.
 
 # Features
 
+## Frequency Table Generation
+
+Sometimes it is desireable to provide a quick summary of key demographic 
+variables and to make the process easier `r BiocStyle::Biocpkg("HMP16SData")` 
+provides a function `table_one`. It returns a `data.frame` that has been 
+transformed to make a publication ready table and when used in conjunction with
+the `r BiocStyle::Githubpkg("schifferl/kableOne")` package can produce an `HTML`
+table for vignettes. Feel free to use the `kable_one` function elsewhere but be
+aware that the `r BiocStyle::Githubpkg("schifferl/kableOne")` package is _very_
+beta.
+<!-- remove eval=FALSE when methods are implemented -->
+```{r, eval=FALSE}
+variables <- c("SEX", "AGE")
+
+V13() %>%
+    table_one(variables = variables)
+
+V13 <- V13()
+V35 <- V35()
+
+list(V13, V35) %>%
+    table_one() %>%
+    kable_one()
+```
+
 ## Straightforward Subsetting
 
 The `SummarizedExperiment` container provides for straightforward subsetting by
@@ -124,11 +150,11 @@ Center for Biotechnology Information's (NCBI) database of Genotypes and
 Phenotypes (dbGaP) that can readily be attached to the `SummarizedExperiment`
 objects. Only a dbGaP repository key is required to download, process, and
 attach the protected metadata. See <https://dbgap.ncbi.nlm.nih.gov/aa> for
-details on the protected metadata available, and how to get a key. 
-The `attach_dbGap()` function takes a HMP16SData `SummarizedExperiment`
-objects as its first argument and a path to your dbGaP repository key as its
-second argument, and returns another `SummarizedExperiment` also containing the 
-protected metadata. For example:
+details on the protected metadata available, and how to get a key.
+The `attach_dbGap()` function takes a `r BiocStyle::Biocpkg("HMP16SData")`
+`SummarizedExperiment` objects as its first argument and a path to your dbGaP
+repository key as its second argument, and returns another
+`SummarizedExperiment` also containing the protected metadata. For example:
 
 ```{r, eval=FALSE}
 V13_stool_protected <- 
@@ -143,7 +169,15 @@ the colData. All open and protected metadata are returned by:
 colData(V13_stool_protected)
 ```
 
-## External Data Comparison
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
+
+```{r}
+head(dictionary)
+```
+
+## Phyloseq Class Coercion
 
 Data from the HMP study is likely useful as a comparison or control group, a 
 _"standard candle"_ of sorts, in the context of other human microbiome studies.
@@ -173,7 +207,6 @@ V13_stool_phyloseq %<>%
 
 With zero-abundance taxa now pruned, exploratory plots can easily be made. For 
 example, a plot of three alpha diversity measures can be made in three lines.
-This concept could be extended to compare an external dataset.
 
 ```{r}
 richness_measures <- c("Observed", "Shannon", "Simpson")
@@ -183,37 +216,112 @@ V13_stool_phyloseq %>%
     theme(legend.position = "none")
 ```
 
-Again, `r BiocStyle::Biocpkg("phyloseq")` provides excellent plots with little
-effort and the concept could be extended to compare an external dataset.
+# External Data Comparison
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
 
 ```{r}
-V13_stool_phyloseq %>%
-    plot_net(color = "SEX")
+melted <-
+    V13_stool_phyloseq %>%
+    tax_glom(taxrank = "PHYLUM") %>%
+    psmelt()
 ```
 
-## Frequency Table Generation
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
 
-Sometimes it is desireable to provide a quick summary of key demographic 
-variables and to make the process easier `r BiocStyle::Biocpkg("HMP16SData")` 
-provides a function `table_one`. It returns a `data.frame` that has been 
-transformed to make a publication ready table and when used in conjunction with
-the `r BiocStyle::Githubpkg("schifferl/kableOne")` package can produce an `HTML`
-table for vignettes. Feel free to use the `kable_one` function elsewhere but be
-aware that the `r BiocStyle::Githubpkg("schifferl/kableOne")` package is _very_
-beta.
+```{r}
+relative_abundance <-
+    melted %>%
+    rename(Phylum = PHYLUM) %>%
+    group_by(Sample) %>%
+    mutate(`Relative Abundance` = Abundance / sum(Abundance)) %>%
+    arrange(Phylum, -`Relative Abundance`) %>%
+    group_by(Phylum) %>%
+    mutate(phylum_rank = sum(`Relative Abundance`)) %>%
+    arrange(-phylum_rank) %>%
+    select(Sample, Phylum, `Relative Abundance`) %>%
+    ungroup()
+```
 
-```{r, eval=FALSE}
-variables <- c("SEX", "AGE")
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
 
-V13() %>%
-    table_one(variables = variables)
+```{r}
+top_eight_phyla <-
+    relative_abundance %$%
+    unique(Phylum) %>%
+    as.character() %>%
+    extract(1:8)
+```
 
-V13 <- V13()
-V35 <- V35()
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
 
-list(V13, V35) %>%
-    table_one() %>%
-    kable_one()
+```{r}
+relative_abundance %<>%
+    filter(Phylum %in% top_eight_phyla)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
+
+```{r}
+sample_order <-
+    relative_abundance %$%
+    unique(Sample)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
+
+```{r}
+phylum_order <-
+    relative_abundance %$%
+    unique(Phylum)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
+
+```{r}
+bang_wong_colors <-
+    c(
+        "#CC79A7",
+        "#D55E00",
+        "#0072B2",
+        "#F0E442",
+        "#009E73",
+        "#56B4E9",
+        "#E69F00",
+        "#000000"
+    )
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
+
+```{r}
+relative_abundance %>%
+    mutate(Sample = factor(Sample, sample_order)) %>%
+    mutate(Phylum = factor(Phylum, phylum_order)) %>%
+    ggplot(aes(Sample, `Relative Abundance`, fill = Phylum)) +
+    geom_bar(stat = "identity", position = "fill", width = 1) +
+    scale_fill_manual(values = bang_wong_colors) +
+    theme_minimal() +
+    theme(axis.text.x = element_blank(), axis.title.x = element_blank(),
+          axis.title.y = element_blank(), panel.grid = element_blank(),
+          legend.position = "bottom", legend.title = element_blank()) +
+    ggtitle("Phylum-Level Relative Abundance", "HMP16SData Stool Samples")
 ```
 
 # Limitations
