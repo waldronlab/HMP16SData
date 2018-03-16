@@ -2,11 +2,22 @@
 title: "HMP16SData"
 date: '`r format(Sys.Date(), "%B %e, %Y")`'
 author:
-    - Lucas Schiffer
-    - Rimsha Azhar
-    - Marcel Ramos
-    - Ludwig Geistlinger
-    - Levi Waldron
+- name: Lucas Schiffer
+  affiliation:
+  - &1 Graduate School of Public Health and Health Policy, City University of New York, New York, NY
+- name: Rimsha Azhar
+  affiliation: 
+  - *1
+- name: Marcel Ramos
+  affiliation: 
+  - *1
+  - Roswell Park Cancer Institute, Buffalo, NY
+- name: Ludwig Geistlinger
+  affiliation: 
+  - *1
+- name: Levi Waldron
+  affiliation: 
+  - *1
 package: HMP16SData
 abstract: >
     HMP16SData is a Bioconductor ExperimentData package of the Human Microbiome
@@ -28,9 +39,8 @@ editor_options:
 
 The following `r BiocStyle::CRANpkg("knitr")` options will be used in this 
 vignette to provide the most useful and concise output.
-<!-- remove eval = FLASE line when ExperimentHub database is updated -->
+
 ```{r}
-knitr::opts_chunk$set(eval = FALSE)
 knitr::opts_chunk$set(message = FALSE)
 ```
 
@@ -43,24 +53,6 @@ library(phyloseq)
 library(magrittr)
 library(dplyr)
 library(ggplot2)
-```
-<!-- remove chunk when ExperimentHub database is updated -->
-```{r, echo=FALSE}
-load("~/20180312.V13.rda")
-
-X <- V13
-
-V13 <- function() {
-    X
-}
-
-load("~/20180312.V35.rda")
-
-Y <- V35
-
-V35 <- function() {
-    Y
-}
 ```
 
 Pipe operators from the `r BiocStyle::CRANpkg("magrittr")` package are used in 

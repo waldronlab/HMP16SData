@@ -47,14 +47,14 @@
 #' SRA projects SRP002395: Human Microbiome Project 16S rRNA Clinical Production
 #' Phase I, and SRP002012: Human Microbiome Project 454 Clinical Production
 #' Pilot. This dataset corresponds to over 5,700 samples and over 10,000
-#' sequence preps. 16S variable region 3-5 (V35) was sequenced for the entire
-#' set of samples, and variable region 1-3 (V13) for a subset of samples.
+#' sequence preps. 16S variable region 3–5 (V35) was sequenced for the entire
+#' set of samples, and variable region 1–3 (V13) for a subset of samples.
 #' @source The QIIME (Quantitative Insights Into Microbial Ecology) software
 #' package was used to process HMP 16S data using an OTU-binning strategy to
 #' which taxonomic classification is added.
 #' @source Raw 16S sequence and metadata, available through
 #' \url{https://tinyurl.com/y7ev836z}, were demultiplexed using QIIME. OTU
-#' picking was performed for the V1-3 and V3-5 region sequences using OTUPipe,
+#' picking was performed for the V1–3 and V3–5 region sequences using OTUPipe,
 #' which includes error correction, chimera checking through UCHIME, and
 #' clustering via UCLUST, and postprocessing by picking the optimal
 #' representative sequence centroid. Taxonomy was assigned using the RDP
@@ -64,7 +64,7 @@
 #' \url{https://tinyurl.com/y7ev836z}. Alpha and beta diversity for each sample
 #' and Procrustes analysis were established using QIIME with default parameters.
 #' @source All QIIME output files are available through
-#' \url{https://tinyurl.com/y7ev836z}, for both the V1-3 and V3-5 variable
+#' \url{https://tinyurl.com/y7ev836z}, for both the V1–3 and V3–5 variable
 #' regions, as well as Procrustes summary data. SOPs and custom scripts are also
 #' available through \url{https://tinyurl.com/y7ev836z}.
 #' @source If you're interested in joint analysis of 16S and shotgun metagenomic
