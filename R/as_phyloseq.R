@@ -14,11 +14,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' # can be run once reprocessed data is available via ExperimentHub
 #' V13() %>%
 #'     as_phyloseq()
-#' }
 #'
 #' @importFrom assertthat assert_that
 #' @importFrom SummarizedExperiment assay

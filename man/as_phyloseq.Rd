@@ -22,10 +22,7 @@ provides a means to easily coerce a
 \code{\link[phyloseq]{phyloseq-class}} class object.
 }
 \examples{
-\dontrun{
-# can be run once reprocessed data is available via ExperimentHub
 V13() \%>\%
     as_phyloseq()
-}
 
 }
