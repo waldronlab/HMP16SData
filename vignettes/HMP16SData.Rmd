@@ -114,11 +114,16 @@ aware that the `r BiocStyle::Githubpkg("schifferl/kableOne")` package is _very_
 beta.
 <!-- remove eval=FALSE when methods are implemented -->
 ```{r, eval=FALSE}
-variables <- c("SEX", "AGE")
-
 V13() %>%
-    table_one(variables = variables)
+    table_one(variables = "SEX")
+```
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum
+ante, congue vitae ultricies at, congue id libero. Nulla blandit elit in tortor
+malesuada, a egestas tortor finibus. Nulla aliquam arcu feugiat ornare eleifend.
+
+<!-- remove eval=FALSE when methods are implemented -->
+```{r, eval=FALSE}
 V13 <- V13()
 V35 <- V35()
 
