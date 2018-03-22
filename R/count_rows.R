@@ -4,7 +4,7 @@
 count_rows <- function(x) {
     x %>%
         apply(2, unique) %>%
-        sapply(length) %>%
-        cumsum() %>%
-        as.integer()
+        lapply(length) %>%
+        as.integer() %>%
+        cumsum()
 }
