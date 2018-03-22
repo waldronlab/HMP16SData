@@ -34,7 +34,7 @@ create_hub_accessors <- function(pkgname) {
                 extract(1)
         }
 
-        accessor <- ExperimentHub:::.hubAccessorFactory(ehid)
+        accessor <- hub_accessor_factory(ehid)
 
         assign(title, accessor, envir = ns)
         namespaceExport(ns, title)
