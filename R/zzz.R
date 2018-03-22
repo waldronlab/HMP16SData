@@ -9,4 +9,7 @@
     globalVariables("BioSample Accession")
     globalVariables("SN")
     globalVariables("CONSENSUS_LINEAGE")
+    globalVariables("Freq")
+    globalVariables("N")
+    globalVariables("%")
 }
