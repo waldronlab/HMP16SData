@@ -41,6 +41,51 @@ v13_map_col_types <-
 v13_map <- readr::read_tsv("inst/extdata/v13_map_uniquebyPSN.txt.bz2",
                            col_types = v13_map_col_types, progress = FALSE)
 
+v13_srs_col_names <-
+    base::c(
+        "SampleID",
+        "RSID",
+        "PSN",
+        "SN",
+        "NAP",
+        "ExperimentAccession",
+        "RunID",
+        "SRS_SampleID",
+        "Region",
+        "BarcodeSequence",
+        "LinkerPrimerSequence",
+        "Sex",
+        "HMPBodySubsite",
+        "HMPBodySite",
+        "VisitNo"
+    )
+
+v13_srs_col_types <-
+    readr::cols(
+        SampleID = "-",
+        RSID = "-",
+        PSN = "i",
+        SN = "-",
+        NAP = "-",
+        ExperimentAccession = "-",
+        RunID = "-",
+        SRS_SampleID = "c",
+        Region = "-",
+        BarcodeSequence = "-",
+        LinkerPrimerSequence = "-",
+        Sex = "-",
+        HMPBodySubsite = "-",
+        HMPBodySite = "-",
+        VisitNo = "-",
+        .default = "-"
+    )
+
+# warnings are expected, see https://github.com/tidyverse/readr/issues/750
+v13_srs <- readr::read_tsv("inst/extdata/ppAll_V13_map.txt",
+                           col_names = v13_srs_col_names,
+                           col_types = v13_srs_col_types, skip = 1,
+                           progress = FALSE)
+
 v13_otu %<>%
     base::colnames() %>%
     base::match(v13_map$`#SampleID`, table = .) %>%
@@ -51,14 +96,40 @@ v13_otu %<>%
     dplyr::rename(CONSENSUS_LINEAGE = `Consensus Lineage`)
 
 v13_map %<>%
-    dplyr::rename(rowname = `#SampleID`) %>%
+    dplyr::rename(PSN = `#SampleID`) %>%
     dplyr::rename(VISITNO = visitno) %>%
     dplyr::rename(SEX = sex) %>%
     dplyr::rename(RUN_CENTER = RUNCENTER) %>%
     dplyr::rename(HMP_BODY_SUBSITE = HMPbodysubsite) %>%
     dplyr::mutate(SEX = tools::toTitleCase(SEX)) %>%
     dplyr::mutate(HMP_BODY_SUBSITE = base::gsub("_", " ", HMP_BODY_SUBSITE)) %>%
-    dplyr::mutate(HMP_BODY_SUBSITE = tools::toTitleCase(HMP_BODY_SUBSITE))
+    dplyr::mutate(HMP_BODY_SUBSITE = tools::toTitleCase(HMP_BODY_SUBSITE)) %>%
+    dplyr::mutate(
+        HMP_BODY_SITE = dplyr::case_when(
+            HMP_BODY_SUBSITE == "Stool" ~ "Gastrointestinal Tract",
+            HMP_BODY_SUBSITE == "Saliva" ~ "Oral",
+            HMP_BODY_SUBSITE == "Tongue Dorsum" ~ "Oral",
+            HMP_BODY_SUBSITE == "Hard Palate" ~ "Oral",
+            HMP_BODY_SUBSITE == "Buccal Mucosa" ~ "Oral",
+            HMP_BODY_SUBSITE == "Attached Keratinized Gingiva" ~ "Oral",
+            HMP_BODY_SUBSITE == "Palatine Tonsils" ~ "Oral",
+            HMP_BODY_SUBSITE == "Throat" ~ "Oral",
+            HMP_BODY_SUBSITE == "Supragingival Plaque" ~ "Oral",
+            HMP_BODY_SUBSITE == "Subgingival Plaque" ~ "Oral",
+            HMP_BODY_SUBSITE == "Left Retroauricular Crease" ~ "Skin",
+            HMP_BODY_SUBSITE == "Right Retroauricular Crease" ~ "Skin",
+            HMP_BODY_SUBSITE == "Left Antecubital Fossa" ~ "Skin",
+            HMP_BODY_SUBSITE == "Right Antecubital Fossa" ~ "Skin",
+            HMP_BODY_SUBSITE == "Anterior Nares" ~ "Airways",
+            HMP_BODY_SUBSITE == "Vaginal Introitus" ~ "Urogenital Tract",
+            HMP_BODY_SUBSITE == "Mid Vagina" ~ "Urogenital Tract",
+            HMP_BODY_SUBSITE == "Posterior Fornix" ~ "Urogenital Tract"
+        )
+    )
+
+v13_srs %<>%
+    dplyr::rename(SRS_SAMPLE_ID = SRS_SampleID) %>%
+    dplyr::distinct()
 
 assays <-
     dplyr::select(v13_otu, -CONSENSUS_LINEAGE) %>%
@@ -70,11 +141,13 @@ assays <-
 
 colData <-
     base::colnames(v13_otu) %>%
-    base::match(v13_map$rowname) %>%
+    base::match(v13_map$PSN) %>%
     stats::na.exclude() %>%
     base::as.integer() %>%
     dplyr::slice(v13_map, .) %>%
-    dplyr::select(-rowname) %>%
+    dplyr::left_join(v13_srs) %>%
+    dplyr::select(RSID, VISITNO, SEX, RUN_CENTER, HMP_BODY_SITE,
+                  HMP_BODY_SUBSITE, SRS_SAMPLE_ID) %>%
     S4Vectors::DataFrame()
 
 rowData <-

@@ -15,6 +15,8 @@
         Venter Institute (JCVI), or the Genome Sequencing Center at
         Washington University (WUGC)}
         \item{HMP_BODY_SUBSITE}{body subsite where the sample was collected}
+        \item{SRS_SAMPLE_ID}{a sample identifier to be used when comparing
+        16S rRNA samples to whole metagenome shotgun (WMS) samples}
     }
 }
 \subsection{rowData}{
@@ -69,12 +71,14 @@ sample IDs are related experimentally, and provides tables joining 16S
 dataset "SN" and "PSN" identifiers with metagenomic dataset "SRS"
 identifiers.
 
-Two files were used to construct this
+Three files were used to construct this
 \code{\link[SummarizedExperiment]{SummarizedExperiment}} object:
 
 Final OTU Table: \url{https://tinyurl.com/y9rbpjl7}
 
-Mapping File: \url{https://tinyurl.com/yaz35f22}
+PSN Mapping File: \url{https://tinyurl.com/yaz35f22}
+
+All Mapping File: \url{https://tinyurl.com/y9xjqm29}
 }
 \usage{
 V35(metadata = FALSE)
@@ -91,7 +95,7 @@ A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
 sites from 300 healthy adults between the ages of 18 and 40
 }
 \note{
-The "SN" identifiers were used as the \code{colnames} of the
+The "PSN" identifiers were used as the \code{colnames} of the
 \code{\link[SummarizedExperiment]{SummarizedExperiment}} object, see source
 for additional information.
 }

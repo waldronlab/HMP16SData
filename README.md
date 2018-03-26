@@ -1,9 +1,5 @@
 ![fa-linux](https://tinyurl.com/yadaat78)
 [![ci-linux](https://tinyurl.com/y7wya2kf)](https://tinyurl.com/ybau2brs)
-<!--
-![fa-windows](https://tinyurl.com/ybn5v5pj)
-[![ci-windows](https://tinyurl.com/y84zu7lv)](https://tinyurl.com/y7u6un9e)
--->
 ![fa-music](https://tinyurl.com/ybhw6acv)
 [![ci-bioc](https://tinyurl.com/yc58tygg)](https://tinyurl.com/ybfcpt7k)
 
