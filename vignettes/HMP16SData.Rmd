@@ -363,7 +363,7 @@ phylum_order <-
 Color blindness affects a significant portion of the population, but using an
 intelligent color pallet figures can be designed to be friendly to those with
 deuteranopia, protanopia, and tritanopia. The following colors are derived from
-Wong, B. Points of view: Color blindness. _Nat. Methods_ *8*, 441 (2011).
+Wong, B. Points of view: Color blindness. _Nat. Methods_ **8**, 441 (2011).
 
 ```{r}
 bang_wong_colors <-
