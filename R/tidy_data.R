@@ -8,11 +8,12 @@
 #' @importFrom dplyr mutate
 #' @importFrom dplyr case_when
 #' @importFrom dplyr rename
-tidy_data <- function(x, VISITNO, SEX, RUN_CENTER, HMP_BODY_SUBSITE) {
+tidy_data <- function(x, VISITNO, SEX, RUN_CENTER, HMP_BODY_SITE,
+                      HMP_BODY_SUBSITE) {
     x %<>%
         colData() %>%
         as.data.frame() %>%
-        select(VISITNO, SEX, RUN_CENTER, HMP_BODY_SUBSITE)
+        select(VISITNO, SEX, RUN_CENTER, HMP_BODY_SITE, HMP_BODY_SUBSITE)
 
     if (VISITNO) {
         x %<>%
@@ -61,6 +62,14 @@ tidy_data <- function(x, VISITNO, SEX, RUN_CENTER, HMP_BODY_SUBSITE) {
     } else {
         x %<>%
             select(-RUN_CENTER)
+    }
+
+    if (HMP_BODY_SITE) {
+        x %<>%
+            rename(`HMP Body Site` = HMP_BODY_SITE)
+    } else {
+        x %<>%
+            select(-HMP_BODY_SITE)
     }
 
     if (HMP_BODY_SUBSITE) {

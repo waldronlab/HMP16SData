@@ -5,7 +5,7 @@
 \title{Title}
 \usage{
 table_one(x, VISITNO = TRUE, SEX = TRUE, RUN_CENTER = TRUE,
-  HMP_BODY_SUBSITE = TRUE)
+  HMP_BODY_SITE = TRUE, HMP_BODY_SUBSITE = TRUE)
 }
 \arguments{
 \item{x}{Description}
@@ -15,6 +15,8 @@ table_one(x, VISITNO = TRUE, SEX = TRUE, RUN_CENTER = TRUE,
 \item{SEX}{Description}
 
 \item{RUN_CENTER}{Description}
+
+\item{HMP_BODY_SITE}{Description}
 
 \item{HMP_BODY_SUBSITE}{Description}
 }

@@ -6,6 +6,7 @@
 #' @param VISITNO Description
 #' @param SEX Description
 #' @param RUN_CENTER Description
+#' @param HMP_BODY_SITE Description
 #' @param HMP_BODY_SUBSITE Description
 #'
 #' @return Description
@@ -22,7 +23,7 @@
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr extract2
 table_one <- function(x, VISITNO = TRUE, SEX = TRUE, RUN_CENTER = TRUE,
-                      HMP_BODY_SUBSITE = TRUE) {
+                      HMP_BODY_SITE = TRUE, HMP_BODY_SUBSITE = TRUE) {
     if (class(x) == "list") {
         names(x) %>%
             is.null() %>%
@@ -40,7 +41,8 @@ table_one <- function(x, VISITNO = TRUE, SEX = TRUE, RUN_CENTER = TRUE,
     assert_that(class(x) == "list")
 
     x %<>%
-        lapply(tidy_data, VISITNO, SEX, RUN_CENTER, HMP_BODY_SUBSITE)
+        lapply(tidy_data, VISITNO, SEX, RUN_CENTER, HMP_BODY_SITE,
+               HMP_BODY_SUBSITE)
 
     if (length(x) == 1) {
         x %<>%
