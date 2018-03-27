@@ -178,7 +178,7 @@ head(dictionary)
 ## Phyloseq Class Coercion
 
 Data from the HMP study is likely useful as a comparison or control group, a
-_"standard candle"_ of sorts, in the context of other human microbiome studies.
+*"standard candle"* of sorts, in the context of other human microbiome studies.
 As such, `r BiocStyle::Biocpkg("HMP16SData")` provides a method, `as_phyloseq`,
 to coerce `SummarizedExperiment` class objects to `phyloseq` class objects. The
 `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of
@@ -228,16 +228,6 @@ The `V35_stool_phyloseq` object constructed above contains the 16S variable
 region 3–5 data subset to include only stool samples, but the WMS stool samples
 are obtained and coerced to a `phyloseq` object as follows.
 
-<!-- remove later -->
-```{r, echo=FALSE}
-load("~/20180326.V35.rda")
-
-V35_stool_phyloseq <-
-    V35 %>%
-    subset(select = HMP_BODY_SUBSITE == "Stool") %>%
-    as_phyloseq()
-```
-
 ```{r}
 WMS_stool_phyloseq <-
     HMP_2012.metaphlan_bugs_list.stool() %>%
@@ -247,7 +237,7 @@ WMS_stool_phyloseq <-
 The `r BiocStyle::Biocpkg("phyloseq")` package can then be used to summarize
 abundance counts at the phylum level using the `tax_glom` function. Thereafter,
 given the complexity of operations needed to make a phylum-level relative
-abundance plot, the `phyloseq` class objects are _"melted"_ into `data.frame`
+abundance plot, the `phyloseq` class objects are *"melted"* into `data.frame`
 class objects using the `psmelt` function.
 
 ```{r}
@@ -278,13 +268,13 @@ In either case, data is first grouped by samples and the percent composition of
 each phylum relative to the others in the sample is calculated by taking the
 count abundance of the phylum divided by the sum of all abundance counts in the
 sample. Samples are then sorted by phylum and descending relative abundance
-before being grouped by phylum – the grouping by phylum allows for the 
+before being grouped by phylum – the grouping by phylum allows for the
 assignment a phylum rank that is then used to sort the phyla by descending
 relative abundance. Finally, only the sample, phylum, and relative abundance
 columns are kept once the order has been established and all groupings can be
 removed.
 
-```{r}
+```{r, eval=FALSE}
 SRS_SAMPLE_IDS <-
     intersect(V35_stool_melted$SRS_SAMPLE_ID, WMS_stool_melted$NCBI_accession)
 
@@ -318,7 +308,7 @@ each data set can be obtained and intersected to give the top eight phyla
 present in both data sets. The top eight phyla can then be used to filter 16S
 and WMS samples to include only the desired phyla.
 
-```{r}
+```{r, eval=FALSE}
 V35_top_phyla <-
     V35_stool_melted %$%
     unique(Phylum) %>%
@@ -344,7 +334,7 @@ To achieve ordering of samples by the relative abundance of the top phylum when
 plotting, a vector of the unique sample identifiers is constructed and will be
 used as the `levels` of a `factor`.
 
-```{r}
+```{r, eval=FALSE}
 sample_order <-
     V35_stool_melted %$%
     unique(Sample)
@@ -354,7 +344,7 @@ A vector of unique phyla is also constructed and will be used as the `levels` of
 a `factor` when plotting. If this were not done, phyla would simply be sorted
 alphabetically.
 
-```{r}
+```{r, eval=FALSE}
 phylum_order <-
     V35_stool_melted %$%
     unique(Phylum)
@@ -363,9 +353,9 @@ phylum_order <-
 Color blindness affects a significant portion of the population, but using an
 intelligent color pallet figures can be designed to be friendly to those with
 deuteranopia, protanopia, and tritanopia. The following colors are derived from
-Wong, B. Points of view: Color blindness. _Nat. Methods_ **8**, 441 (2011).
+Wong, B. Points of view: Color blindness. *Nat. Methods* **8**, 441 (2011).
 
-```{r}
+```{r, eval=FALSE}
 bang_wong_colors <-
     c(
         "#CC79A7",
@@ -379,13 +369,13 @@ bang_wong_colors <-
     )
 ```
 
-Using the `sample_order` and `phylum_order` vectors constructed above, stacked 
-phylum-level relative abundance bar plots sorted by decreasing relative 
+Using the `sample_order` and `phylum_order` vectors constructed above, stacked
+phylum-level relative abundance bar plots sorted by decreasing relative
 abundance of the top phylum and stratified by the top eight phyla can be made
 for 16S and WMS samples. The two plots are made separately and serialized so
 that they can be arranged in a single figure for comparison.
 
-```{r}
+```{r, eval=FALSE}
 V35_plot <-
     V35_stool_melted %>%
     mutate(Sample = factor(Sample, sample_order)) %>%
@@ -417,7 +407,7 @@ In the plots above, legends are removed to reduce redundancy, but a legend is
 still necessary and can be serialized as its own plot below using the
 `get_legend` function from the `r BiocStyle::CRANpkg("cowplot")` package.
 
-```{r}
+```{r, eval=FALSE}
 plot_legend <- {
         WMS_plot +
             theme(legend.position = "bottom")
@@ -425,10 +415,11 @@ plot_legend <- {
     get_legend()
 ```
 
-Finally, the `r BiocStyle::CRANpkg("gridExtra")` package is used to arrange,
-scale, and plot the three plots in a single figure.
+Finally, the `grid.arrange` function from the
+`r BiocStyle::CRANpkg("gridExtra")` package is used to arrange, scale, and plot
+the three plots in a single figure.
 
-```{r, fig.height=8, fig.width=8}
+```{r, fig.height=8, fig.width=8, eval=FALSE}
 grid.arrange(V35_plot, WMS_plot, plot_legend, ncol = 1, heights = c(3, 3, 1))
 ```
 
