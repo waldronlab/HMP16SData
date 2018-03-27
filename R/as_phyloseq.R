@@ -25,6 +25,8 @@
 #' @importFrom SummarizedExperiment rowData
 #' @importFrom S4Vectors as.matrix
 #' @importFrom magrittr set_rownames
+#' @importFrom SummarizedExperiment metadata
+#' @importFrom magrittr use_series
 as_phyloseq <- function(x) {
     assert_that(class(x) == "SummarizedExperiment")
 
@@ -51,5 +53,9 @@ as_phyloseq <- function(x) {
         set_rownames(tax_table, value = .) %>%
         phyloseq::tax_table()
 
-    phyloseq::phyloseq(otu_table, sample_data, tax_table)
+    phy_tree <-
+        metadata(x) %>%
+        use_series(phylogeneticTree)
+
+    phyloseq::phyloseq(otu_table, sample_data, tax_table, phy_tree)
 }
