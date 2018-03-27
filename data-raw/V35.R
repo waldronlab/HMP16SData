@@ -145,7 +145,7 @@ colData <-
     stats::na.exclude() %>%
     base::as.integer() %>%
     dplyr::slice(v35_map, .) %>%
-    dplyr::left_join(v35_srs) %>%
+    dplyr::left_join(v35_srs, by = "PSN") %>%
     dplyr::select(RSID, VISITNO, SEX, RUN_CENTER, HMP_BODY_SITE,
                   HMP_BODY_SUBSITE, SRS_SAMPLE_ID) %>%
     S4Vectors::DataFrame()
@@ -165,7 +165,7 @@ rowData <-
                                        HMP16SData:::match_clade, "g__")) %>%
     S4Vectors::DataFrame()
 
-metadata <-
+experimentData <-
     Biobase::MIAME(name = "Human Microbiome Project Consortium",
                    title = "Structure, function and diversity of the healthy
                    human microbiome",
@@ -195,9 +195,12 @@ metadata <-
                    human microbiome.",
                    url = "https://www.ncbi.nlm.nih.gov/pubmed/22699609",
                    pubMedIds = "22699609") %>%
-    HMP16SData:::fix_MIAME() %>%
-    base::list() %>%
-    magrittr::set_names("experimentData")
+    HMP16SData:::fix_MIAME()
+
+phylogeneticTree <- phyloseq::read_tree("inst/extdata/rep_set_v35.tre.gz")
+
+metadata <- base::list(experimentData = experimentData,
+                       phylogeneticTree = phylogeneticTree)
 
 V35 <- SummarizedExperiment::SummarizedExperiment(assays = assays,
                                                   colData = colData,
