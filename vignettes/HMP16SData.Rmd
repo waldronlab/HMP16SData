@@ -109,7 +109,7 @@ provides a function, `table_one`, to do so. It returns a `data.frame` or a
 `list` of `data.frame` objects that has been transformed to make a publication
 ready table.
 
-```{r}
+```{r, eval=FALSE}
 V13() %>%
     table_one() %>%
     head()
@@ -119,9 +119,9 @@ If a `list` is passed to `table_one`, its elements must be named so that the
 named elements can be used by the `kable_one` function. The `kable_one` function
 will produce an `HTML` table for vignettes such as the one shown below.
 
-```{r}
+```{r, eval=FALSE}
 list(V13 = V13(), V35 = V35()) %>%
-    table_one(RUN_CENTER = FALSE) %>%
+    table_one() %>%
     kable_one()
 ```
 
