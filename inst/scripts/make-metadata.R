@@ -52,9 +52,13 @@ SourceType <- base::as.character("TXT")
 SourceUrl <-
     base::c(
         "http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v13.txt.gz,
-         http://downloads.ihmpdcc.org/data/HMQCP/v13_map_uniquebyPSN.txt.bz2",
+         http://downloads.ihmpdcc.org/data/HMQCP/v13_map_uniquebyPSN.txt.bz2,
+         https://www.hmpdacc.org/hmp/doc/ppAll_V13_map.txt,
+         http://downloads.ihmpdcc.org/data/HMQCP/rep_set_v13.tre.gz",
         "http://downloads.ihmpdcc.org/data/HMQCP/otu_table_psn_v35.txt.gz,
-         http://downloads.ihmpdcc.org/data/HMQCP/v35_map_uniquebyPSN.txt.bz2"
+         http://downloads.ihmpdcc.org/data/HMQCP/v35_map_uniquebyPSN.txt.bz2,
+         https://www.hmpdacc.org/hmp/doc/ppAll_V35_map.txt,
+         http://downloads.ihmpdcc.org/data/HMQCP/rep_set_v35.tre.gz"
     ) %>%
     gsub("\\s+", " ", x = .)
 
