@@ -36,12 +36,12 @@ V13()
 ```
 ## class: SummarizedExperiment
 ## dim: 43140 2898
-## metadata(1): experimentData
+## metadata(2): experimentData phylogeneticTree
 ## assays(1): 16SrRNA
 ## rownames(43140): OTU_97.1 OTU_97.10 ... OTU_97.9997 OTU_97.9999
 ## rowData names(7): CONSENSUS_LINEAGE SUPERKINGDOM ... FAMILY GENUS
 ## colnames(2898): 700013549 700014386 ... 700114963 700114965
-## colData names(5): RSID VISITNO SEX RUN_CENTER HMP_BODY_SUBSITE
+## colData names(7): RSID VISITNO ... HMP_BODY_SUBSITE SRS_SAMPLE_ID
 ```
 
 ```r
@@ -51,12 +51,12 @@ V35()
 ```
 ## class: SummarizedExperiment
 ## dim: 45383 4743
-## metadata(1): experimentData
+## metadata(2): experimentData phylogeneticTree
 ## assays(1): 16SrRNA
 ## rownames(45383): OTU_97.1 OTU_97.10 ... OTU_97.9998 OTU_97.9999
 ## rowData names(7): CONSENSUS_LINEAGE SUPERKINGDOM ... FAMILY GENUS
 ## colnames(4743): 700013549 700014386 ... 700114717 700114750
-## colData names(5): RSID VISITNO SEX RUN_CENTER HMP_BODY_SUBSITE
+## colData names(7): RSID VISITNO ... HMP_BODY_SUBSITE SRS_SAMPLE_ID
 ```
 
 The two datasets are represented as `SummarizedExperiment` objects, a standard
