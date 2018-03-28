@@ -25,7 +25,7 @@
 #' @importFrom SummarizedExperiment rowData
 #' @importFrom S4Vectors as.matrix
 #' @importFrom magrittr set_rownames
-#' @importFrom SummarizedExperiment metadata
+#' @importFrom S4Vectors metadata
 #' @importFrom magrittr use_series
 as_phyloseq <- function(x) {
     assert_that(class(x) == "SummarizedExperiment")
