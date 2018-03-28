@@ -43,6 +43,7 @@
 # seen in the data-raw directory. With the package as the working directory, the
 # data processing could be repeated with these commands:
 
+source("data-raw/download.R")
 source("data-raw/V13.R")
 source("data-raw/V35.R")
 
