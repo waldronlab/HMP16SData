@@ -14,7 +14,7 @@ join_colData <- function(dbGaP_data, x) {
         as.data.frame() %>%
         rownames_to_column(var = "SN") %>%
         mutate(SN = as.integer(SN)) %>%
-        inner_join(dbGaP_data) %>%
+        inner_join(dbGaP_data,  by = "SN") %>%
         distinct(SN, .keep_all = TRUE) %>%
         column_to_rownames(var = "SN") %>%
         make_DataFrame()
