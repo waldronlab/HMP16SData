@@ -1,15 +1,22 @@
-#' Title
+#' Produce a summary data.frame of key demographic variables
 #'
-#' Description
+#' Sometimes it is desirable to produce a summary of key demographic variables..
 #'
-#' @param x Description
-#' @param VISITNO Description
-#' @param SEX Description
-#' @param RUN_CENTER Description
-#' @param HMP_BODY_SITE Description
-#' @param HMP_BODY_SUBSITE Description
+#' @param x A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object or
+#' a named \code{list} of
+#' \code{\link[SummarizedExperiment]{SummarizedExperiment}} objects from the
+#' \code{\link{HMP16SData}} package
+#' @param VISITNO logical; if \code{FALSE}, the \code{VISITNO} column is dropped
+#' @param SEX logical; if \code{FALSE}, the \code{SEX} column is dropped
+#' @param RUN_CENTER logical; if \code{FALSE}, the \code{RUN_CENTER} column is
+#' dropped
+#' @param HMP_BODY_SITE logical; if \code{FALSE}, the \code{HMP_BODY_SITE}
+#' column is dropped
+#' @param HMP_BODY_SUBSITE logical; if \code{FALSE}, the \code{HMP_BODY_SUBSITE}
+#' column is dropped
 #'
-#' @return Description
+#' @return A \code{data.frame} object or a named \code{list} of
+#' \code{data.frame} objects
 #' @export
 #'
 #' @seealso \code{\link{kable_one}}

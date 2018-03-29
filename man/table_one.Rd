@@ -2,29 +2,36 @@
 % Please edit documentation in R/table_one.R
 \name{table_one}
 \alias{table_one}
-\title{Title}
+\title{Produce a summary data.frame of key demographic variables}
 \usage{
 table_one(x, VISITNO = TRUE, SEX = TRUE, RUN_CENTER = TRUE,
   HMP_BODY_SITE = TRUE, HMP_BODY_SUBSITE = TRUE)
 }
 \arguments{
-\item{x}{Description}
+\item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object or
+a named \code{list} of
+\code{\link[SummarizedExperiment]{SummarizedExperiment}} objects from the
+\code{\link{HMP16SData}} package}
 
-\item{VISITNO}{Description}
+\item{VISITNO}{logical; if \code{FALSE}, the \code{VISITNO} column is dropped}
 
-\item{SEX}{Description}
+\item{SEX}{logical; if \code{FALSE}, the \code{SEX} column is dropped}
 
-\item{RUN_CENTER}{Description}
+\item{RUN_CENTER}{logical; if \code{FALSE}, the \code{RUN_CENTER} column is
+dropped}
 
-\item{HMP_BODY_SITE}{Description}
+\item{HMP_BODY_SITE}{logical; if \code{FALSE}, the \code{HMP_BODY_SITE}
+column is dropped}
 
-\item{HMP_BODY_SUBSITE}{Description}
+\item{HMP_BODY_SUBSITE}{logical; if \code{FALSE}, the \code{HMP_BODY_SUBSITE}
+column is dropped}
 }
 \value{
-Description
+A \code{data.frame} object or a named \code{list} of
+\code{data.frame} objects
 }
 \description{
-Description
+Sometimes it is desirable to produce a summary of key demographic variables..
 }
 \examples{
 V13() \%>\%

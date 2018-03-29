@@ -1,10 +1,11 @@
-#' Title
+#' Produce a summary HTML table of key demographic variables
 #'
-#' Description
+#' Sometimes it is desirable to produce a summary of key demographic variables..
 #'
-#' @param x Description
+#' @param x A \code{data.frame} object or a named \code{list} of
+#' \code{data.frame} objects from the output of \code{\link{table_one}}
 #'
-#' @return Description
+#' @return A summary HTML table of key demographic variables
 #' @export
 #'
 #' @seealso \code{\link{table_one}}

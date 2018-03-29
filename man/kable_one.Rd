@@ -2,18 +2,19 @@
 % Please edit documentation in R/kable_one.R
 \name{kable_one}
 \alias{kable_one}
-\title{Title}
+\title{Produce a summary HTML table of key demographic variables}
 \usage{
 kable_one(x)
 }
 \arguments{
-\item{x}{Description}
+\item{x}{A \code{data.frame} object or a named \code{list} of
+\code{data.frame} objects from the output of \code{\link{table_one}}}
 }
 \value{
-Description
+A summary HTML table of key demographic variables
 }
 \description{
-Description
+Sometimes it is desirable to produce a summary of key demographic variables..
 }
 \examples{
 V13() \%>\%
