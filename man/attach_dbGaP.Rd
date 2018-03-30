@@ -7,32 +7,32 @@
 attach_dbGaP(x, dbGaP_repository_key = "")
 }
 \arguments{
-\item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
-from the \code{\link{HMP16SData}} package}
+\item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+object from the \code{\link{HMP16SData}} package}
 
 \item{dbGaP_repository_key}{A repository key downloaded from dbGaP; only
 required for the initial download and not needed thereafter}
 }
 \value{
-A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
-with protected metadata from dbGaP
+A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+object with protected metadata from dbGaP attached
 }
 \description{
 The National Center for Biotechnology Information (NCBI) database of
 Genotypes and Phenotypes (dbGaP) has extensive metadata pretaining to the HMP
-study. Access to this data is controlled and its use requires authorization
-by the appropriate Data Access Committee – further information is available
-\href{https://tinyurl.com/yb7okvga}{here}. Those with authorization will be
-able to download a dbGaP repository key and can use it to attach the
-controlled-access metadata to a
-\code{\link[SummarizedExperiment]{SummarizedExperiment}} object with a single
-command, provided the NCBI SRA Toolkit is installed and on your \code{PATH}.
-See note below for further information.
+study. Access to this metadata is controlled and its use requires
+authorization by the appropriate Data Access Committee – further information
+is available \href{https://tinyurl.com/yb7okvga}{here}. Those with
+authorization will be able to download a dbGaP repository key and can use it
+to attach the controlled-access metadata to a
+\code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object with a
+single command, provided the NCBI SRA Toolkit is installed and on the user's
+\code{PATH}. See note below for further information.
 }
 \note{
-The NCBI SRA Toolkit is called internally and must be on your \code{PATH} or
-an error message will be displayed. The NCBI SRA Toolkit can be readily
-installed on multiple platforms following
+The NCBI SRA Toolkit is called internally and must be on the user's
+\code{PATH} or an error message will be displayed. The NCBI SRA Toolkit can
+readily be installed on multiple platforms following
 \href{https://tinyurl.com/y845ppaa}{these} instructions or by one of the
 following methods.
 \subsection{Debian/Ubuntu}{

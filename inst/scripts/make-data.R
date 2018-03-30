@@ -42,8 +42,9 @@
 # http://downloads.ihmpdcc.org/data/HMQCP/rep_set_v13.tre.gz
 # http://downloads.ihmpdcc.org/data/HMQCP/rep_set_v35.tre.gz
 #
-# The unadulturated raw files are all available in inst/extdata and were
-# downloaded with the following command.
+# The unadulturated raw files are all available in inst/extdata and the data
+# download, with the package as the working directory, could be repeated with
+# this command:
 
 source("data-raw/download.R")
 

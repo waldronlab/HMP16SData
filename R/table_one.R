@@ -1,19 +1,33 @@
 #' Produce a summary data.frame of key demographic variables
 #'
-#' Sometimes it is desirable to produce a summary of key demographic variables..
+#' Sometimes it is desirable to produce a summary of key demographic variables
+#' for presentation. The \code{\link{table_one}} and \code{\link{kable_one}}
+#' methods are a quick way to do so – they not only summarize key demographic
+#' variables from \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+#' object(s) in the \code{\link{HMP16SData}} package but remove abbreviations
+#' and underscores in column and variable names that might otherwise be
+#' ambigious. The \code{\link{table_one}} method returns a \emph{tidy} (i.e. one
+#' sample observation per line) \code{data.frame} object or a named \code{list}
+#' of \emph{tidy} \code{data.frame} objects. The \code{\link{kable_one}} method
+#' can then be used to produce a publication-ready \code{HTML} table that could,
+#' for example, be pasted into a word processor.
 #'
-#' @param x A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object or
-#' a named \code{list} of
-#' \code{\link[SummarizedExperiment]{SummarizedExperiment}} objects from the
-#' \code{\link{HMP16SData}} package
-#' @param VISITNO logical; if \code{FALSE}, the \code{VISITNO} column is dropped
-#' @param SEX logical; if \code{FALSE}, the \code{SEX} column is dropped
-#' @param RUN_CENTER logical; if \code{FALSE}, the \code{RUN_CENTER} column is
-#' dropped
+#' @param x A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+#' object or a named \code{list} of
+#' \code{\link[SummarizedExperiment]{SummarizedExperiment-class}} objects from
+#' the \code{\link{HMP16SData}} package
+#' @param VISITNO logical; if \code{FALSE}, the \code{VISITNO} column(s) of
+#' \code{SummarizedExperiment} \code{colData} will not be summarized
+#' @param SEX logical; if \code{FALSE}, the \code{SEX} column(s) of
+#' \code{SummarizedExperiment} \code{colData} will not be summarized
+#' @param RUN_CENTER logical; if \code{FALSE}, the \code{RUN_CENTER} column(s)
+#' of \code{SummarizedExperiment} \code{colData} will not be summarized
 #' @param HMP_BODY_SITE logical; if \code{FALSE}, the \code{HMP_BODY_SITE}
-#' column is dropped
+#' column(s) of \code{SummarizedExperiment} \code{colData} will not be
+#' summarized
 #' @param HMP_BODY_SUBSITE logical; if \code{FALSE}, the \code{HMP_BODY_SUBSITE}
-#' column is dropped
+#' column(s) of \code{SummarizedExperiment} \code{colData} will not be
+#' summarized
 #'
 #' @return A \code{data.frame} object or a named \code{list} of
 #' \code{data.frame} objects

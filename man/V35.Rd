@@ -71,14 +71,20 @@ sample IDs are related experimentally, and provides tables joining 16S
 dataset "SN" and "PSN" identifiers with metagenomic dataset "SRS"
 identifiers.
 
-Three files were used to construct this
-\code{\link[SummarizedExperiment]{SummarizedExperiment}} object:
+Four files were used to construct this
+\code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object.
 
-Final OTU Table: \url{https://tinyurl.com/y9rbpjl7}
+OTU table file with PSN identifiers:
+\url{https://tinyurl.com/y9rbpjl7}
 
-PSN Mapping File: \url{https://tinyurl.com/yaz35f22}
+Subject metadata files with PSN identifiers:
+\url{https://tinyurl.com/yaz35f22}
 
-All Mapping File: \url{https://tinyurl.com/y9xjqm29}
+Subject metadata files with SRS identifiers:
+\url{https://tinyurl.com/y9xjqm29}
+
+Representative sequence phylogenetic trees:
+\url{https://tinyurl.com/y9exxlgr}
 }
 \usage{
 V35(metadata = FALSE)

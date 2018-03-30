@@ -8,8 +8,8 @@
 #' @param metadata logical; if \code{TRUE} only the metadata is downloaded,
 #' rather than the entire resource
 #'
-#' @format A \code{\link[SummarizedExperiment]{SummarizedExperiment}} with
-#' 43,140 features and 2,898 samples:
+#' @format A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+#' object with 43,140 features and 2,898 samples:
 #' \subsection{colData}{
 #'     \describe{
 #'         \item{RSID}{a random subject identifier}
@@ -37,11 +37,12 @@
 #'     }
 #' }
 #'
-#' @return A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+#' @return A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+#' object
 #'
 #' @note The "PSN" identifiers were used as the \code{colnames} of the
-#' \code{\link[SummarizedExperiment]{SummarizedExperiment}} object, see source
-#' for additional information.
+#' \code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object, see
+#' source for additional information.
 #'
 #' @source The following source information is derived from the HMP Data
 #' Analysis and Coordination Center:
@@ -75,11 +76,16 @@
 #' sample IDs are related experimentally, and provides tables joining 16S
 #' dataset "SN" and "PSN" identifiers with metagenomic dataset "SRS"
 #' identifiers.
-#' @source Three files were used to construct this
-#' \code{\link[SummarizedExperiment]{SummarizedExperiment}} object:
-#' @source Final OTU Table: \url{https://tinyurl.com/y74gqpho}
-#' @source PSN Mapping File: \url{https://tinyurl.com/y8adlfso}
-#' @source All Mapping File: \url{https://tinyurl.com/ybmn7q8m}
+#' @source Four files were used to construct this
+#' \code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object.
+#' @source OTU table file with PSN identifiers:
+#' \url{https://tinyurl.com/y74gqpho}
+#' @source Subject metadata files with PSN identifiers:
+#' \url{https://tinyurl.com/y8adlfso}
+#' @source Subject metadata files with SRS identifiers:
+#' \url{https://tinyurl.com/ybmn7q8m}
+#' @source Representative sequence phylogenetic trees:
+#' \url{https://tinyurl.com/ybp8mzgj}
 #'
 #' @examples V13()
 #'

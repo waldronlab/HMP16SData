@@ -4,13 +4,13 @@
 #' working with 16S rRNA sequencing and other microbiome data that may be of use
 #' to the users of \code{\link{HMP16SData}}. The \code{as_phyloseq} method
 #' provides a means to easily coerce a
-#' \code{\link[SummarizedExperiment]{SummarizedExperiment}} object to a
-#' \code{\link[phyloseq]{phyloseq-class}} class object.
+#' \code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object to a
+#' \code{\link[phyloseq]{phyloseq-class}} object.
 #'
-#' @param x A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
-#' from the \code{\link{HMP16SData}} package
+#' @param x A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+#' object from the \code{\link{HMP16SData}} package
 #'
-#' @return A \code{\link[phyloseq]{phyloseq-class}} class object
+#' @return A \code{\link[phyloseq]{phyloseq-class}} object
 #' @export
 #'
 #' @examples

@@ -7,19 +7,19 @@
 as_phyloseq(x)
 }
 \arguments{
-\item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
-from the \code{\link{HMP16SData}} package}
+\item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+object from the \code{\link{HMP16SData}} package}
 }
 \value{
-A \code{\link[phyloseq]{phyloseq-class}} class object
+A \code{\link[phyloseq]{phyloseq-class}} object
 }
 \description{
 The \code{\link[phyloseq]{phyloseq-package}} provides a suite of methods for
 working with 16S rRNA sequencing and other microbiome data that may be of use
 to the users of \code{\link{HMP16SData}}. The \code{as_phyloseq} method
 provides a means to easily coerce a
-\code{\link[SummarizedExperiment]{SummarizedExperiment}} object to a
-\code{\link[phyloseq]{phyloseq-class}} class object.
+\code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object to a
+\code{\link[phyloseq]{phyloseq-class}} object.
 }
 \examples{
 V13() \%>\%

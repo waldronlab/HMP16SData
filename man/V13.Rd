@@ -3,8 +3,8 @@
 \name{V13}
 \alias{V13}
 \title{16S rRNA sequencing data for variable regions 1–3}
-\format{A \code{\link[SummarizedExperiment]{SummarizedExperiment}} with
-43,140 features and 2,898 samples:
+\format{A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+object with 43,140 features and 2,898 samples:
 \subsection{colData}{
     \describe{
         \item{RSID}{a random subject identifier}
@@ -71,14 +71,20 @@ sample IDs are related experimentally, and provides tables joining 16S
 dataset "SN" and "PSN" identifiers with metagenomic dataset "SRS"
 identifiers.
 
-Three files were used to construct this
-\code{\link[SummarizedExperiment]{SummarizedExperiment}} object:
+Four files were used to construct this
+\code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object.
 
-Final OTU Table: \url{https://tinyurl.com/y74gqpho}
+OTU table file with PSN identifiers:
+\url{https://tinyurl.com/y74gqpho}
 
-PSN Mapping File: \url{https://tinyurl.com/y8adlfso}
+Subject metadata files with PSN identifiers:
+\url{https://tinyurl.com/y8adlfso}
 
-All Mapping File: \url{https://tinyurl.com/ybmn7q8m}
+Subject metadata files with SRS identifiers:
+\url{https://tinyurl.com/ybmn7q8m}
+
+Representative sequence phylogenetic trees:
+\url{https://tinyurl.com/ybp8mzgj}
 }
 \usage{
 V13(metadata = FALSE)
@@ -88,7 +94,8 @@ V13(metadata = FALSE)
 rather than the entire resource}
 }
 \value{
-A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
+object
 }
 \description{
 16S rRNA sequencing was performed on samples collected at five major body
@@ -96,8 +103,8 @@ sites from 300 healthy adults between the ages of 18 and 40
 }
 \note{
 The "PSN" identifiers were used as the \code{colnames} of the
-\code{\link[SummarizedExperiment]{SummarizedExperiment}} object, see source
-for additional information.
+\code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object, see
+source for additional information.
 }
 \examples{
 V13()

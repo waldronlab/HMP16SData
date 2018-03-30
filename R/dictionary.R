@@ -1,24 +1,24 @@
 #' A data dictionary describing dbGaP metadata variables
 #'
-#' A data dictionary containing descriptions of the variables attached using the
-#' \code{\link{attach_dbGaP}} function, as translated from dbGaP XLM data
-#' dictionary files.
+#' A data dictionary containing descriptions of the metadata variables attached
+#' using the \code{\link{attach_dbGaP}} method, as translated from dbGaP
+#' \code{XLM} data dictionary files.
 #'
-#' @format A \code{\link[base]{data.frame}} with 789 rows and 8 variables:
+#' @format A \code{data.frame} with 789 rows and 8 variables:
 #' \describe{
-#'   \item{VARIABLE}{the name of the variable as it appears in
-#'   \code{\link[SummarizedExperiment]{SummarizedExperiment}} objects}
-#'   \item{DESCRIPTION}{a description of the variable}
-#'   \item{TYPE}{the type of variable, as specified by dbGaP}
-#'   \item{UNITS}{the units of the variable (e.g. days)}
-#'   \item{MINIMUM}{the smallest possible value of the variable}
-#'   \item{MAXIMUM}{the largest possible value of the variable}
-#'   \item{CODED_VALUES}{the encoding of coded categorical variables, if needed}
-#'   \item{COMMENT}{any comments from dbGaP, most pertain to gated fields}
+#'   \item{VARIABLE}{The name of the variable as it appears in
+#'   \code{SummarizedExperiment} \code{colData}}
+#'   \item{DESCRIPTION}{A description of the variable}
+#'   \item{TYPE}{The type of variable, as specified by dbGaP}
+#'   \item{UNITS}{The units of the variable (e.g. days)}
+#'   \item{MINIMUM}{The smallest possible value of the variable}
+#'   \item{MAXIMUM}{The largest possible value of the variable}
+#'   \item{CODED_VALUES}{The encoding of coded categorical variables, if needed}
+#'   \item{COMMENT}{Any comments from dbGaP, most pertain to gated fields}
 #' }
 #'
-#' @source The following dbGaP XLM data dictionary files were used to construct
-#' the data dictionary.
+#' @source The following dbGaP \code{XLM} data dictionary files were used to
+#' construct the data dictionary.
 #' @source Data dictionary for data table pht001185.v4.p1:
 #' \url{https://tinyurl.com/y7rgelao}. No description provided by dbGaP.
 #' @source Data dictionary for data table pht001193.v3.p1:
