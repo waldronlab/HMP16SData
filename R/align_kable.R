@@ -3,8 +3,8 @@
 #' @importFrom magrittr %>%
 #' @importFrom magrittr subtract
 #' @importFrom knitr kable
-align_kable <- function(x) {
-    format_args <- list(nsmall = 2, scientific = FALSE)
+align_kable <- function(x, significant_figures) {
+    format_args <- list(nsmall = significant_figures, scientific = FALSE)
 
     align_arg <-
         ncol(x) %>%
@@ -14,5 +14,6 @@ align_kable <- function(x) {
         paste0()
 
     x %>%
-        kable("html", digits = 2, align = align_arg, format.args = format_args)
+        kable("html", digits = significant_figures, align = align_arg,
+              format.args = format_args)
 }

@@ -14,6 +14,8 @@
 #'
 #' @param x A \code{data.frame} object or a named \code{list} of
 #' \code{data.frame} objects returned from the \code{\link{table_one}} method
+#' @param significant_figures The number of significant figures to be used for
+#' decimals in the \code{HTML} table; if no value is specified, the default is 2
 #'
 #' @return A summary \code{HTML} table of key demographic variables
 #' @export
@@ -35,7 +37,7 @@
 #' @importFrom kableExtra row_spec
 #' @importFrom kableExtra kable_styling
 #' @importFrom kableExtra add_header_above
-kable_one <- function(x) {
+kable_one <- function(x, significant_figures = 2) {
     if (class(x) == "data.frame") {
         x %<>%
             list() %>%
@@ -85,7 +87,7 @@ kable_one <- function(x) {
         lapply(calculate_n_and_p) %>%
         Reduce(join_n_and_p, .) %>%
         set_colnames(column_names) %>%
-        align_kable()
+        align_kable(significant_figures)
 
     for (i in labels_n) {
         x %<>%

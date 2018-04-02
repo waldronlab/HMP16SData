@@ -4,11 +4,14 @@
 \alias{kable_one}
 \title{Produce a summary HTML table of key demographic variables}
 \usage{
-kable_one(x)
+kable_one(x, significant_figures = 2)
 }
 \arguments{
 \item{x}{A \code{data.frame} object or a named \code{list} of
 \code{data.frame} objects returned from the \code{\link{table_one}} method}
+
+\item{significant_figures}{The number of significant figures to be used for
+decimals in the \code{HTML} table; if no value is specified, the default is 2}
 }
 \value{
 A summary \code{HTML} table of key demographic variables
