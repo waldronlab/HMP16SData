@@ -1,34 +1,37 @@
 ---
 title: "HMP16SData"
-date: '`r format(Sys.Date(), "%B %e, %Y")`'
 author:
 - name: Lucas Schiffer
-  affiliation: >
-    Graduate School of Public Health and Health Policy, City University of New
-    York, New York, NY
+  affiliation:
+  - &1 Graduate School of Public Health and Health Policy, City University of
+    New York, New York, NY
+  - &2 Institute for Implementation Science in Population Health, City
+    University of New York, New York, NY
 - name: Rimsha Azhar
-  affiliation: >
-    Graduate School of Public Health and Health Policy, City University of New
-    York, New York, NY
+  affiliation:
+  - *1
+  - *2
 - name: Marcel Ramos
-  affiliation: >
-    Graduate School of Public Health and Health Policy, City University of New
-    York, New York, NY
+  affiliation:
+  - *1
+  - *2
+  - &3 Roswell Park Cancer Institute, University of Buffalo, Buffalo, NY
 - name: Ludwig Geistlinger
-  affiliation: >
-    Graduate School of Public Health and Health Policy, City University of New
-    York, New York, NY
+  affiliation:
+  - *1
+  - *2
 - name: Levi Waldron
-  affiliation: >
-    Graduate School of Public Health and Health Policy, City University of New
-    York, New York, NY
-package: HMP16SData
+  affiliation:
+  - *1
+  - *2
+date: '`r format(Sys.Date(), "%B %e, %Y")`'
 abstract: >
     HMP16SData is a Bioconductor ExperimentData package of the Human Microbiome
     Project (HMP) 16S rRNA sequencing data for variable regions 1–3 and 3–5. Raw
     data files are provided in the package as downloaded from the HMP Data
     Analysis and Coordination Center. Processed data is provided as
-    SummarizedExperiment objects via ExperimentHub.
+    SummarizedExperiment class objects via ExperimentHub.
+package: HMP16SData
 output:
     BiocStyle::html_document
 vignette: >
@@ -63,7 +66,7 @@ library(cowplot)
 ```
 
 Pipe operators from the `r BiocStyle::CRANpkg("magrittr")` package are used in
-this vignette to provide the most eloquent and concise syntax. See the
+this vignette to provide the most elegent and concise syntax. See the
 `r BiocStyle::CRANpkg("magrittr")` vignette if the syntax is unclear.
 
 # Introduction
@@ -72,7 +75,7 @@ this vignette to provide the most eloquent and concise syntax. See the
 the Human Microbiome Project (HMP) 16S rRNA sequencing data for variable regions
 1–3 and 3–5. Raw data files are provided in the package as downloaded from the
 [HMP Data Analysis and Coordination Center](https://tinyurl.com/y7ev836z).
-Processed data is provided as `SummarizedExperiment` objects via
+Processed data is provided as `SummarizedExperiment` class objects via
 `r BiocStyle::Biocpkg("ExperimentHub")`.
 
 `r BiocStyle::Biocpkg("HMP16SData")` can be installed using
