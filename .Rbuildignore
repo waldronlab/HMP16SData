@@ -6,3 +6,4 @@
 ^inst/extdata/.*\.bz2$
 LICENSE
 ^vignettes/rsconnect$
+^CODE_OF_CONDUCT\.md$
