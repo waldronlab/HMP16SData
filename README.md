@@ -10,13 +10,12 @@ ExperimentData package of the Human Microbiome Project (HMP) 16S rRNA sequencing
 data for variable regions 1–3 and 3–5. Raw data files are provided in the
 package as downloaded from the
 [HMP Data Analysis and Coordination Center](https://tinyurl.com/y7ev836z).
-Processed data is provided as
-*[SummarizedExperiment](http://bioconductor.org/packages/SummarizedExperiment)*
-objects via *[ExperimentHub](http://bioconductor.org/packages/ExperimentHub)*.
+Processed data is provided as `SummarizedExperiment` class objects via
+*[ExperimentHub](http://bioconductor.org/packages/ExperimentHub)*.
 
 *[HMP16SData](http://bioconductor.org/packages/HMP16SData)* can be installed
 using *[BiocInstaller](http://bioconductor.org/packages/BiocInstaller)* as
-follows:
+follows.
 
 ```r
 BiocInstaller::biocLite("HMP16SData")
@@ -59,9 +58,9 @@ V35()
 ## colData names(7): RSID VISITNO ... HMP_BODY_SUBSITE SRS_SAMPLE_ID
 ```
 
-The two datasets are represented as `SummarizedExperiment` objects, a standard
+The two data sets are represented as `SummarizedExperiment` objects, a standard
 Bioconductor class that is amenable to subsetting and analysis. To maintain
-breveity, details of the `SummarizedExperiment` class are not outlined here but
+brevity, details of the `SummarizedExperiment` class are not outlined here but
 the
 *[SummarizedExperiment](http://bioconductor.org/packages/SummarizedExperiment)*
 package provides an excellent vignette.

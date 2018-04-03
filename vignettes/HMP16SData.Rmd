@@ -66,7 +66,7 @@ library(cowplot)
 ```
 
 Pipe operators from the `r BiocStyle::CRANpkg("magrittr")` package are used in
-this vignette to provide the most elegent and concise syntax. See the
+this vignette to provide the most elegant and concise syntax. See the
 `r BiocStyle::CRANpkg("magrittr")` vignette if the syntax is unclear.
 
 # Introduction
@@ -79,7 +79,7 @@ Processed data is provided as `SummarizedExperiment` class objects via
 `r BiocStyle::Biocpkg("ExperimentHub")`.
 
 `r BiocStyle::Biocpkg("HMP16SData")` can be installed using
-`r BiocStyle::Biocpkg("BiocInstaller")` as follows:
+`r BiocStyle::Biocpkg("BiocInstaller")` as follows.
 
 ```{r, eval=FALSE}
 BiocInstaller::biocLite("HMP16SData")
@@ -147,15 +147,15 @@ V35_stool
 ## Protected Metadata Attachment
 
 The HMP study has extensive protected metadata available through the National
-Center for Biotechnology Information's (NCBI) database of Genotypes and
-Phenotypes (dbGaP) that can readily be attached to the `SummarizedExperiment`
-objects. Only a dbGaP repository key is required to download, process, and
-attach the protected metadata. See <https://dbgap.ncbi.nlm.nih.gov/aa> for
-information about the protected metadata available and obtaining a key.
-The `attach_dbGap()` function takes a `r BiocStyle::Biocpkg("HMP16SData")`
-`SummarizedExperiment` object as its first argument and the path to your dbGaP
-repository key as its second argument, and it returns another
-`SummarizedExperiment` also containing the protected metadata. For example:
+Center for Biotechnology Information (NCBI) database of Genotypes and Phenotypes
+(dbGaP) that can readily be attached to the `SummarizedExperiment` objects. Only
+a dbGaP repository key is required to download, process, and attach the
+protected metadata. See <https://dbgap.ncbi.nlm.nih.gov/aa> for information
+about the protected metadata available and obtaining a key. The `attach_dbGap()`
+function takes a `r BiocStyle::Biocpkg("HMP16SData")` `SummarizedExperiment`
+object as its first argument and the path to the user's dbGaP repository key as
+its second argument, and it returns another `SummarizedExperiment` also
+containing the protected metadata.
 
 ```{r, eval=FALSE}
 V35_stool_protected <-
@@ -163,15 +163,15 @@ V35_stool_protected <-
     attach_dbGaP("~/prj_12146.ngc")
 ```
 
-The new `SummarizedExperiment` has protected metadata as additional columns in
-the colData. All open and protected metadata are returned by:
+The returned `SummarizedExperiment` object has protected metadata as additional
+columns in the `colData` – all metadata can be returned as follows.
 
 ```{r, eval=FALSE}
 colData(V35_stool_protected)
 ```
 
 Descriptions of the variables attached using the `attach_dbGaP` function, as
-translated from dbGaP XLM data dictionary files, are available in the
+translated from dbGaP `XLM` data dictionary files, are available in the
 `dictionary` object.
 
 ```{r}
@@ -220,8 +220,8 @@ V35_stool_phyloseq %>%
 
 # External Data Comparison
 
-In addition to 16S rRNA sequencing, the HMP Study conducted Whole Metagenome
-Shotgun (WMS) sequencing but the samples are present in another package,
+In addition to 16S rRNA sequencing, the HMP Study conducted whole metagenome
+shotgun (WMS) sequencing but the samples are present in another package,
 `r BiocStyle::Biocpkg("curatedMetagenomicData")`. This type of external data
 comparison is likely a common use case and a phylum-level relative abundance
 comparison of the 16S and WMS samples is made here to illustrate how an external
@@ -256,11 +256,11 @@ WMS_stool_melted <-
 ```
 
 There is a column `SRS_SAMPLE_ID` present in the 16S variable region 3–5 data
-that explicitly for mapping to the WMS samples and the `SRS` identifiers are in
-the `NCBI_accession` column of the WMS sample data. The intersection of the two
-vectors represents the matching samples that are present in both data sets. This
-intersection, shown below as `SRS_SAMPLE_IDS`, can then be used to filter both
-the 16S and WMS samples to include only the samples in common.
+that is explicitly for mapping to the WMS samples and the matching identifiers
+are in the `NCBI_accession` column of the WMS sample data. The intersection of
+the two vectors represents the matching samples that are present in both data
+sets. This intersection, shown below as `SRS_SAMPLE_IDS`, can then be used to
+filter both the 16S and WMS samples to include only the samples in common.
 
 Along with the `filter` step shown below, standardization of sample identifiers
 to the `SRS` numbers and conversion of taxonomy counts to relative abundance is
@@ -353,8 +353,8 @@ phylum_order <-
     unique(Phylum)
 ```
 
-Color blindness affects a significant portion of the population, but using an
-intelligent color pallet figures can be designed to be friendly to those with
+Color blindness affects a significant portion of the population, but, using an
+intelligent color pallet, figures can be designed to be friendly to those with
 deuteranopia, protanopia, and tritanopia. The following colors are derived from
 Wong, B. Points of view: Color blindness. *Nat. Methods* **8**, 441 (2011).
 
