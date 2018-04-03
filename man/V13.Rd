@@ -2,7 +2,7 @@
 % Please edit documentation in R/V13.R
 \name{V13}
 \alias{V13}
-\title{16S rRNA sequencing data for variable regions 1–3}
+\title{HMP 16S rRNA sequencing data for variable regions 1–3}
 \format{A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
 object with 43,140 features and 2,898 samples:
 \subsection{colData}{
@@ -14,6 +14,7 @@ object with 43,140 features and 2,898 samples:
         College of Medicine (BCM), the Broad Institute (BI), the J. Craig
         Venter Institute (JCVI), or the Genome Sequencing Center at
         Washington University (WUGC)}
+        \item{HMP_BODY_SITE}{body site where the sample was collected}
         \item{HMP_BODY_SUBSITE}{body subsite where the sample was collected}
         \item{SRS_SAMPLE_ID}{a sample identifier to be used when comparing
         16S rRNA samples to whole metagenome shotgun (WMS) samples}
@@ -98,8 +99,15 @@ A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
 object
 }
 \description{
-16S rRNA sequencing was performed on samples collected at five major body
-sites from 300 healthy adults between the ages of 18 and 40
+The NIH Human Microbiome Project (HMP) was a longitudinal study conducted
+from 2007 to 2012 across four institutions (Baylor College of Medicine, the
+Broad Institute, the J. Craig Venter Institute, and Washington University) of
+healthy adults aged 18 to 40 that produced a comprehensive reference for the
+composition, diversity, and variation of the healthy human microbiome. This
+\code{\link[SummarizedExperiment]{SummarizedExperiment-class}} object
+represents 16S rRNA sequencing data for variable regions 1–3 that was
+performed on samples collected at five major body sites – available
+participant metadata as well as phylogenetic trees are included.
 }
 \note{
 The "PSN" identifiers were used as the \code{colnames} of the
@@ -109,4 +117,7 @@ source for additional information.
 \examples{
 V13()
 
+}
+\seealso{
+\code{\link{V35}}
 }
