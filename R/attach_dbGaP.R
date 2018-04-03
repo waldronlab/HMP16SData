@@ -63,13 +63,15 @@ attach_dbGaP <- function(x, dbGaP_repository_key = "") {
                  call. = FALSE)
         }
 
-    if (!is.dir(paths$files_directory_path)) {
+    if (!dir.exists(paths$files_directory_path)) {
         assert_that(is.readable(dbGaP_repository_key))
         assert_that(has_extension(dbGaP_repository_key, "ngc"))
 
         getwd() %>%
             download_dbGaP(dbGaP_repository_key)
     }
+
+    message("\nJoining the colData...\n")
 
     colData(x) <-
         read_dbGaP() %>%
