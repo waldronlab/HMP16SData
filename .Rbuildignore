@@ -2,8 +2,6 @@
 ^\.Rproj\.user$
 ^data-raw$
 ^\.travis\.yml$
-^inst/extdata/.*\.gz$
-^inst/extdata/.*\.bz2$
-LICENSE
-^vignettes/rsconnect$
+^LICENSE$
 ^CODE_OF_CONDUCT\.md$
+^README.md$
