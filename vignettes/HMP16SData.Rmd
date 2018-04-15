@@ -144,18 +144,30 @@ V35_stool <-
 V35_stool
 ```
 
-## Protected Metadata Attachment
+## HMP Controlled Participant Data
 
-The HMP study has extensive protected metadata available through the National
-Center for Biotechnology Information (NCBI) database of Genotypes and Phenotypes
-(dbGaP) that can readily be attached to the `SummarizedExperiment` objects. Only
-a dbGaP repository key is required to download, process, and attach the
-protected metadata. See <https://dbgap.ncbi.nlm.nih.gov/aa> for information
-about the protected metadata available and obtaining a key. The `attach_dbGap()`
-function takes a `r BiocStyle::Biocpkg("HMP16SData")` `SummarizedExperiment`
-object as its first argument and the path to the user's dbGaP repository key as
-its second argument, and it returns another `SummarizedExperiment` also
-containing the protected metadata.
+Most participant data from the HMP study is controlled through the National Center for Biotechnology Information (NCBI) database of Genotypes and Phenotypes (dbGaP). `r BiocStyle::Biocpkg("HMP16SData")` provides a data dictionary translated from dbGaP `XML` files for the seven different controlled data tables provided by the HMP. See `?HMP16SData::dictionary` for details of these source data tables, and `View(dictionary)` to view the complete data dictionary. Several steps are required, but the process is greatly simplified by `r BiocStyle::Biocpkg("HMP16SData")`.
+
+### Apply for dbGaP access 
+
+You must make a controlled-access application through <https://dbgap.ncbi.nlm.nih.gov> for:
+
+* HMP Core Microbiome Sampling Protocol A (HMP-A) (**phs000228.v4.p1**). 
+
+Once approved, browse to https://dbgap.ncbi.nlm.nih.gov and select the option "*get dbGaP repository key*" to download your `.ngc` repository key. This is all you need from the dbGaP website.
+
+### Install the SRA Toolkit
+
+You must also install the [NCBI SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software), which will be used in the background for downloading and decrypting controlled-access data. There are shortcuts for common platforms:
+
+* Debian/Ubuntu: `apt install sra-toolkit` 
+* macOS: `brew install sratoolkit
+* Windows: https://tinyurl.com/y845ppaa
+
+### Merge with the HMP16SData datasets 
+
+The `attach_dbGap()` function takes a `r BiocStyle::Biocpkg("HMP16SData")` `SummarizedExperiment`
+object as its first argument, and the path to a dbGaP repository key as its second argument. It performs downloading, decryption, and merging of the available controlled metadata:
 
 ```{r, eval=FALSE}
 V35_stool_protected <-
@@ -163,29 +175,18 @@ V35_stool_protected <-
     attach_dbGaP("~/prj_12146.ngc")
 ```
 
-The returned `SummarizedExperiment` object has protected metadata as additional
-columns in the `colData` – all metadata can be returned as follows.
+The returned `V35_stool_protected` object contains controlled participant data as additional columns in the `colData`:
 
 ```{r, eval=FALSE}
 colData(V35_stool_protected)
 ```
 
-Descriptions of the variables attached using the `attach_dbGaP` function, as
-translated from dbGaP `XLM` data dictionary files, are available in the
-`dictionary` object.
+## Analysis Using the phyloseq Package
 
-```{r}
-head(dictionary)
-```
-
-## Phyloseq Class Coercion
-
-Data from the HMP study is likely useful as a comparison or control group, a
-*"standard candle"* of sorts, in the context of other human microbiome studies.
-As such, `r BiocStyle::Biocpkg("HMP16SData")` provides a method, `as_phyloseq`,
-to coerce `SummarizedExperiment` class objects to `phyloseq` class objects. The
 `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of
-methods to analyze microbiome data and many potential comparisons could be made.
+methods to analyze microbiome data. The `as_phyloseq` function coerces 
+the `SummarizedExperiment` class objects provided by `r BiocStyle::Biocpkg("phyloseq")`
+to `phyloseq` class objects containing count data, sample (participant) data, taxonomy, and phylogenetic tree:
 
 ```{r}
 V35_stool_phyloseq <-
@@ -193,8 +194,7 @@ V35_stool_phyloseq <-
     as_phyloseq()
 ```
 
-When plotting `phyloseq` objects it is necessary to remove taxa that sum to zero
-(i.e. have no relative abundance) to avoid warning messages.
+To demonstrate, we first remove taxa with no counts in any sample to avoid warning messages:
 
 ```{r}
 V35_stool_phyloseq %<>%
@@ -203,9 +203,7 @@ V35_stool_phyloseq %<>%
     prune_taxa(V35_stool_phyloseq)
 ```
 
-With zero-abundance taxa pruned, exploratory plots can easily be made. For
-example, a notched box plot of three alpha diversity measures can be made in a
-few lines.
+For example, using `phyloseq` functionality to generate a notched box plot of three alpha diversity measures:
 
 ```{r, fig.height=5, fig.width=8}
 richness_measures <- c("Observed", "Shannon", "Simpson")
@@ -218,18 +216,14 @@ V35_stool_phyloseq %>%
     theme(axis.title.x = element_blank(), legend.position = "none")
 ```
 
-# External Data Comparison
+# Phylum-level Comparison to Metagenomic Shotgun Sequencing
 
 In addition to 16S rRNA sequencing, the HMP Study conducted whole metagenome
-shotgun (WMS) sequencing but the samples are present in another package,
-`r BiocStyle::Biocpkg("curatedMetagenomicData")`. This type of external data
-comparison is likely a common use case and a phylum-level relative abundance
-comparison of the 16S and WMS samples is made here to illustrate how an external
-data comparison might be made.
+shotgun (WMS) sequencing. These profiles, along with thousands of profiles from other studies, are available in the `r BiocStyle::Biocpkg("curatedMetagenomicData")` package. Here, a phylum-level relative abundance comparison of the 16S and WMS samples is made to illustrate comparing these datasets. 
 
 The `V35_stool_phyloseq` object constructed above contains the 16S variable
-region 3–5 data subset to include only stool samples, but the WMS stool samples
-are obtained and coerced to a `phyloseq` object as follows.
+region 3–5 data for stool samples.  The WMS stool samples
+are obtained and coerced to a `phyloseq` object as follows:
 
 ```{r}
 WMS_stool_phyloseq <-
@@ -237,21 +231,23 @@ WMS_stool_phyloseq <-
     ExpressionSet2phyloseq()
 ```
 
-The `r BiocStyle::Biocpkg("phyloseq")` package can then be used to summarize
-abundance counts at the phylum level using the `tax_glom` function. Thereafter,
-given the complexity of operations needed to make a phylum-level relative
-abundance plot, the `phyloseq` class objects are *"melted"* into `data.frame`
-class objects using the `psmelt` function.
+`curatedMetagenomicData` provides taxonomic relative abundance from WMS data (with an option to instead estimate counts by multiplying by read depth) from MetaPhlAn2.  MetaPhlAn2 directly estimates relative abundance at every taxonomic level based on clade-specific markers, and these estimates are better than summing lower-level taxonomic abundances.
+
+Note, this comparison becomes complicated because `phyloseq` does not currently support column and row matching and reordering. Instead, we use the `phyloseq::psmelt()` function to generate `data.frame` objects for further manipulation.
+
+```{r}
+WMS_stool_melted <-
+    WMS_stool_phyloseq %>%
+    subset_taxa(is.na(Class) & !is.na(Phylum)) %>%
+    psmelt()
+```
+
+The 16S datasets do not contain summarized counts for higher taxonomic levels, so we use the `r BiocStyle::Biocpkg("phyloseq")` `tax_glom` function to agglomerate at phylum level:
 
 ```{r}
 V35_stool_melted <-
     V35_stool_phyloseq %>%
     tax_glom(taxrank = "PHYLUM") %>%
-    psmelt()
-
-WMS_stool_melted <-
-    WMS_stool_phyloseq %>%
-    tax_glom(taxrank = "Phylum") %>%
     psmelt()
 ```
 
@@ -428,11 +424,6 @@ grid.arrange(V35_plot, WMS_plot, plot_legend, ncol = 1, heights = c(3, 3, 1))
 
 Notably, the figure illustrates the Bacteroidetes/Firmicutes gradient with some
 discretion between the 16S and WMS samples.
-
-# Limitations
-
-Data from variable regions 1–3 and 3–5 are not comparable to everything, be
-careful with assumptions and conduct analysis that is methodologically sound.
 
 # Session Information
 
