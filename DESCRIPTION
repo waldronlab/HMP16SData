@@ -1,7 +1,7 @@
 Package: HMP16SData
 Type: Package
 Title: 16S rRNA Sequencing Data from the Human Microbiome Project
-Version: 0.99.91
+Version: 0.99.92
 Author:
     Lucas Schiffer <schiffer.lucas@gmail.com>,
     Rimsha Azhar <rimsha_azhar@hotmail.com>,
