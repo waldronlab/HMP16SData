@@ -249,7 +249,7 @@ coerced to a `phyloseq` object as follows:
 
 ```{r}
 WMS_stool_phyloseq <-
-    HMP_2012.metaphlan_bugs_list.stool() %>%
+    HMP_2012.metaphlan_bugs_list.stool(cmdversion = "20170526") %>%
     ExpressionSet2phyloseq()
 ```
 
