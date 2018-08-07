@@ -174,7 +174,11 @@ controlled-access data. There are shortcuts for common platforms:
 
 * Debian/Ubuntu: `apt install sra-toolkit`
 * macOS: `brew install sratoolkit`
-* Windows: https://tinyurl.com/y845ppaa
+* Windows: <https://tinyurl.com/y845ppaa>
+
+For macOS, the `brew` command does not come installed by default and requires
+installation of the homebrew package manager. Instructions are available at
+<https://tinyurl.com/ybeqwl8f>.
 
 ### Merge with the HMP16SData datasets
 
@@ -455,6 +459,82 @@ grid.arrange(V35_plot, WMS_plot, plot_legend, ncol = 1, heights = c(3, 3, 1))
 
 Notably, the figure illustrates the Bacteroidetes/Firmicutes gradient with some
 discretion between the 16S and WMS samples.
+
+# Exporting Data to CSV, SAS, SPSS, and STATA Formats
+
+## Single Flat File Representation
+
+Using the `r BiocStyle::CRANpkg("haven")` package it is possible to export data
+from `r BiocStyle::Biocpkg("HMP16SData")` to other formats, for analysis beyond
+the Bioconductor ecosystem. Examples of how to create a single flat file of the
+16S variable region 1–3 data follow.
+
+### Exporting Data to CSV Format
+
+```{r, eval=FALSE}
+V13() %>%
+    as_phyloseq() %>%
+    psmelt() %>%
+    write_csv("~/V13.csv")
+```
+
+### Exporting Data to SAS Format
+
+```{r, eval=FALSE}
+V13() %>%
+    as_phyloseq() %>%
+    psmelt() %>%
+    write_sas("~/V13.sas7bdat")
+```
+
+### Exporting Data to SPSS Format
+
+```{r, eval=FALSE}
+V13() %>%
+    as_phyloseq() %>%
+    psmelt() %>%
+    write_sav("~/V13.sav")
+```
+
+### Exporting Data to STATA Format
+
+```{r, eval=FALSE}
+V13() %>%
+    as_phyloseq() %>%
+    psmelt() %>%
+    write_dta("~/V13.dta")
+```
+
+## Three Seperate Tables Representation
+
+The `SummarizedExperiment` class objects provided by
+`r BiocStyle::Biocpkg("HMP16SData")` are 
+[normalized](https://tinyurl.com/7j6hpov) to provide the most storage efficent
+representation of the data. It is best to keep taxonomic counts, taxonomic
+classifications, and participant data stored as three seperate tables.
+
+```{r, eval=FALSE}
+V13() %>%
+    as_phyloseq() %>%
+    psmelt() %>%
+    write_csv("~/V13.csv")
+
+V13() %>%
+    as_phyloseq() %>%
+    psmelt() %>%
+    write_sas("~/V13.sas7bdat")
+
+V13() %>%
+    as_phyloseq() %>%
+    psmelt() %>%
+    write_sav("~/V13.sav")
+
+V13() %>%
+    as_phyloseq() %>%
+    psmelt() %>%
+    write_dta("~/V13.dta")
+```
+
 
 # Session Information
 
