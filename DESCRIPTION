@@ -37,7 +37,7 @@ Imports:
 Suggests:
     Biobase,
     BiocCheck,
-    BiocInstaller,
+    BiocManager,
     BiocStyle,
     cowplot,
     curatedMetagenomicData,
@@ -58,4 +58,4 @@ biocViews:
 VignetteBuilder: knitr
 URL: https://github.com/waldronlab/HMP16SData
 BugReports: https://github.com/waldronlab/HMP16SData/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
