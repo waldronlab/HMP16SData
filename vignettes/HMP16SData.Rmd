@@ -210,10 +210,10 @@ may recall that an alternative `phyloseq` class object containing the HMP V35
 data has been made available by Joey McMurdie at
 <https://joey711.github.io/phyloseq-demo/HMPv35.RData>. However this object is
 not compatible with the methods documented here for integration with dbGaP
-controlled-access data, shotgun metagenomic data, or V13 variable region data.
-For that reason, we would encourage the use of the
-`r BiocStyle::Biocpkg("HMP16SData")` `SummarizedExperiment` class object with
-the `r BiocStyle::Biocpkg("phyloseq")` package.
+controlled-access data, shotgun metagenomic data, or V13 data. For that reason,
+we would encourage the use of the `r BiocStyle::Biocpkg("HMP16SData")`
+`SummarizedExperiment` class objects with the `r BiocStyle::Biocpkg("phyloseq")`
+package.
 
 The `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of
 methods to analyze microbiome data. The `as_phyloseq` function coerces the
