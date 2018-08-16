@@ -215,11 +215,11 @@ For that reason, we would encourage the use of the
 `r BiocStyle::Biocpkg("HMP16SData")` `SummarizedExperiment` class object with
 the `r BiocStyle::Biocpkg("phyloseq")` package.
 
-`r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of
+The `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of
 methods to analyze microbiome data. The `as_phyloseq` function coerces the
 `SummarizedExperiment` class objects provided by
-`r BiocStyle::Biocpkg("phyloseq")` to `phyloseq` class objects containing count
-data, sample (participant) data, taxonomy, and phylogenetic tree:
+`r BiocStyle::Biocpkg("HMP16SData")` to `phyloseq` class objects containing
+count data, sample (participant) data, taxonomy, and phylogenetic tree:
 
 ```{r}
 V35_stool_phyloseq <-
