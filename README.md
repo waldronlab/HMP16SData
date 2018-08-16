@@ -14,11 +14,11 @@ Processed data is provided as `SummarizedExperiment` class objects via
 *[ExperimentHub](http://bioconductor.org/packages/ExperimentHub)*.
 
 *[HMP16SData](http://bioconductor.org/packages/HMP16SData)* can be installed
-using *[BiocInstaller](http://bioconductor.org/packages/BiocInstaller)* as
+using *[BiocManager](https://cran.r-project.org/package=BiocManager)* as
 follows.
 
 ```r
-BiocInstaller::biocLite("HMP16SData")
+BiocManager::install("HMP16SData")
 ```
 
 Once installed, *[HMP16SData](http://bioconductor.org/packages/HMP16SData)*
