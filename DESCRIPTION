@@ -44,6 +44,7 @@ Suggests:
     devtools,
     ggplot2,
     gridExtra,
+    haven,
     phyloseq,
     rmarkdown,
     roxygen2,
