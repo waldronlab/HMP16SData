@@ -60,6 +60,7 @@ library(phyloseq)
 library(magrittr)
 library(dplyr)
 library(ggplot2)
+library(ggdendro)
 library(curatedMetagenomicData)
 library(gridExtra)
 library(cowplot)
@@ -205,6 +206,11 @@ colData(V35_stool_protected)
 
 ## Analysis Using the phyloseq Package
 
+The `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of
+methods to analyze microbiome data.
+
+### Acknowledgement
+
 For those familar with both the HMP and `r BiocStyle::Biocpkg("phyloseq")`, you
 may recall that an alternative `phyloseq` class object containing the HMP V35
 data has been made available by Joey McMurdie at
@@ -215,40 +221,109 @@ we would encourage the use of the `r BiocStyle::Biocpkg("HMP16SData")`
 `SummarizedExperiment` class objects with the `r BiocStyle::Biocpkg("phyloseq")`
 package.
 
-The `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of
-methods to analyze microbiome data. The `as_phyloseq` function coerces the
-`SummarizedExperiment` class objects provided by
-`r BiocStyle::Biocpkg("HMP16SData")` to `phyloseq` class objects containing
-count data, sample (participant) data, taxonomy, and phylogenetic tree:
+### Coercion to phyloseq Objects
 
 ```{r}
-V35_stool_phyloseq <-
-    V35_stool %>%
+V13_tonsils <-
+    V13() %>%
+    subset(select = HMP_BODY_SUBSITE == "Palatine Tonsils")
+
+V13_stool <-
+    V13() %>%
+    subset(select = HMP_BODY_SUBSITE == "Stool")
+```
+
+The `as_phyloseq` function coerces the `SummarizedExperiment` class objects
+provided by `r BiocStyle::Biocpkg("HMP16SData")` to `phyloseq` class objects
+containing count data, sample (participant) data, taxonomy, and phylogenetic
+trees.
+
+```{r}
+V13_tonsils_phyloseq <-
+    V13_tonsils %>%
     as_phyloseq()
 ```
 
-To demonstrate, we first remove taxa with no counts in any sample to avoid
-warning messages:
+```{r}
+sample_data(V13_tonsils_phyloseq)$Study <- "Tonsils"
+```
 
 ```{r}
-V35_stool_phyloseq %<>%
+V13_stool_phyloseq <-
+    V13_stool %>%
+    as_phyloseq()
+```
+
+```{r}
+sample_data(V13_stool_phyloseq)$Study <- "Stool"
+```
+
+```{r}
+V13_phyloseq <-
+    merge_phyloseq(V13_tonsils_phyloseq, V13_stool_phyloseq)
+```
+
+```{r}
+V13_phyloseq %<>%
     taxa_sums() %>%
     is_greater_than(0) %>%
-    prune_taxa(V35_stool_phyloseq)
+    prune_taxa(V13_phyloseq)
 ```
+
+### Alpha Diversity
 
 For example, using `phyloseq` functionality to generate a notched box plot of
 three alpha diversity measures:
 
 ```{r, fig.height=5, fig.width=8}
-richness_measures <- c("Observed", "Shannon", "Simpson")
+richness_measures <-
+    c("Observed", "Shannon", "Simpson")
 
-V35_stool_phyloseq %>%
-    plot_richness(x = "SEX", color = "SEX", measures = richness_measures) +
+V13_phyloseq %>%
+    plot_richness(x = "Study", color = "Study", measures = richness_measures) +
     stat_boxplot(geom ="errorbar") +
     geom_boxplot(notch = TRUE) +
     theme_bw() +
     theme(axis.title.x = element_blank(), legend.position = "none")
+```
+
+### Beta Diversity
+
+```{r}
+V13_distance <-
+    distance(V13_phyloseq, method = "bray")
+```
+
+```{r, fig.height=32, fig.width=8}
+V13_distance %>%
+    hclust() %>%
+    ggdendrogram() +
+    scale_y_reverse() +
+    coord_flip() +
+    theme_dendro()
+```
+
+### Principle Coordinates Analysis
+
+```{r}
+V13_ordination <-
+    ordinate(V13_phyloseq, method = "PCoA", distance = "bray")
+```
+
+```{r, fig.height=5, fig.width=8}
+V13_phyloseq %>%
+    plot_ordination(V13_ordination, color = "Study", shape = "Study") +
+    theme_bw() +
+    theme(legend.position = "bottom")
+```
+
+```{r, fig.height=5, fig.width=8}
+V13_ordination$values <- 
+    V13_ordination$values[1:50, ]
+
+V13_ordination %>%
+    plot_scree() +
+    theme_bw()
 ```
 
 # Phylum-level Comparison to Metagenomic Shotgun Sequencing
@@ -265,6 +340,10 @@ region 3–5 data for stool samples.  The WMS stool samples are obtained and
 coerced to a `phyloseq` object as follows:
 
 ```{r}
+V35_stool_phyloseq <-
+    V35_stool %>%
+    as_phyloseq()
+
 WMS_stool_phyloseq <-
     HMP_2012.metaphlan_bugs_list.stool(cmdversion = "20170526") %>%
     ExpressionSet2phyloseq()
