@@ -60,7 +60,8 @@ library(phyloseq)
 library(magrittr)
 library(dplyr)
 library(ggplot2)
-library(ggdendro)
+library(dendextend)
+library(circlize)
 library(curatedMetagenomicData)
 library(gridExtra)
 library(cowplot)
@@ -240,21 +241,33 @@ trees.
 
 ```{r}
 V13_tonsils_phyloseq <-
-    V13_tonsils %>%
-    as_phyloseq()
+    as_phyloseq(V13_tonsils)
+
+V13_stool_phyloseq <-
+    as_phyloseq(V13_stool)
+```
+
+```{r}
+sample_samples <- function(x, size) {
+    sampled_names <-
+        sample_names(x) %>%
+        sample(size)
+
+    prune_samples(sampled_names, x)
+}
+```
+
+```{r}
+V13_tonsils_phyloseq %<>%
+    sample_samples(25)
+
+V13_stool_phyloseq %<>%
+    sample_samples(25)
 ```
 
 ```{r}
 sample_data(V13_tonsils_phyloseq)$Study <- "Tonsils"
-```
 
-```{r}
-V13_stool_phyloseq <-
-    V13_stool %>%
-    as_phyloseq()
-```
-
-```{r}
 sample_data(V13_stool_phyloseq)$Study <- "Stool"
 ```
 
@@ -275,14 +288,17 @@ V13_phyloseq %<>%
 For example, using `phyloseq` functionality to generate a notched box plot of
 three alpha diversity measures:
 
-```{r, fig.height=5, fig.width=8}
+```{r}
 richness_measures <-
     c("Observed", "Shannon", "Simpson")
+```
 
+
+```{r, fig.height=5, fig.width=8}
 V13_phyloseq %>%
     plot_richness(x = "Study", color = "Study", measures = richness_measures) +
     stat_boxplot(geom ="errorbar") +
-    geom_boxplot(notch = TRUE) +
+    geom_boxplot() +
     theme_bw() +
     theme(axis.title.x = element_blank(), legend.position = "none")
 ```
@@ -290,17 +306,49 @@ V13_phyloseq %>%
 ### Beta Diversity
 
 ```{r}
-V13_distance <-
-    distance(V13_phyloseq, method = "bray")
+V13_dendrogram <-
+    distance(V13_phyloseq, method = "bray") %>%
+    hclust() %>%
+    as.dendrogram()
 ```
 
-```{r, fig.height=32, fig.width=8}
-V13_distance %>%
-    hclust() %>%
-    ggdendrogram() +
-    scale_y_reverse() +
-    coord_flip() +
-    theme_dendro()
+```{r}
+V13_sample_data <-
+    sample_data(V13_phyloseq) %>%
+    data.frame()
+```
+
+```{r}
+V13_sample_data %<>%
+    rownames_to_column(var = "PSN") %>%
+    mutate(labels_col = if_else(Study == "Stool", "#F8766D", "#00BFC4")) %>%
+    mutate(leaves_col = if_else(Study == "Stool", "#F8766D", "#00BFC4")) %>%
+    mutate(leaves_pch = if_else(Study == "Stool", 16, 17))
+```
+
+```{r}
+V13_sample_order <-
+    labels(V13_dendrogram) %>%
+    match(V13_sample_data$PSN)
+```
+
+```{r}
+labels_col <- V13_sample_data$labels_col[V13_sample_order]
+leaves_col <- V13_sample_data$leaves_col[V13_sample_order]
+leaves_pch <- V13_sample_data$leaves_pch[V13_sample_order]
+```
+
+```{r}
+V13_dendrogram %<>%
+    set("labels_col", labels_col) %>%
+    set("leaves_col", leaves_col) %>%
+    set("leaves_pch", leaves_pch)
+```
+
+
+```{r, fig.height=8, fig.width=8}
+V13_dendrogram %>%
+    circlize_dendrogram(labels_track_height = 0.2)
 ```
 
 ### Principle Coordinates Analysis
@@ -318,9 +366,6 @@ V13_phyloseq %>%
 ```
 
 ```{r, fig.height=5, fig.width=8}
-V13_ordination$values <- 
-    V13_ordination$values[1:50, ]
-
 V13_ordination %>%
     plot_scree() +
     theme_bw()
