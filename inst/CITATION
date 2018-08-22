@@ -16,12 +16,10 @@ citEntry(
     year = "2018",
     doi = "10.1101/299115",
     publisher = "Cold Spring Harbor Laboratory",
-    url = "https://www.biorxiv.org/content/early/2018/04/17/299115",
-    eprint = "https://www.biorxiv.org/content/early/2018/04/17/299115.full.pdf",
     journal = "bioRxiv",
     textVersion = paste(
         "L. Schiffer, R. Azhar, L. Shepherd, M. Ramos, L. Geistlinger, C. Huttenhower, J. B. Dowd, N. Segata, L. Waldron.",
         "HMP16SData: Efficient Access to the Human Microbiome Project through Bioconductor.",
-        "bioRxiv, 299115, 04 2018."
+        "bioRxiv, 299115, 08 2018."
     )
 )
