@@ -18,6 +18,7 @@
 #'     as_phyloseq()
 #'
 #' @importFrom assertthat assert_that
+#' @importFrom methods is
 #' @importFrom SummarizedExperiment assay
 #' @importFrom magrittr %>%
 #' @importFrom SummarizedExperiment colData
@@ -28,7 +29,7 @@
 #' @importFrom S4Vectors metadata
 #' @importFrom magrittr use_series
 as_phyloseq <- function(x) {
-    assert_that(class(x) == "SummarizedExperiment")
+    assert_that(is(x, "SummarizedExperiment"))
 
     if (!requireNamespace("phyloseq")) {
         stop("Please install the 'phyloseq' package to make phyloseq objects")
