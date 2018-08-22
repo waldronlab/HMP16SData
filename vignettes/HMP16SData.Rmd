@@ -348,7 +348,7 @@ V13_phyloseq %>%
 ### Beta Diversity
 
 Beta diversity measures the taxonomic variation between samples by calculating
-the dissimilarity of clade relative abundance. The 
+the dissimilarity of clade relative abundance. The
 `r BiocStyle::Biocpkg("phyloseq")` package provides a method, `distance`, to
 calculate various dissimilarity measures which can then be clustered and
 represented as a dendrogram.
@@ -677,7 +677,7 @@ reasonable agreement between the 16S and MGX samples.
 
 To our knowledge R and Bioconductor provide the most and best methods for the
 analysis of microbiome data. However, we realize they are not the only analysis
-environments and wish to provide methods to export the data from 
+environments and wish to provide methods to export the data from
 `r BiocStyle::Biocpkg("HMP16SData")` to CSV, SAS, SPSS, and STATA formats. As we
 do not use these other languages regularly, we are unaware of how to represent
 phylogenitic trees in them and will not attempt to export the trees here.
