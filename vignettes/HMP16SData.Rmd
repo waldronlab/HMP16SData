@@ -58,14 +58,14 @@ examples of what a user might do with `r BiocStyle::Biocpkg("HMP16SData")`.
 library(HMP16SData)
 library(phyloseq)
 library(magrittr)
-library(dplyr)
 library(ggplot2)
+library(tibble)
+library(dplyr)
 library(dendextend)
 library(circlize)
 library(curatedMetagenomicData)
 library(gridExtra)
 library(cowplot)
-library(tibble)
 library(readr)
 library(haven)
 ```
@@ -165,7 +165,7 @@ Several steps are required, but the process is greatly simplified by
 You must make a controlled-access application through
 <https://dbgap.ncbi.nlm.nih.gov> for:
 
-* HMP Core Microbiome Sampling Protocol A (HMP-A) (**phs000228.v4.p1**).
+> HMP Core Microbiome Sampling Protocol A (HMP-A) (**phs000228.v4.p1**)
 
 Once approved, browse to <https://dbgap.ncbi.nlm.nih.gov> and select the option
 "*get dbGaP repository key*" to download your `.ngc` repository key. This is all
@@ -175,22 +175,26 @@ you need from the dbGaP website.
 
 You must also install the [NCBI SRA Toolkit](https://tinyurl.com/ydgmzc8a),
 which will be used in the background for downloading and decrypting
-controlled-access data. There are shortcuts for common platforms:
+controlled-access data.
+
+There are shortcuts for common platforms:
 
 * Debian/Ubuntu: `apt install sra-toolkit`
 * macOS: `brew install sratoolkit`
-* Windows: <https://tinyurl.com/y845ppaa>
 
 For macOS, the `brew` command does not come installed by default and requires
 installation of the homebrew package manager. Instructions are available at
 <https://tinyurl.com/ybeqwl8f>.
 
+For Windows, binary installation is necessary and instructions are available
+from NCBI at <https://tinyurl.com/y845ppaa>.
+
 ### Merge with the HMP16SData datasets
 
 The `attach_dbGap()` function takes a `r BiocStyle::Biocpkg("HMP16SData")`
 `SummarizedExperiment` object as its first argument, and the path to a dbGaP
-repository key as its second argument. It performs downloading, decryption, and
-merging of the available controlled metadata:
+repository key as its second argument. It performs download, decryption, and
+merging of the available controlled metadata with a single function call.
 
 ```{r, eval=FALSE}
 V35_stool_protected <-
@@ -199,7 +203,7 @@ V35_stool_protected <-
 ```
 
 The returned `V35_stool_protected` object contains controlled participant data
-as additional columns in the `colData`:
+as additional columns in its `colData` slot.
 
 ```{r, eval=FALSE}
 colData(V35_stool_protected)
@@ -210,9 +214,7 @@ colData(V35_stool_protected)
 The `r BiocStyle::Biocpkg("phyloseq")` package provides an extensive suite of
 methods to analyze microbiome data.
 
-### Acknowledgement
-
-For those familar with both the HMP and `r BiocStyle::Biocpkg("phyloseq")`, you
+For those familiar with both the HMP and `r BiocStyle::Biocpkg("phyloseq")`, you
 may recall that an alternative `phyloseq` class object containing the HMP V35
 data has been made available by Joey McMurdie at
 <https://joey711.github.io/phyloseq-demo/HMPv35.RData>. However this object is
@@ -222,7 +224,12 @@ we would encourage the use of the `r BiocStyle::Biocpkg("HMP16SData")`
 `SummarizedExperiment` class objects with the `r BiocStyle::Biocpkg("phyloseq")`
 package.
 
-### Coercion to phyloseq Objects
+To demonstrate how `r BiocStyle::Biocpkg("HMP16SData")` could be used as a
+control or comparison cohort in microbime data analyses, we will demonstrate
+basic comparisons of the palatine tonsils and stool body subsites using the
+`r BiocStyle::Biocpkg("phyloseq")` package. We first create and subset two
+`SummarizedExperiment` objects from `r BiocStyle::Biocpkg("HMP16SData")` to
+include only the relevant body subsites.
 
 ```{r}
 V13_tonsils <-
@@ -234,10 +241,15 @@ V13_stool <-
     subset(select = HMP_BODY_SUBSITE == "Stool")
 ```
 
-The `as_phyloseq` function coerces the `SummarizedExperiment` class objects
-provided by `r BiocStyle::Biocpkg("HMP16SData")` to `phyloseq` class objects
-containing count data, sample (participant) data, taxonomy, and phylogenetic
-trees.
+While these objects are both from the `r BiocStyle::Biocpkg("HMP16SData")`
+package, a user would potentially be comparing to their own data and only need a
+single object from the package.
+
+### Coercion to phyloseq Objects
+
+The `SummarizedExperiment` class objects can then be coerced to `phyloseq` class
+objects containing count data, sample (participant) data, taxonomy, and
+phylogenetic trees using the `as_phyloseq` function.
 
 ```{r}
 V13_tonsils_phyloseq <-
@@ -246,6 +258,11 @@ V13_tonsils_phyloseq <-
 V13_stool_phyloseq <-
     as_phyloseq(V13_stool)
 ```
+
+The analysis all the samples in these two `phyloseq` objects would be rather
+computationally intensive. So, to preform the analysis in a more timely manner a
+function, `sample_samples`, is written here to take a sample of the samples
+available in each `phyloseq` object.
 
 ```{r}
 sample_samples <- function(x, size) {
@@ -257,6 +274,8 @@ sample_samples <- function(x, size) {
 }
 ```
 
+Each `phyloseq` object is then sampled to contain only twenty-five samples.
+
 ```{r}
 V13_tonsils_phyloseq %<>%
     sample_samples(25)
@@ -265,16 +284,29 @@ V13_stool_phyloseq %<>%
     sample_samples(25)
 ```
 
+A "Study" identifier is then added to the `sample_data` of each `phyloseq`
+object to be used for stratification in analysis. In the case that a user were
+comparing the HMP samples to their own data, an identifier would be added in the
+same manner.
+
 ```{r}
 sample_data(V13_tonsils_phyloseq)$Study <- "Tonsils"
 
 sample_data(V13_stool_phyloseq)$Study <- "Stool"
 ```
 
+Once the two `phyloseq` object have been sampled and their `sample_data` has
+been augmented, they can be merged into a single `phyloseq` using the
+`merge_phyloseq` command.
+
 ```{r}
 V13_phyloseq <-
     merge_phyloseq(V13_tonsils_phyloseq, V13_stool_phyloseq)
 ```
+
+Finally, because the V13 data were subset and sampled taxa with no relative
+abundance are present in the merged object. These are removed using the
+`prune_taxa` command to avoid warnings during analysis.
 
 ```{r}
 V13_phyloseq %<>%
@@ -283,16 +315,26 @@ V13_phyloseq %<>%
     prune_taxa(V13_phyloseq)
 ```
 
+The resulting `V13_phyloseq` object can then be analyzed quickly an easily.
+
 ### Alpha Diversity
 
-For example, using `phyloseq` functionality to generate a notched box plot of
-three alpha diversity measures:
+Alpha diversity measures the taxonomic variation with a sample and
+`r BiocStyle::Biocpkg("phyloseq")` provides a method, `plot_richness`, to plot
+various alpha diversity measures.
+
+First a vector of richness (i.e. alpha diversity) measures is created to be
+passed to the `plot_richness` method.
 
 ```{r}
 richness_measures <-
     c("Observed", "Shannon", "Simpson")
 ```
 
+The `V13_phyloseq` object and the `richness_measures` vector are then passed to
+the `plot_richness` method to construct a box plot of the three alpha diversity
+measures. Additional `r BiocStyle::CRANpkg("ggplot2")` syntax is used to control
+the presentation aspects of the plot.
 
 ```{r, fig.height=5, fig.width=8}
 V13_phyloseq %>%
@@ -305,6 +347,12 @@ V13_phyloseq %>%
 
 ### Beta Diversity
 
+Beta diversity measures the taxonomic variation between samples by calculating
+the dissimilarity of clade relative abundance. The 
+`r BiocStyle::Biocpkg("phyloseq")` package provides a method, `distance`, to
+calculate various dissimilarity measures which can then be clustered and
+represented as a dendrogram.
+
 ```{r}
 V13_dendrogram <-
     distance(V13_phyloseq, method = "bray") %>%
@@ -312,11 +360,20 @@ V13_dendrogram <-
     as.dendrogram()
 ```
 
+However, coercion to a `dendrogram` object results in the lost of `sample_data`
+present in the `phyloseq` which is needed for plotting. A `data.frame` of this
+`sample_data` can be extracted from the `phyloseq` object as follows.
+
 ```{r}
 V13_sample_data <-
     sample_data(V13_phyloseq) %>%
     data.frame()
 ```
+
+Samples in the the plots will be identified by "PSN"" (Primary Sample Number) and
+"Study". So, additional columns to denote the colors and shapes of leaves and
+labels are added to the `data.frame` using `r BiocStyle::CRANpkg("dplyr")`
+syntax.
 
 ```{r}
 V13_sample_data %<>%
@@ -326,17 +383,27 @@ V13_sample_data %<>%
     mutate(leaves_pch = if_else(Study == "Stool", 16, 17))
 ```
 
+Additionally, the order of samples in the `dendrogram` and `data.frame` objects
+is different and a vector to sort samples is constructed as follows.
+
 ```{r}
 V13_sample_order <-
     labels(V13_dendrogram) %>%
     match(V13_sample_data$PSN)
 ```
 
+The label and leaf color and shape columns of the `data.frame` object can then
+be coerced to vectors and sorted according to the sample order of the
+`dendrogram` object.
+
 ```{r}
 labels_col <- V13_sample_data$labels_col[V13_sample_order]
 leaves_col <- V13_sample_data$leaves_col[V13_sample_order]
 leaves_pch <- V13_sample_data$leaves_pch[V13_sample_order]
 ```
+
+The `r BiocStyle::CRANpkg("dendextend")` package is then used to add these
+vectors to the `dendrogram` object as metadata which will be used for plotting.
 
 ```{r}
 V13_dendrogram %<>%
@@ -345,6 +412,9 @@ V13_dendrogram %<>%
     set("leaves_pch", leaves_pch)
 ```
 
+Finally, the `r BiocStyle::CRANpkg("dendextend")` package provided a method,
+`circlize_dendrogram`, to produce a circular dendrogram using the
+`r BiocStyle::CRANpkg("circlize")` package with a single line of code.
 
 ```{r, fig.height=8, fig.width=8}
 V13_dendrogram %>%
@@ -353,10 +423,21 @@ V13_dendrogram %>%
 
 ### Principle Coordinates Analysis
 
+The `r BiocStyle::Biocpkg("phyloseq")` package additionally provides methods for
+commonly-used ordination analyses such as principle coordinates analysis. The
+`ordinate` method simply requires a `phyloseq` object and specification of the
+type of ordination analysis to be preformed. The type of distance method used
+can also optionally be specified.
+
 ```{r}
 V13_ordination <-
     ordinate(V13_phyloseq, method = "PCoA", distance = "bray")
 ```
+
+The ordination analysis can then be plotted using the `plot_ordination` method
+provided by the `r BiocStyle::Biocpkg("phyloseq")` package. Again, additional
+`r BiocStyle::CRANpkg("ggplot2")` syntax is used to control the presentation
+aspects of the plot.
 
 ```{r, fig.height=5, fig.width=8}
 V13_phyloseq %>%
@@ -364,6 +445,9 @@ V13_phyloseq %>%
     theme_bw() +
     theme(legend.position = "bottom")
 ```
+
+Finally, the ordination eigenvalues can be plotted using the `plot_scree` method
+provided by the `r BiocStyle::Biocpkg("phyloseq")` package.
 
 ```{r, fig.height=5, fig.width=8}
 V13_ordination %>%
@@ -374,31 +458,31 @@ V13_ordination %>%
 # Phylum-level Comparison to Metagenomic Shotgun Sequencing
 
 In addition to 16S rRNA sequencing, the HMP Study conducted whole metagenome
-shotgun (WMS) sequencing. These profiles, along with thousands of profiles from
+shotgun (MGX) sequencing. These profiles, along with thousands of profiles from
 other studies, are available in the
 `r BiocStyle::Biocpkg("curatedMetagenomicData")` package. Here, a phylum-level
-relative abundance comparison of the 16S and WMS samples is made to illustrate
+relative abundance comparison of the 16S and MGX samples is made to illustrate
 comparing these datasets.
 
-The `V35_stool_phyloseq` object constructed above contains the 16S variable
-region 3–5 data for stool samples.  The WMS stool samples are obtained and
-coerced to a `phyloseq` object as follows:
+First a `V35_stool_phyloseq` object is constructed and contains the 16S variable
+region 3–5 data for stool samples.  Then the MGX stool samples are obtained and
+coerced to a `phyloseq` object as follows.
 
 ```{r}
 V35_stool_phyloseq <-
     V35_stool %>%
     as_phyloseq()
 
-WMS_stool_phyloseq <-
+MGX_stool_phyloseq <-
     HMP_2012.metaphlan_bugs_list.stool(cmdversion = "20170526") %>%
     ExpressionSet2phyloseq()
 ```
 
-`curatedMetagenomicData` provides taxonomic relative abundance from WMS data
-(with an option to instead estimate counts by multiplying by read depth) from
-MetaPhlAn2.  MetaPhlAn2 directly estimates relative abundance at every taxonomic
-level based on clade-specific markers, and these estimates are better than
-summing lower-level taxonomic abundances.
+The `r BiocStyle::Biocpkg("curatedMetagenomicData")` package provides taxonomic
+relative abundance from MGX data (with an option to instead estimate counts by
+multiplying by read depth) from MetaPhlAn2.  MetaPhlAn2 directly estimates
+relative abundance at every taxonomic level based on clade-specific markers, and
+these estimates are better than summing lower-level taxonomic abundances.
 
 Note, this comparison becomes complicated because `phyloseq` does not currently
 support column and row matching and reordering. Instead, we use the
@@ -406,15 +490,15 @@ support column and row matching and reordering. Instead, we use the
 manipulation.
 
 ```{r}
-WMS_stool_melted <-
-    WMS_stool_phyloseq %>%
+MGX_stool_melted <-
+    MGX_stool_phyloseq %>%
     subset_taxa(is.na(Class) & !is.na(Phylum)) %>%
     psmelt()
 ```
 
 The 16S datasets do not contain summarized counts for higher taxonomic levels,
 so we use the `r BiocStyle::Biocpkg("phyloseq")` `tax_glom` function to
-agglomerate at phylum level:
+agglomerate at phylum level.
 
 ```{r}
 V35_stool_melted <-
@@ -424,16 +508,16 @@ V35_stool_melted <-
 ```
 
 There is a column `SRS_SAMPLE_ID` present in the 16S variable region 3–5 data
-that is explicitly for mapping to the WMS samples and the matching identifiers
-are in the `NCBI_accession` column of the WMS sample data. The intersection of
+that is explicitly for mapping to the MGX samples and the matching identifiers
+are in the `NCBI_accession` column of the MGX sample data. The intersection of
 the two vectors represents the matching samples that are present in both data
 sets. This intersection, shown below as `SRS_SAMPLE_IDS`, can then be used to
-filter both the 16S and WMS samples to include only the samples in common.
+filter both the 16S and MGX samples to include only the samples in common.
 
 Along with the `filter` step shown below, standardization of sample identifiers
 to the `SRS` numbers and conversion of taxonomy counts to relative abundance is
 done. The conversion to relative abundance is necessary for comparability across
-the 16S and WMS samples.
+the 16S and MGX samples.
 
 In either case, data is first grouped by samples and the percent composition of
 each phylum relative to the others in the sample is calculated by taking the
@@ -447,7 +531,7 @@ removed.
 
 ```{r}
 SRS_SAMPLE_IDS <-
-    intersect(V35_stool_melted$SRS_SAMPLE_ID, WMS_stool_melted$NCBI_accession)
+    intersect(V35_stool_melted$SRS_SAMPLE_ID, MGX_stool_melted$NCBI_accession)
 
 V35_stool_melted %<>%
     filter(SRS_SAMPLE_ID %in% SRS_SAMPLE_IDS) %>%
@@ -462,7 +546,7 @@ V35_stool_melted %<>%
     select(Sample, Phylum, `Relative Abundance`) %>%
     ungroup()
 
-WMS_stool_melted %<>%
+MGX_stool_melted %<>%
     filter(NCBI_accession %in% SRS_SAMPLE_IDS) %>%
     group_by(Sample) %>%
     mutate(`Relative Abundance` = Abundance / sum(Abundance)) %>%
@@ -477,7 +561,7 @@ WMS_stool_melted %<>%
 Provided that the phyla are ordered by relative abundance, the top phyla from
 each data set can be obtained and intersected to give the top eight phyla
 present in both data sets. The top eight phyla can then be used to filter 16S
-and WMS samples to include only the desired phyla.
+and MGX samples to include only the desired phyla.
 
 ```{r}
 V35_top_phyla <-
@@ -485,19 +569,19 @@ V35_top_phyla <-
     unique(Phylum) %>%
     as.character()
 
-WMS_top_phyla <-
-    WMS_stool_melted %$%
+MGX_top_phyla <-
+    MGX_stool_melted %$%
     unique(Phylum) %>%
     as.character()
 
 top_eight_phyla <-
-    intersect(V35_top_phyla, WMS_top_phyla) %>%
+    intersect(V35_top_phyla, MGX_top_phyla) %>%
     extract(1:8)
 
 V35_stool_melted %<>%
     filter(Phylum %in% top_eight_phyla)
 
-WMS_stool_melted %<>%
+MGX_stool_melted %<>%
     filter(Phylum %in% top_eight_phyla)
 ```
 
@@ -528,22 +612,14 @@ Wong, B. Points of view: Color blindness. *Nat. Methods* **8**, 441 (2011).
 
 ```{r}
 bang_wong_colors <-
-    c(
-        "#CC79A7",
-        "#D55E00",
-        "#0072B2",
-        "#F0E442",
-        "#009E73",
-        "#56B4E9",
-        "#E69F00",
-        "#000000"
-    )
+    c("#CC79A7", "#D55E00", "#0072B2", "#F0E442", "#009E73", "#56B4E9",
+      "#E69F00", "#000000")
 ```
 
 Using the `sample_order` and `phylum_order` vectors constructed above, stacked
 phylum-level relative abundance bar plots sorted by decreasing relative
 abundance of the top phylum and stratified by the top eight phyla can be made
-for 16S and WMS samples. The two plots are made separately and serialized so
+for 16S and MGX samples. The two plots are made separately and serialized so
 that they can be arranged in a single figure for comparison.
 
 ```{r}
@@ -560,8 +636,8 @@ V35_plot <-
           legend.title = element_blank()) +
     ggtitle("Phylum-Level Relative Abundance", "16S Stool Samples")
 
-WMS_plot <-
-    WMS_stool_melted %>%
+MGX_plot <-
+    MGX_stool_melted %>%
     mutate(Sample = factor(Sample, sample_order)) %>%
     mutate(Phylum = factor(Phylum, phylum_order)) %>%
     ggplot(aes(Sample, `Relative Abundance`, fill = Phylum)) +
@@ -571,7 +647,7 @@ WMS_plot <-
     theme(axis.text.x = element_blank(), axis.title.x = element_blank(),
           panel.grid = element_blank(), legend.position = "none",
           legend.title = element_blank()) +
-    ggtitle("", "WMS Stool Samples")
+    ggtitle("", "MGX Stool Samples")
 ```
 
 In the plots above, legends are removed to reduce redundancy, but a legend is
@@ -580,7 +656,7 @@ still necessary and can be serialized as its own plot below using the
 
 ```{r}
 plot_legend <- {
-        WMS_plot +
+        MGX_plot +
             theme(legend.position = "bottom")
     } %>%
     get_legend()
@@ -591,15 +667,29 @@ Finally, the `grid.arrange` function from the
 the three plots in a single figure.
 
 ```{r, fig.height=8, fig.width=8}
-grid.arrange(V35_plot, WMS_plot, plot_legend, ncol = 1, heights = c(3, 3, 1))
+grid.arrange(V35_plot, MGX_plot, plot_legend, ncol = 1, heights = c(3, 3, 1))
 ```
 
-Notably, the figure illustrates the Bacteroidetes/Firmicutes gradient with some
-discretion between the 16S and WMS samples.
+Notably, the figure illustrates the Bacteroidetes/Firmicutes gradient with
+reasonable agreement between the 16S and MGX samples.
 
 # Exporting Data to CSV, SAS, SPSS, and STATA Formats
 
+To our knowledge R and Bioconductor provide the most and best methods for the
+analysis of microbiome data. However, we realize they are not the only analysis
+environments and wish to provide methods to export the data from 
+`r BiocStyle::Biocpkg("HMP16SData")` to CSV, SAS, SPSS, and STATA formats. As we
+do not use these other languages regularly, we are unaware of how to represent
+phylogenitic trees in them and will not attempt to export the trees here.
+
 ## Prepare Data for Export
+
+Bioconductor's `SummarizedExperiment` is essentially a normalized representation
+of tightly coupled data and metadata that must be "unglued" before it can be
+saved into alternative formats.
+
+The process begin by creating a `data.frame` object of the participant data and
+moving the row names to their own column.
 
 ```{r, eval=FALSE}
 V13_participant_data <-
@@ -608,6 +698,11 @@ V13_participant_data <-
   as.data.frame() %>%
   rownames_to_column(var = "PSN")
 ```
+
+Next, the taxonomic abundance matrix is extracted and transposed because
+Bioconductor objects represent samples as rows and measurements as columns
+whereas other languages do the opposite. The matrix is then coerced to a
+`data.frame` object and the row names are moved to their own column.
 
 ```{r, eval=FALSE}
 V13_OTU_counts <-
@@ -618,10 +713,21 @@ V13_OTU_counts <-
   rownames_to_column(var = "PSN")
 ```
 
+With the participant data and taxonomic abundances represented as simple tables
+containing a primary key (i.e. PSN or Primary Sample Number) the two tables can
+be joined using the `merge.data.frame` method.
+
 ```{r, eval=FALSE}
 V13_data <-
   merge.data.frame(V13_participant_data, V13_OTU_counts, by = "PSN")
 ```
+
+The columns names of the `V13_data` object are denoted as OTUs or operational
+taxonomic units based on their sequence similarity to the 16S rRNA gene. The OTU
+nomenclature is not particularly useful without the traditional taxonomic clade
+identifiers which are stored in a separate table. A dictionary of these
+identifiers is created by extracting and transposing the `rowData` of the
+`SummarizedExperiment` object which is then coerced to a `data.frame` object.
 
 ```{r, eval=FALSE}
 V13_dictionary <-
@@ -631,11 +737,17 @@ V13_dictionary <-
   as.data.frame()
 ```
 
+The column names of the `V13_data` object contain periods which some languages
+and formats are unable to process. The periods in the column names are replaced
+with underscores using the `gsub` method.
+
 ```{r, eval=FALSE}
 colnames(V13_data) <-
     colnames(V13_data) %>%
     gsub(pattern = "\\.", replacement = "_", x = .)
 ```
+
+The process is repeated for the column names of the `V13_dictionary` object.
 
 ```{r, eval=FALSE}
 colnames(V13_dictionary) <-
@@ -643,7 +755,13 @@ colnames(V13_dictionary) <-
     gsub(pattern = "\\.", replacement = "_", x = .)
 ```
 
+The two tables `V13_data` and `V13_dictionary` are then ready for export to CSV,
+SAS, SPSS, and STATA formats.
+
 ## Export to CSV Format
+
+To export to CSV format, two calls to the `write_csv` method from the
+`r BiocStyle::CRANpkg("readr")` package are used to write CSV files to disk.
 
 ```{r, eval=FALSE}
 write_csv(V13_data, "~/V13_data.csv")
@@ -652,12 +770,18 @@ write_csv(V13_dictionary, "~/V13_dictionary.csv")
 
 ## Export to SAS Format
 
+To export to SAS format, two calls to the `write_sas` method from the
+`r BiocStyle::CRANpkg("haven")` package are used to write SAS files to disk.
+
 ```{r, eval=FALSE}
 write_sas(V13_data, "~/V13_data.sas7bdat")
 write_sas(V13_dictionary, "~/V13_dictionary.sas7bdat")
 ```
 
 ## Export to SPSS Format
+
+To export to SPSS format, two calls to the `write_sav` method from the
+`r BiocStyle::CRANpkg("haven")` package are used to write SPSS files to disk.
 
 ```{r, eval=FALSE}
 write_sav(V13_data, "~/V13_data.sav")
@@ -666,10 +790,17 @@ write_sav(V13_dictionary, "~/V13_dictionary.sav")
 
 ## Export to STATA Format
 
+To export to STATA format, two calls to the `write_dta` method from the
+`r BiocStyle::CRANpkg("haven")` package are used to write STATA files to disk.
+
 ```{r, eval=FALSE}
 write_dta(V13_data, "~/V13_data.dta", version = 13)
 write_dta(V13_dictionary, "~/V13_dictionary.dta", version = 13)
 ```
+
+Here, version 13 STATA files are written because version 14 and above files
+require a platform-specific text encoding that would make the data less
+transportable. The encoding of the version 13 files is ASCII.
 
 # Session Information
 
