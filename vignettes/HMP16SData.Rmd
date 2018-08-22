@@ -370,9 +370,9 @@ V13_sample_data <-
     data.frame()
 ```
 
-Samples in the the plots will be identified by "PSN"" (Primary Sample Number) and
-"Study". So, additional columns to denote the colors and shapes of leaves and
-labels are added to the `data.frame` using `r BiocStyle::CRANpkg("dplyr")`
+Samples in the the plots will be identified by "PSN"" (Primary Sample Number)
+and "Study". So, additional columns to denote the colors and shapes of leaves
+and labels are added to the `data.frame` using `r BiocStyle::CRANpkg("dplyr")`
 syntax.
 
 ```{r}
