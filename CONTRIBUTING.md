@@ -6,16 +6,17 @@ place. We look forward to your contribution!
 
 ## Conduct
 
-HMP16SData is released with a Contributor Covenant Code of Conduct and anyone
+HMP16SData is released with a [code of conduct](CODE_OF_CONDUCT.md) and anyone
 contributing to the project acknowledges this and agrees to abide by the terms.
 
 ## Questions
 
 If you only need to ask a question about the use of HMP16SData, the best place
 to do so is the [Bioconductor Support Site](https://support.bioconductor.org/).
-The functionality of the package is well-documented in the vignette but if it
-seems something has been forgotten, ask your question and add the tag HMP16SData
-so we can respond quickly.
+The functionality of the package is well-documented in the
+[package vignette](https://tinyurl.com/yaob5n77) but if it seems something has
+been forgotten, ask your question and add the tag HMP16SData so we can respond
+quickly.
 
 ## Issues
 
