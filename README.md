@@ -68,6 +68,3 @@ package provides an excellent vignette.
 For a complete explaination of the features of
 *[HMP16SData](http://bioconductor.org/packages/HMP16SData)*, see the
 [package vignette](https://tinyurl.com/yaob5n77).
-
-HMP16SData is released with a [code of conduct](CODE_OF_CONDUCT.md) and anyone
-contributing to the project acknowledges this and agrees to abide by the terms.
