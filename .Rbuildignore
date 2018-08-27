@@ -1,7 +1,9 @@
+^data-raw$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^data-raw$
 ^\.travis\.yml$
-^LICENSE$
 ^CODE_OF_CONDUCT\.md$
-^README.md$
+^CONTRIBUTING\.md$
+^PULL_REQUEST_TEMPLATE\.md$
+^README\.md$
+^LICENSE$
