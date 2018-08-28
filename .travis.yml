@@ -14,4 +14,4 @@ matrix:
     - os: osx
 
 after_success:
-  - Rscript -e 'BiocCheck::BiocCheck(".")'
+  - Rscript -e 'BiocCheck::BiocCheck()'
