@@ -189,7 +189,7 @@ installation of the homebrew package manager. Instructions are available at
 For Windows, binary installation is necessary and instructions are available at
 <https://tinyurl.com/y845ppaa>.
 
-### Merge with HMP16SData Data Sets
+### Merge with HMP16SData
 
 The `attach_dbGap()` function takes a `r BiocStyle::Biocpkg("HMP16SData")`
 `SummarizedExperiment` object as its first argument and the path to a dbGaP
