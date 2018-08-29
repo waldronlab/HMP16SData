@@ -2,6 +2,8 @@
 [![ci-bioc](https://tinyurl.com/yc58tygg)](https://tinyurl.com/ybfcpt7k)
 ![fa-linux](https://tinyurl.com/yadaat78)
 [![ci-linux](https://tinyurl.com/y7wya2kf)](https://tinyurl.com/ybau2brs)
+![fa-percent](https://tinyurl.com/yapva7bd)
+[![codecov](https://tinyurl.com/ybz2mbgr)](https://tinyurl.com/yaym7qav)
 ![fa-pencil](https://tinyurl.com/y8ceycee)
 [![posts](https://tinyurl.com/ybgst9we)](https://tinyurl.com/yd3p9xh8)
 
