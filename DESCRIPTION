@@ -37,6 +37,7 @@ Imports:
 Suggests:
     Biobase,
     BiocCheck,
+    BiocManager,
     BiocStyle,
     circlize,
     covr,
