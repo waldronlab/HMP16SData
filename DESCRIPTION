@@ -1,7 +1,7 @@
 Package: HMP16SData
 Type: Package
 Title: 16S rRNA Sequencing Data from the Human Microbiome Project
-Version: 1.0.0
+Version: 1.0.1
 Author:
     Lucas Schiffer <schiffer.lucas@gmail.com>,
     Rimsha Azhar <rimsha_azhar@hotmail.com>,
@@ -39,11 +39,15 @@ Suggests:
     BiocCheck,
     BiocInstaller,
     BiocStyle,
+    circlize,
+    covr,
     cowplot,
     curatedMetagenomicData,
+    dendextend,
     devtools,
     ggplot2,
     gridExtra,
+    haven,
     phyloseq,
     rmarkdown,
     roxygen2,
