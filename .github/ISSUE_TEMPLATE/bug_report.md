@@ -19,5 +19,9 @@ A clear and concise description of what you expected to happen.
 **Session info**
 Copy and paste the output of the `sessionInfo()` command in triple backticks.
 
+```
+
+```
+
 **Additional context**
 Add any other context about the problem here.
