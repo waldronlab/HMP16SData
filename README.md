@@ -4,6 +4,8 @@
 [![ci-linux](https://tinyurl.com/y7wya2kf)](https://tinyurl.com/ybau2brs)
 ![fa-percent](https://tinyurl.com/yapva7bd)
 [![codecov](https://tinyurl.com/ybz2mbgr)](https://tinyurl.com/yaym7qav)
+![fa-download](https://tinyurl.com/yapgmdmv)
+[![downloads](https://tinyurl.com/yb44dog3)](https://tinyurl.com/yazcgxmt)
 ![fa-pencil](https://tinyurl.com/y8ceycee)
 [![posts](https://tinyurl.com/ybgst9we)](https://tinyurl.com/yd3p9xh8)
 
