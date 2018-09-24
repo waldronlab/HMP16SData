@@ -673,6 +673,60 @@ grid.arrange(V35_plot, MGX_plot, plot_legend, ncol = 1, heights = c(3, 3, 1))
 Notably, the figure illustrates the Bacteroidetes/Firmicutes gradient with
 reasonable agreement between the 16S and MGX samples.
 
+When these plots were submitted for publication, the following code was used to
+produce ESP and PDF files.
+
+```{r, eval=FALSE}
+V35_plot +
+    theme(text = element_text(size = 19)) +
+    labs(title = NULL, subtitle = NULL, tag = "A")
+
+ggsave("~/AJE-00611-2018 Schiffer Figure 2A.eps", device = "eps")
+ggsave("~/AJE-00611-2018 Schiffer Figure 2A.pdf", device = "pdf")
+
+MGX_plot +
+    theme(text = element_text(size = 19)) +
+    labs(title = NULL, subtitle = NULL, tag = "B")
+
+ggsave("~/AJE-00611-2018 Schiffer Figure 2B.eps", device = "eps")
+ggsave("~/AJE-00611-2018 Schiffer Figure 2B.pdf", device = "pdf")
+
+plot_legend <- {
+        MGX_plot +
+            theme(legend.position = "bottom", text = element_text(size = 19)) +
+            guides(fill = guide_legend(byrow = TRUE))
+    } %>%
+    get_legend()
+
+ggsave("~/AJE-00611-2018 Schiffer Figure 2 Legend 1.eps", plot = plot_legend,
+       device = "eps")
+ggsave("~/AJE-00611-2018 Schiffer Figure 2 Legend 1.pdf", plot = plot_legend,
+       device = "pdf")
+
+plot_legend <- {
+        MGX_plot +
+            theme(legend.position = "right", text = element_text(size = 19))
+    } %>%
+    get_legend()
+
+ggsave("~/AJE-00611-2018 Schiffer Figure 2 Legend 2.eps", plot = plot_legend,
+       device = "eps")
+ggsave("~/AJE-00611-2018 Schiffer Figure 2 Legend 2.pdf", plot = plot_legend,
+       device = "pdf")
+
+plot_legend <- {
+        MGX_plot +
+            theme(legend.position = "right", text = element_text(size = 19)) +
+            guides(fill = guide_legend(ncol = 2, byrow = TRUE))
+    } %>%
+    get_legend()
+
+ggsave("~/AJE-00611-2018 Schiffer Figure 2 Legend 3.eps", plot = plot_legend,
+       device = "eps")
+ggsave("~/AJE-00611-2018 Schiffer Figure 2 Legend 3.pdf", plot = plot_legend,
+       device = "pdf")
+```
+
 # Exporting Data to CSV, SAS, SPSS, and STATA Formats
 
 To our knowledge, R and Bioconductor provide the most and best methods for the
