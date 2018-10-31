@@ -84,10 +84,10 @@ Processed data is provided as `SummarizedExperiment` class objects via
 `r BiocStyle::Biocpkg("ExperimentHub")`.
 
 `r BiocStyle::Biocpkg("HMP16SData")` can be installed using
-`r BiocStyle::Biocpkg("BiocInstaller")` as follows.
+`r BiocStyle::CRANpkg("BiocManager")` as follows.
 
 ```{r, eval=FALSE}
-BiocInstaller::biocLite("HMP16SData")
+BiocManager::install("HMP16SData")
 ```
 
 Once installed, `r BiocStyle::Biocpkg("HMP16SData")` provides two functions to

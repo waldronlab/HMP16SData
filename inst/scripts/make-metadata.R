@@ -15,7 +15,7 @@
 # and consider automated metadata generation if you have a boatload more data.
 
 if (!require("magrittr", character.only = TRUE)) {
-    BiocInstaller::biocLite("magrittr")
+    BiocManager::install("magrittr")
     require("magrittr", character.only = TRUE)
 }
 
@@ -25,7 +25,7 @@ base::read.dcf("DESCRIPTION", "Suggests") %>%
     base::unlist() %>%
     for (i in .) {
         if (!require(i, character.only = TRUE)) {
-            BiocInstaller::biocLite(i)
+            BiocManager::install(i)
             require(i, character.only = TRUE)
         }
     }
@@ -42,7 +42,7 @@ Description <- base::c("16S rRNA sequencing data for variable regions 1–3",
                        "16S rRNA sequencing data for variable regions 3–5")
 
 BiocVersion <-
-    BiocInstaller::biocVersion() %>%
+    BiocManager::version() %>%
     base::as.character()
 
 Genome <- base::as.character(NA)

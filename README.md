@@ -1,7 +1,13 @@
-![fa-linux](https://tinyurl.com/yadaat78)
-[![ci-linux](https://tinyurl.com/y7wya2kf)](https://tinyurl.com/ybau2brs)
 ![fa-music](https://tinyurl.com/ybhw6acv)
 [![ci-bioc](https://tinyurl.com/yc58tygg)](https://tinyurl.com/ybfcpt7k)
+![fa-linux](https://tinyurl.com/yadaat78)
+[![ci-linux](https://tinyurl.com/y7wya2kf)](https://tinyurl.com/ybau2brs)
+![fa-percent](https://tinyurl.com/yapva7bd)
+[![codecov](https://tinyurl.com/ybz2mbgr)](https://tinyurl.com/yaym7qav)
+![fa-download](https://tinyurl.com/yapgmdmv)
+[![downloads](https://tinyurl.com/yb44dog3)](https://tinyurl.com/yazcgxmt)
+![fa-pencil](https://tinyurl.com/y8ceycee)
+[![posts](https://tinyurl.com/ybgst9we)](https://tinyurl.com/yd3p9xh8)
 
 # HMP16SData
 
@@ -14,11 +20,11 @@ Processed data is provided as `SummarizedExperiment` class objects via
 *[ExperimentHub](http://bioconductor.org/packages/ExperimentHub)*.
 
 *[HMP16SData](http://bioconductor.org/packages/HMP16SData)* can be installed
-using *[BiocInstaller](http://bioconductor.org/packages/BiocInstaller)* as
+using *[BiocManager](https://cran.r-project.org/package=BiocManager)* as
 follows.
 
 ```r
-BiocInstaller::biocLite("HMP16SData")
+BiocManager::install("HMP16SData")
 ```
 
 Once installed, *[HMP16SData](http://bioconductor.org/packages/HMP16SData)*
@@ -68,7 +74,3 @@ package provides an excellent vignette.
 For a complete explaination of the features of
 *[HMP16SData](http://bioconductor.org/packages/HMP16SData)*, see the
 [package vignette](https://tinyurl.com/yaob5n77).
-
-Please note that this project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this
-project you agree to abide by its terms.

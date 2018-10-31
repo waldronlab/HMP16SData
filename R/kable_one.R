@@ -27,6 +27,7 @@
 #'     table_one() %>%
 #'     kable_one()
 #'
+#' @importFrom methods is
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%
 #' @importFrom magrittr set_names
@@ -38,7 +39,7 @@
 #' @importFrom kableExtra kable_styling
 #' @importFrom kableExtra add_header_above
 kable_one <- function(x, significant_figures = 2) {
-    if (class(x) == "data.frame") {
+    if (is(x, "data.frame")) {
         x %<>%
             list() %>%
             set_names("VXX")

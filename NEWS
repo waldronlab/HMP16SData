@@ -1,3 +1,10 @@
+# HMP16SData 1.2.0
+
+* The package vignette has been significantly expanded to show more analysis
+* Attaching dbGaP metadata is quieter and attach_dbGaP checks for existing files
+* Internal corrections to function syntax to avoid BiocCheck notes
+* Additional files added to GitHub to meet recommended community guidelines
+
 # HMP16SData 1.0.0
 
 * HMP 16S rRNA sequencing data for variable regions 1–3 and 3–5

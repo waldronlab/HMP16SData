@@ -6,7 +6,7 @@
 # source URLs are available in the dictionary R documentation.
 
 if (!require("magrittr", character.only = TRUE)) {
-    BiocInstaller::biocLite("magrittr")
+    BiocManager::install("magrittr")
     require("magrittr", character.only = TRUE)
 }
 
@@ -16,7 +16,7 @@ base::read.dcf("DESCRIPTION", "Suggests") %>%
     base::unlist() %>%
     for (i in .) {
         if (!require(i, character.only = TRUE)) {
-            BiocInstaller::biocLite(i)
+            BiocManager::install(i)
             require(i, character.only = TRUE)
         }
     }
