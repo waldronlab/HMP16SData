@@ -55,6 +55,7 @@ Suggests:
     testthat
 biocViews:
     ExperimentData,
+    ExperimentHub,
     Homo_sapiens_Data,
     MicrobiomeData,
     ReproducibleResearch,
