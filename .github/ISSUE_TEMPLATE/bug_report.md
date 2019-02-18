@@ -5,7 +5,7 @@ about: Create a report to help us improve
 ---
 
 **Read the contributing guidelines**
-Be sure you are submitting only a bugs and not a question or feature request.
+Be sure you are submitting only a bug and not a question or feature request.
 
 **Describe the bug**
 A clear and concise description of what the bug is.
