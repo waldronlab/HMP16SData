@@ -7,19 +7,20 @@ citEntry(
         as.person("Rimsha Azhar"),
         as.person("Lori Shepherd"),
         as.person("Marcel Ramos"),
+        as.person("Ludwig Geistlinger"),
         as.person("Curtis Huttenhower"),
         as.person("Jennifer B Dowd"),
         as.person("Nicola Segata"),
         as.person("Levi Waldron")
     ),
     title = "HMP16SData: Efficient Access to the Human Microbiome Project through Bioconductor",
-    year = "2018",
-    doi = "10.1101/299115",
-    publisher = "Cold Spring Harbor Laboratory",
-    journal = "bioRxiv",
+    year = "2019",
+    doi = "10.1093/aje/kwz006",
+    publisher = "Oxford University Press",
+    journal = "American Journal of Epidemiology",
     textVersion = paste(
         "L. Schiffer, R. Azhar, L. Shepherd, M. Ramos, L. Geistlinger, C. Huttenhower, J. B. Dowd, N. Segata, L. Waldron.",
         "HMP16SData: Efficient Access to the Human Microbiome Project through Bioconductor.",
-        "bioRxiv, 299115, 08 2018."
+        "American Journal of Epidemiology, kwz006, 01 2019."
     )
 )
