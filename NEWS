@@ -1,3 +1,10 @@
+# HMP16SData 1.4.0
+
+* bioRxiv manuscript was published in the American Journal of Epidemiology
+* Updated the CITATION and README.md files with the new publication details
+* Added ExperimentHub to biocViews to avoid BiocCheck notes
+* Made minor corrections to GitHub bug report and feature request templates
+
 # HMP16SData 1.2.0
 
 * The package vignette has been significantly expanded to show more analysis
