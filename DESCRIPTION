@@ -1,7 +1,7 @@
 Package: HMP16SData
 Type: Package
 Title: 16S rRNA Sequencing Data from the Human Microbiome Project
-Version: 1.4.0
+Version: 1.4.1
 Author:
     Lucas Schiffer <schiffer.lucas@gmail.com>,
     Rimsha Azhar <rimsha_azhar@hotmail.com>,
@@ -63,4 +63,4 @@ biocViews:
 VignetteBuilder: knitr
 URL: https://github.com/waldronlab/HMP16SData
 BugReports: https://github.com/waldronlab/HMP16SData/issues
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
