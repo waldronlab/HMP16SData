@@ -85,5 +85,5 @@ Griffith, J. C. & Morgan, X. C. Invited Commentary: Improving accessibility of
 the Human Microbiome Project data through integration with R/Bioconductor. *Am.
 J. Epidemiol.* (2019).
 
-Waldron, L. *et al.* Improving Accessibility of the Human Microbiome Project Data
-Through Integration With R/Bioconductor. *Am. J. Epidemiol.* (2019).
+Waldron, L. *et al.* Improving Accessibility of the Human Microbiome Project
+Data Through Integration With R/Bioconductor. *Am. J. Epidemiol.* (2019).
