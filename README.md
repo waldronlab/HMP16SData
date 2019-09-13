@@ -5,7 +5,7 @@
 ![fa-percent](https://tinyurl.com/yapva7bd)
 [![codecov](https://tinyurl.com/ybz2mbgr)](https://tinyurl.com/yaym7qav)
 ![fa-download](https://tinyurl.com/yapgmdmv)
-[![downloads](https://tinyurl.com/y3g3hyyx)](https://tinyurl.com/yazcgxmt)
+[![downloads](https://tinyurl.com/y5qkuahp)](https://tinyurl.com/yazcgxmt)
 ![fa-pencil](https://tinyurl.com/y8ceycee)
 [![posts](https://tinyurl.com/ybgst9we)](https://tinyurl.com/yd3p9xh8)
 
