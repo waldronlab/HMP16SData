@@ -42,6 +42,21 @@ editor_options:
     chunk_output_type: console
 ---
 
+# Publications
+
+Schiffer, L. *et al.* [HMP16SData: Efficient Access to the Human Microbiome
+Project through Bioconductor](https://dx.doi.org/10.1093/aje/kwz006). *Am. J.
+Epidemiol.* (2019).
+
+Griffith, J. C. & Morgan, X. C. [Invited Commentary: Improving accessibility of
+the Human Microbiome Project data through integration with
+R/Bioconductor](https://dx.doi.org/10.1093/aje/kwz007). *Am. J. Epidemiol.*
+(2019).
+
+Waldron, L. *et al.* [Waldron et al. Reply to “Commentary on the HMP16SData
+Bioconductor Package”](https://dx.doi.org/10.1093/aje/kwz008). *Am. J.
+Epidemiol.* (2019).
+
 # Prerequisites
 
 The following `r BiocStyle::CRANpkg("knitr")` options will be used in this
