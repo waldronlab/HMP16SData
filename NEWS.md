@@ -1,3 +1,7 @@
+# HMP16SData 1.8.0
+
+* Thank you for using HMP16SData and citing it in your work : )
+
 # HMP16SData 1.6.0
 
 * Citations with links for publications added to the primary vignette
