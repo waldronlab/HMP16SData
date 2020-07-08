@@ -33,16 +33,7 @@ single command, provided the NCBI SRA Toolkit is installed and on the user's
 The NCBI SRA Toolkit is called internally and must be on the user's
 \code{PATH} or an error message will be displayed. The NCBI SRA Toolkit can
 readily be installed on multiple platforms following
-\href{https://tinyurl.com/y845ppaa}{these} instructions or by one of the
-following methods.
-\subsection{Debian/Ubuntu}{
-    Using the \href{https://wiki.debian.org/Apt}{apt} package manager:\cr\cr
-    \code{apt install sra-toolkit}
-}
-\subsection{macOS}{
-    Using the \href{https://brew.sh/}{homebrew} package manager:\cr\cr
-    \code{brew install sratoolkit}
-}
+\href{https://tinyurl.com/y894uvvf}{these} instructions.
 }
 \examples{
 \dontrun{

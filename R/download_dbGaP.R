@@ -1,18 +1,12 @@
 #' @keywords internal
 #'
 #' @importFrom magrittr %>%
-download_dbGaP <- function(working_directory, dbGaP_repository_key) {
-    paste("vdb-config --import", dbGaP_repository_key) %>%
-        system()
-
+download_dbGaP <- function(dbGaP_repository_key) {
     system.file("extdata/cart_DAR48406_201802201501.krt",
                 package = "HMP16SData") %>%
-        paste("prefetch", .) %>%
+        paste("prefetch", ., "--ngc", dbGaP_repository_key) %>%
         system()
 
-    setwd(paths$dbGaP_directory_path)
-
-    system("vdb-decrypt files/")
-
-    setwd(working_directory)
+    paste("vdb-decrypt", paths$dbGaP_directory, "--ngc", dbGaP_repository_key) %>%
+        system()
 }

@@ -4,7 +4,8 @@
 \name{dictionary}
 \alias{dictionary}
 \title{A data dictionary describing dbGaP metadata variables}
-\format{A \code{data.frame} with 789 rows and 8 variables:
+\format{
+A \code{data.frame} with 789 rows and 8 variables:
 \describe{
   \item{VARIABLE}{The name of the variable as it appears in
   \code{SummarizedExperiment} \code{colData}}
@@ -15,7 +16,8 @@
   \item{MAXIMUM}{The largest possible value of the variable}
   \item{CODED_VALUES}{The encoding of coded categorical variables, if needed}
   \item{COMMENT}{Any comments from dbGaP, most pertain to gated fields}
-}}
+}
+}
 \source{
 The following dbGaP \code{XLM} data dictionary files were used to
 construct the data dictionary.
