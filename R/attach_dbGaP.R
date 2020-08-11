@@ -34,33 +34,38 @@
 #'     attach_dbGaP(dbGaP_repository_key = "~/prj_12146.ngc")
 #' }
 #'
-#' @importFrom assertthat is.dir
-#' @importFrom assertthat assert_that
-#' @importFrom assertthat is.readable
-#' @importFrom assertthat has_extension
 #' @importFrom magrittr %>%
+#' @importFrom stringr str_remove
+#' @importFrom stringr str_replace
+#' @importFrom assertthat assert_that
+#' @importFrom assertthat has_extension
+#' @importFrom assertthat is.readable
 #' @importFrom SummarizedExperiment colData<-
 attach_dbGaP <- function(x, dbGaP_repository_key = "") {
-    Sys.which("vdb-config") %>%
-        nchar() %>%
-        if (. == 0) {
-            stop("Ensure NCBI SRA Toolkit is installed and on your PATH.\n",
-                 "       See https://tinyurl.com/y894uvvf for help.\n",
-                 "       Check with Sys.getenv(\"PATH\")",
-                 call. = FALSE)
-        }
+    dbGaP_directory <-
+        str_remove(dbGaP_repository_key, "\\.ngc") %>%
+        str_replace(".+_", "dbGaP-")
 
-    if (!dir.exists(paths$dbGaP_directory)) {
-        assert_that(is.readable(dbGaP_repository_key))
+    if (!dir.exists(dbGaP_directory)) {
         assert_that(has_extension(dbGaP_repository_key, "ngc"))
+        assert_that(is.readable(dbGaP_repository_key))
 
-        download_dbGaP(dbGaP_repository_key)
+        Sys.which("vdb-config") %>%
+            nchar() %>%
+            if (. == 0) {
+                stop("Ensure NCBI SRA Toolkit is installed and on your PATH.\n",
+                     "       See https://tinyurl.com/y894uvvf for help.\n",
+                     "       Check with Sys.getenv(\"PATH\")",
+                     call. = FALSE)
+            }
+
+        download_dbGaP(dbGaP_repository_key, dbGaP_directory)
     }
 
     message("\nJoining the colData...\n")
 
     colData(x) <-
-        read_dbGaP() %>%
+        read_dbGaP(dbGaP_directory) %>%
         join_colData(x)
 
     x
