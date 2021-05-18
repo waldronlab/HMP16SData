@@ -78,7 +78,7 @@ library(tibble)
 library(dplyr)
 library(dendextend)
 library(circlize)
-library(curatedMetagenomicData)
+library(ExperimentHub)
 library(gridExtra)
 library(cowplot)
 library(readr)
@@ -490,9 +490,57 @@ V35_stool_phyloseq <-
     V35_stool %>%
     as_phyloseq()
 
+EH <-
+    ExperimentHub()
+
+HMP_2012.metaphlan_bugs_list.stool <-
+    EH[["EH426"]]
+
+# a modified version of ExpressionSet2phyloseq taken from curatedMetagenomicData
+# ExpressionSet2phyloseq was removed in curatedMetagenomicData version 3.0.0
+ExpressionSet2phyloseq <- function(eset, simplify = TRUE, relab = TRUE) {
+    otu.table <- 
+        Biobase::exprs(eset)
+    
+    sample.data <-
+        Biobase::pData(eset) %>%
+        phyloseq::sample_data(., errorIfNULL = FALSE)
+
+    taxonomic.ranks <-
+        c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species", "Strain")
+    
+    tax.table <-
+        rownames(otu.table) %>%
+        gsub("[a-z]__", "", .) %>%
+        dplyr::tibble() %>%
+        tidyr::separate(., ".", taxonomic.ranks, sep = "\\|", fill="right") %>%
+        as.matrix()
+    
+    if(simplify) {
+        rownames(otu.table) <- rownames(otu.table) %>%
+            gsub(".+\\|", "", .)
+    }
+    
+    rownames(tax.table) <-
+        rownames(otu.table)
+    
+    if(!relab) {
+        otu.table <-
+            round(sweep(otu.table, 2, eset$number_reads/100, "*"))
+    }
+    
+    otu.table <-
+        phyloseq::otu_table(otu.table, taxa_are_rows = TRUE)
+    
+    tax.table <-
+        phyloseq::tax_table(tax.table)
+    
+    
+    phyloseq::phyloseq(otu.table, sample.data, tax.table)
+}
+
 MGX_stool_phyloseq <-
-    HMP_2012.metaphlan_bugs_list.stool(cmdversion = "20170526") %>%
-    ExpressionSet2phyloseq()
+    ExpressionSet2phyloseq(HMP_2012.metaphlan_bugs_list.stool)
 ```
 
 The `r BiocStyle::Biocpkg("curatedMetagenomicData")` package provides taxonomic
