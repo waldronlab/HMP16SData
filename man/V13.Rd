@@ -119,7 +119,6 @@ source for additional information.
 }
 \examples{
 V13()
-
 }
 \seealso{
 \code{\link{V35}}

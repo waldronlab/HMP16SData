@@ -1,7 +1,7 @@
 Package: HMP16SData
 Type: Package
 Title: 16S rRNA Sequencing Data from the Human Microbiome Project
-Version: 1.13.0
+Version: 1.13.1
 Authors@R:
     c(person(given = "Lucas", family = "schiffer", role = c("aut", "cre"),
              email = "schiffer.lucas@gmail.com",
@@ -20,19 +20,19 @@ License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
 Depends:
-    R (>= 4.0.0),
+    R (>= 4.1.0),
     SummarizedExperiment
 Imports:
     AnnotationHub,
+    ExperimentHub,
+    S4Vectors,
     assertthat,
     dplyr,
-    ExperimentHub,
     kableExtra,
     knitr,
     magrittr,
     methods,
     readr,
-    S4Vectors,
     stringr,
     tibble,
     utils
@@ -42,7 +42,6 @@ Suggests:
     BiocManager,
     BiocStyle,
     circlize,
-    covr,
     cowplot,
     dendextend,
     devtools,
@@ -65,4 +64,4 @@ biocViews:
 VignetteBuilder: knitr
 URL: https://github.com/waldronlab/HMP16SData
 BugReports: https://github.com/waldronlab/HMP16SData/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2

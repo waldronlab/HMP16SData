@@ -97,6 +97,4 @@
 #' @seealso \code{\link{V13}}
 #'
 #' @examples V35()
-#'
-#' @importClassesFrom SummarizedExperiment SummarizedExperiment
 "V35"

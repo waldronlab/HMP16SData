@@ -4,8 +4,14 @@
 \alias{table_one}
 \title{Produce a summary data.frame of key demographic variables}
 \usage{
-table_one(x, VISITNO = TRUE, SEX = TRUE, RUN_CENTER = TRUE,
-  HMP_BODY_SITE = TRUE, HMP_BODY_SUBSITE = TRUE)
+table_one(
+  x,
+  VISITNO = TRUE,
+  SEX = TRUE,
+  RUN_CENTER = TRUE,
+  HMP_BODY_SITE = TRUE,
+  HMP_BODY_SUBSITE = TRUE
+)
 }
 \arguments{
 \item{x}{A \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}

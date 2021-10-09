@@ -118,7 +118,6 @@ for additional information.
 }
 \examples{
 V35()
-
 }
 \seealso{
 \code{\link{V13}}
