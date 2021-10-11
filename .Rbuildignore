@@ -6,7 +6,6 @@
 ^codecov\.yml$
 ^CODE_OF_CONDUCT\.md$
 ^CONTRIBUTING\.md$
-^PULL_REQUEST_TEMPLATE\.md$
 ^README\.md$
 ^LICENSE$
 ^README\.Rmd$
