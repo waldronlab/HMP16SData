@@ -1,0 +1,7 @@
+title: HMP16SData
+url: https://waldronlab.github.io/HMP16SData
+
+template:
+  bootstrap: 5
+  params:
+    bootswatch: flatly
