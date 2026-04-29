@@ -1,7 +1,7 @@
 Package: HMP16SData
 Type: Package
 Title: 16S rRNA Sequencing Data from the Human Microbiome Project
-Version: 1.33.0
+Version: 1.33.1
 Authors@R:c(
     person("Lucas", "schiffer", , "schiffer.lucas@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3628-0326")),
